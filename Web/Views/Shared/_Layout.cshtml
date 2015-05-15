@@ -1,4 +1,5 @@
-﻿@using System.Web.Optimization
+﻿@inherits Inception.Web.Infrastructure.MvcViewPage.WebViewPage<Inception.Web.Models.BasePageModel>
+@using System.Web.Optimization
 @using Inception.Web.Infrastructure.Extensions
 <!DOCTYPE html>
 <html lang="en">
@@ -20,7 +21,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
     @RenderSection("css", required: false)
 </head>
-<body>
+<body data-ng-app="@(Model.NgConfig == null ? "" : Model.NgConfig.NgApp)">
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
