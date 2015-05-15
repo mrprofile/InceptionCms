@@ -147,6 +147,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\Extensions\HtmlHelperExtensions.cs" />
+    <Compile Include="Infrastructure\MvcViewPage\NgConfig.cs" />
     <Compile Include="Infrastructure\MvcViewPage\ViewPage.cs" />
     <Compile Include="Models\BasePageModel.cs" />
     <Compile Include="Models\Home\Index.cs" />
