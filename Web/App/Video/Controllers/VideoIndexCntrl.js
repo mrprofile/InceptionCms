@@ -1,10 +1,24 @@
 ﻿(function() {
     'use strict';
 
-    angular.module('esqtv.video').controller("VideoIndexCntrl", ['$scope', '$http', '$q', '$routeParams', '$window', '$location', videoCntrl]);
+    angular.module('esqtv.video').controller("VideoIndexCntrl", ['$scope', '$http', '$q', '$routeParams', '$window', '$location', 'VideoService', videoCntrl]);
     
-    function videoCntrl($scope, $http, $q, $routeParams, $window, $location) {
+    function videoCntrl($scope, $http, $q, $routeParams, $window, $location, VideoService) {
+        var vm = this;
+        vm.videos = [];
+        vm.selectedVideo = {};
+        activate();
 
+        function activate() {           
+        }
+
+
+        $scope.$on('esqtv:common:video:select', function (evt, itm) {
+            vm.selectedVideo = itm;
+            console.log(itm);
+
+            $location.url('videos/' + itm.Video_Key);
+        });
     };
     
 })();
