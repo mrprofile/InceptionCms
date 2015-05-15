@@ -20,42 +20,48 @@
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
     @RenderSection("css", required: false)
+    <base href="/">
 </head>
 <body data-ng-app="@(Model.NgConfig == null ? "" : Model.NgConfig.NgApp)">
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <span class="navbar-brand">Inception CMS</span>
+    <div data-ng-controller="@Model.NgConfig.NgController">
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <span class="navbar-brand">Inception CMS</span>
+                </div>
+                <div id="navbar" class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="@Html.SelectedPage("Home", "Index")">@Html.ActionLink("Home", "Index")</li>
+                        <li class="@Html.SelectedPage("Home", "Themes")">@Html.ActionLink("Themes", "Themes")</li>
+                        <li class="@Html.SelectedPage("Home", "Videos")">@Html.ActionLink("Videos", "Videos")</li>
+                        <li class="@Html.SelectedPage("Home", "Sliders")">@Html.ActionLink("Sliders", "Sliders")</li>
+                    </ul>
+                </div><!--/.nav-collapse -->
             </div>
-            <div id="navbar" class="collapse navbar-collapse">
-                <ul class="nav navbar-nav">
-                    <li class="@Html.SelectedPage("Home", "Index")">@Html.ActionLink("Home", "Index")</li>
-                    <li class="@Html.SelectedPage("Home", "Themes")">@Html.ActionLink("Themes", "Themes")</li>
-                    <li class="@Html.SelectedPage("Home", "Videos")">@Html.ActionLink("Videos", "Videos")</li>
-                    <li class="@Html.SelectedPage("Home", "Sliders")">@Html.ActionLink("Sliders", "Sliders")</li>
-                </ul>
-            </div><!--/.nav-collapse -->
-        </div>
-    </nav>
+        </nav>
 
-    <div class="container">
-        @RenderBody()
-        <div class="starter-template">
-            <h1>Bootstrap starter template</h1>
-            <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
-        </div>
+        <div class="container">
+            @RenderBody()
+            <div class="starter-template">
+                <h1>Bootstrap starter template</h1>
+                <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
+            </div>
 
-    </div><!-- /.container -->
+        </div><!-- /.container -->
+    </div>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    @Scripts.Render("~/Content/js/jquery.js")
-    @Scripts.Render("~/Content/js/angular/angular.min.js")
+    @Scripts.Render("~/Content/components/angular/angular.js")
+    @Scripts.Render("~/Content/components/jquery/dist/jquery.js")
+    @Scripts.Render("~/Content/Components/angular-route/angular-route.js")
+    
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    @RenderSection("scripts", required: false)
 </body>
 </html>
