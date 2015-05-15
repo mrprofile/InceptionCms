@@ -161,9 +161,12 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Content Include="App\Common\App.js" />
+    <Content Include="App\Common\Directives\Videos.js" />
     <Content Include="App\Common\Services\Videos.js" />
+    <Content Include="App\Common\Views\VideoSearch.html" />
     <Content Include="App\Video\Config.js" />
     <Content Include="App\Video\App.js" />
+    <Content Include="App\Video\Controllers\VideoEditCntrl.js" />
     <Content Include="App\Video\Controllers\VideoIndexCntrl.js" />
     <Content Include="App\Video\Views\Detail.html" />
     <Content Include="App\Video\Views\Index.html" />
@@ -187,8 +190,6 @@
   <ItemGroup>
     <Folder Include="App\Article\" />
     <Folder Include="App\Common\Controllers\" />
-    <Folder Include="App\Common\Directives\" />
-    <Folder Include="App\Common\Views\" />
     <Folder Include="App\Slider\" />
     <Folder Include="App\Theme\" />
     <Folder Include="App_Data\" />
