@@ -1,5 +1,5 @@
 ﻿(function () {
     'use strict';
 
-    angular.module('esqtv.common', ['ngRoute'], ['ui.bootstrap']);
+    angular.module('esqtv.common', ['ngRoute', 'ui.bootstrap']);
 })();
