@@ -1,5 +1,4 @@
 ﻿using System.Web.Mvc;
-using Inception.Web.Infrastructure.MvcViewPage;
 
 namespace Inception.Web.Controllers
 {

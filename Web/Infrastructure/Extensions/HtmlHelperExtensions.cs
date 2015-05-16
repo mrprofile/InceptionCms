@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Web.Mvc;
 using System.Web.Mvc.Html;
 
@@ -7,6 +8,17 @@ namespace Inception.Web.Infrastructure.Extensions
 {
     public static class HtmlHelperExtensions
     {
+        public static MvcHtmlString UrlLink(this HtmlHelper helper, string relativePath, string text)
+        {
+            
+            var objTagBuilder = new TagBuilder("a");
+            
+            objTagBuilder.Attributes.Add("href", ConfigurationManager.AppSettings["WebsiteBase"] + relativePath);
+            objTagBuilder.InnerHtml = text;
+            
+            return new MvcHtmlString(objTagBuilder.ToString());
+        }
+
         public static string SelectedPage(this HtmlHelper helper, string controller, string action)
         {
             string classValue = "";

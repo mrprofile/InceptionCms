@@ -17,7 +17,7 @@
             vm.selectedVideo = itm;
             console.log(itm);
 
-            $location.url('videos/' + itm.Video_Key);
+            $location.path('/videos/edit/' + itm.Video_Key);
         });
     };
     

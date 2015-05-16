@@ -2,18 +2,20 @@
 
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
-
-    Model.NgConfig.NgApp = "esqtv.video";
-    //Model.NgConfig.NgController = "VideoIndexCntrl as vm";
 }
 
 @section scripts {
-    
-<script src="~/App/Video/App.js"></script>
-<script src="~/App/Video/Config.js"></script>
-<script src="~/App/Video/Controllers/VideoIndexCntrl.js"></script>
-<script src="~/App/Video/Controllers/VideoEditCntrl.js"></script>
+
+    <script src="~/App/Video/App.js"></script>
+    <script src="~/App/Video/Config.js"></script>
+    <script src="~/App/Video/Controllers/VideoIndexCntrl.js"></script>
+    <script src="~/App/Video/Controllers/VideoEditCntrl.js"></script>
 }
 
-<h2>Videos Index</h2>
-<div ng-view></div>
+@section jsCode {
+
+}
+
+<div data-ng-app="esqtv.video">
+    <div ng-view></div>
+</div>

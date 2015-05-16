@@ -4,7 +4,7 @@
     angular.module('esqtv.video').config(function ($routeProvider, $locationProvider) {
         $routeProvider
             .when('/videos', { templateUrl: '/App/Video/Views/Index.html', controller: 'VideoIndexCntrl', controllerAs: 'vm' })
-            .when('/videos/:videoId', {
+            .when('/videos/edit/:videoId', {
                 templateUrl: '/App/Video/Views/Edit.html', controller: 'VideoEditCntrl', controllerAs: 'vm',
                 resolve:{ 
                     video: function ($route, VideoService) {                        
@@ -12,7 +12,7 @@
                     }
                 }
             });
-        $routeProvider.otherwise({ redirectTo: '/' });
+        $routeProvider.otherwise({ redirectTo: '/videos' });
         $locationProvider.html5Mode(true);
     });
 })();

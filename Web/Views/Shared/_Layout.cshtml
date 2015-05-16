@@ -22,7 +22,7 @@
     @RenderSection("css", required: false)
     <base href="/">
 </head>
-<body data-ng-app="@(Model.NgConfig == null ? "" : Model.NgConfig.NgApp)">
+<body>
     <div >
         <nav class="navbar navbar-inverse navbar-fixed-top">
             <div class="container">
@@ -37,10 +37,10 @@
                 </div>
                 <div id="navbar" class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
-                        <li class="@Html.SelectedPage("Home", "Index")">@Html.ActionLink("Home", "Index")</li>
-                        <li class="@Html.SelectedPage("Home", "Themes")">@Html.ActionLink("Themes", "Themes")</li>
-                        <li class="@Html.SelectedPage("Home", "Videos")"><a href="/videos">Videos</a></li>
-                        <li class="@Html.SelectedPage("Home", "Sliders")">@Html.RouteLink("Videos", "videos")</li>
+                        <li class="@Html.SelectedPage("Home", "Index")">@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li class="@Html.SelectedPage("Home", "Themes")">@Html.ActionLink("Themes", "Themes", "Home")</li>
+                        <li class="@Html.SelectedPage("Home", "Videos")">@Html.ActionLink("Videos", "Videos", "Home")</li>
+                        <li class="@Html.SelectedPage("Home", "Sliders")">@Html.ActionLink("Sliders", "Sliders", "Home")</li>
                     </ul>
                 </div><!--/.nav-collapse -->
             </div>
@@ -57,13 +57,14 @@
     @Scripts.Render("~/Content/Components/angular-route/angular-route.js")
     
     @Scripts.Render("~/bundles/esqtv-common")
-
-    <script>
+    
+    <script type="text/javascript">
         angular.module('esqtv.common').value('esqtvSettings', {
             'cms': 'http://localhost:1246/',
             'api': 'http://staging.g4tv.com/cmsapi/',
             'preview': 'http://staging.g4tv.com/preview'
         });
+         @RenderSection("jsCode", required: false)
     </script>
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
