@@ -19,13 +19,13 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
-  @Styles.Render("~/Content/components/angular-ui-select/dist/select.css")
-  @Styles.Render("~/Content/components/angularjs-toaster/toaster.css")
+    @Styles.Render("~/Content/components/angular-ui-select/dist/select.css")
+    @Styles.Render("~/Content/components/angularjs-toaster/toaster.css")
     @RenderSection("css", required: false)
     <base href="/">
 </head>
 <body>
-    <div >
+    <div>
         <nav class="navbar navbar-inverse navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
@@ -44,24 +44,26 @@
                         <li class="@Html.SelectedPage("Home", "Videos")">@Html.ActionLink("Videos", "Videos", "Home")</li>
                         <li class="@Html.SelectedPage("Home", "Sliders")">@Html.ActionLink("Sliders", "Sliders", "Home")</li>
                     </ul>
-                </div><!--/.nav-collapse -->
+                </div>
+                <!--/.nav-collapse -->
             </div>
         </nav>
 
         <div class="container">
-            @RenderBody()            
+            @RenderBody()
 
-        </div><!-- /.container -->
+        </div>
+        <!-- /.container -->
     </div>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     @Scripts.Render("~/Content/components/angular/angular.js")
     @Scripts.Render("~/Content/components/jquery/dist/jquery.js")
     @Scripts.Render("~/Content/Components/angular-route/angular-route.js")
-  @Scripts.Render("~/Content/components/angular-bootstrap/ui-bootstrap-tpls.js")
-  @Scripts.Render("~/Content/components/angular-sanitize/angular-sanitize.js")
-  @Scripts.Render("~/Content/components/moment/moment.js")
-  @Scripts.Render("~/Content/components/angularjs-toaster/toaster.js")
-  @Scripts.Render("~/Content/components/angular-ui-select/dist/select.js")
+    @Scripts.Render("~/Content/components/angular-bootstrap/ui-bootstrap-tpls.js")
+    @Scripts.Render("~/Content/components/angular-sanitize/angular-sanitize.js")
+    @Scripts.Render("~/Content/components/moment/moment.js")
+    @Scripts.Render("~/Content/components/angularjs-toaster/toaster.js")
+    @Scripts.Render("~/Content/components/angular-ui-select/dist/select.js")
     @Scripts.Render("~/bundles/esqtv-common")
 
     <script type="text/javascript">
@@ -70,7 +72,7 @@
             'api': 'http://staging.g4tv.com/cmsapi/',
             'preview': 'http://staging.g4tv.com/preview'
         });
-         @RenderSection("jsCode", required: false)
+        @RenderSection("jsCode", required: false)
     </script>
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
