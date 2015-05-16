@@ -19,6 +19,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+  @Styles.Render("~/Content/components/angular-ui-select/dist/select.css")
+  @Styles.Render("~/Content/components/angularjs-toaster/toaster.css")
     @RenderSection("css", required: false)
     <base href="/">
 </head>
@@ -55,9 +57,13 @@
     @Scripts.Render("~/Content/components/angular/angular.js")
     @Scripts.Render("~/Content/components/jquery/dist/jquery.js")
     @Scripts.Render("~/Content/Components/angular-route/angular-route.js")
-    
+  @Scripts.Render("~/Content/components/angular-bootstrap/ui-bootstrap-tpls.js")
+  @Scripts.Render("~/Content/components/angular-sanitize/angular-sanitize.js")
+  @Scripts.Render("~/Content/components/moment/moment.js")
+  @Scripts.Render("~/Content/components/angularjs-toaster/toaster.js")
+  @Scripts.Render("~/Content/components/angular-ui-select/dist/select.js")
     @Scripts.Render("~/bundles/esqtv-common")
-    
+
     <script type="text/javascript">
         angular.module('esqtv.common').value('esqtvSettings', {
             'cms': 'http://localhost:1246/',
