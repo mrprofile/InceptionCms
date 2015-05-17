@@ -1,3 +1,6 @@
 ﻿<div>
     <video-search selected-video="vm.selectedVideo"></video-search>
+    <alert ng-repeat="alert in vm.alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</alert>
+    <button class='btn btn-default' ng-click="vm.addAlert()">Add Alert</button>
+    <input  ng-model="vm.message"></input>
 </div>
