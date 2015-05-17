@@ -1,0 +1,35 @@
+﻿@using Inception.Web.Infrastructure.BootstrapSupport
+@model Inception.Web.Models.LoginViewModel
+@{
+    ViewBag.Title = "Inception Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="wrapper">
+    <div class="login-body">
+        <h2>ESQUIRE NETWORK CMS</h2>
+        @using (Html.BeginForm("login", "home", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-validate" }))
+        {            
+            @Html.AntiForgeryToken()
+            @Html.BeginControlGroupFor("Errors") 
+            @Html.GetValidationMessage("Errors", "alert-error alert")             
+            @Html.EndControlGroup()
+
+            <div class="control-group">
+                <label class="control-label email"></label>
+                @Html.TextBoxFor(x => x.UserName, new { placeholder = "Domain\\SSO", @class = "input-block-level", data_rule_required = "true" })
+                @Html.GetValidationMessage("UserName", "alert-error alert")
+
+                <div class="submit">
+                    <div class="remember"></div>
+                    <input type="submit" value="Sign In" class="btn btn-primary">
+                </div>
+            </div>
+
+        }
+        <div class="forget">
+            <a href="#"><span class="esquire-logo"></span></a>
+        </div>
+
+    </div>
+</div>

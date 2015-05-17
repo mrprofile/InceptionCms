@@ -16,6 +16,8 @@ namespace Inception.Web
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            new AppHost().Init();
         }
     }
 }

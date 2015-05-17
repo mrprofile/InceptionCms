@@ -43,6 +43,10 @@
                         <li class="@Html.SelectedPage("Home", "Themes")">@Html.ActionLink("Themes", "Themes", "Home")</li>
                         <li class="@Html.SelectedPage("Home", "Videos")">@Html.ActionLink("Videos", "Videos", "Home")</li>
                         <li class="@Html.SelectedPage("Home", "Sliders")">@Html.ActionLink("Sliders", "Sliders", "Home")</li>
+                        @if (Request.IsAuthenticated)
+                        {
+                            <li>@Html.ActionLink("Log Out", "LogOff", "Home")</li>
+                        }
                     </ul>
                 </div>
                 <!--/.nav-collapse -->

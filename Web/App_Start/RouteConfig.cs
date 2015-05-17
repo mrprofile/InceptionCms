@@ -28,6 +28,18 @@ namespace Inception.Web.App_Start
                 namespaces: new[] { "Inception.Web.Controllers" });
 
             routes.MapRoute(
+               name: "login",
+               url: "login",
+               defaults: new { controller = "Home", action = "Login" },
+               namespaces: new[] { "Inception.Web.Controllers" });
+
+            routes.MapRoute(
+               name: "logoff",
+               url: "logoff",
+               defaults: new { controller = "Home", action = "logoff" },
+               namespaces: new[] { "Inception.Web.Controllers" });
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },
