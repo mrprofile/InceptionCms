@@ -15,4 +15,9 @@
         $routeProvider.otherwise({ redirectTo: '/videos' });
         $locationProvider.html5Mode(true);
     });
+   
+    // Inject addTokenInterceptor for this moddule.
+    angular.module('esqtv.video').config(['$httpProvider', function ($httpProvider) {
+        $httpProvider.interceptors.push('addTokenInterceptor');
+    }]);
 })();
