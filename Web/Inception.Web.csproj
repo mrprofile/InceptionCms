@@ -191,6 +191,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Content Include="App\Common\App.js" />
+    <Content Include="App\Common\Config.js" />
     <Content Include="App\Common\Directives\Videos.js" />
     <Content Include="App\Common\Interceptors\SessionTokenInterceptor.js" />
     <Content Include="App\Common\Services\Alerts.js" />
