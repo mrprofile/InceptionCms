@@ -210,6 +210,8 @@
     <Content Include="Content\js\angular\angular.min.js" />
     <Content Include="Content\js\angular\index.js" />
     <Content Include="Content\js\jquery.js" />
+    <Content Include="Content\style\css\login.css" />
+    <Content Include="Content\style\css\themes.css" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -226,7 +228,6 @@
     <Folder Include="App\Slider\" />
     <Folder Include="App\Theme\" />
     <Folder Include="App_Data\" />
-    <Folder Include="Content\style\css\" />
     <Folder Include="Content\style\less\" />
   </ItemGroup>
   <ItemGroup>
