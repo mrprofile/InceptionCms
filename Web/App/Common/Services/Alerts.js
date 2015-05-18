@@ -2,56 +2,51 @@
     'use strict';
     var commonModule = angular.module('esqtv.common');
 
-    commonModule.factory('AlertService', [ '$timeout', alertService]);
+    commonModule.factory('AlertService', [ 'toaster', alertService]);
 
-    function alertService($timeout) {
-        var currentAlerts = [];
-        var alertTypes = ['success', 'warning', 'info', 'danger'];
-        
+    function alertService(toaster) {
+
         var alerts = {
             addWarning: addWarning,
             addSuccess: addSuccess,
             addInfo: addInfo,
             addDanger: addDanger,
-            addAlert : addAlert,
-            currentAlerts: currentAlerts,
-            alertTypes: alertTypes
+            addWait: addWait
         };
        
         return alerts;
         
-        function addWarning(message) {
-            addAlert('warning', message);
+        function addWarning(title, message) {
+            addAlert('warning', title, message);
         }
         
-        function addSuccess(message) {
-            addAlert('success', message);
+        function addSuccess(title, message) {
+            addAlert('success', title, message);
         }
         
-        function addInfo(message) {
-            addAlert('info', message);
+        function addInfo(title, message) {
+            addAlert('info', title, message);
         }
         
-        function addDanger(message) {
-            addAlert('danger', message);
+        function addDanger(title, message) {
+            addAlert('error', title, message);
         }
         
-        function addAlert(type, message) {
-            var alert = { type: type, msg: message };
-            
-            currentAlerts.push(alert);
+        function addWait(title, message) {
+            addAlert('wait', title, message);
+        }
+        
+        function addAlert(type, title, message) {
 
-            $timeout(function () {
-                removeAlert(alert);
-            }, 3500);
-        }
-        
-        function removeAlert(alert) {
-            for (var i = 0; i < currentAlerts.length; i++) {
-                if (currentAlerts[i] == alert) {
-                    currentAlerts.splice(i, 1);
-                }
-            }
+            var toastConfig = {
+                type: type,
+                title: title,
+                body: message,
+                showCloseButton: true,
+                timeout: 4000
+            };
+            
+            toaster.pop(toastConfig);
         }
     }
 })();
