@@ -13,4 +13,9 @@
             };
         });
     });
+    
+    // Inject requestCountInterceptor for common moddule.
+    angular.module('esqtv.common').config(['$httpProvider', function ($httpProvider) {
+        $httpProvider.interceptors.push('requestCountInterceptor');
+    }]);
 })();

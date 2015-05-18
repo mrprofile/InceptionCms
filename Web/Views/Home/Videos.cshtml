@@ -8,7 +8,6 @@
 
     <script src="~/App/Video/App.js"></script>
     <script src="~/App/Video/Config.js"></script>
-    <script src="~/App/Common/Interceptors/SessionTokenInterceptor.js"></script>
     <script src="~/App/Video/Controllers/VideoIndexCntrl.js"></script>
     <script src="~/App/Video/Controllers/VideoEditCntrl.js"></script>
 }
@@ -19,5 +18,9 @@
 
 <div data-ng-app="esqtv.video">
     <div ng-view></div>
-   
+    <spinner>
+        <div id="spinner">
+            <img src="http://tv.esquire.com/images/static/ajax-loader.gif" />
+        </div>
+    </spinner>
 </div>
