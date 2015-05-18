@@ -8,7 +8,6 @@
         
         vm.videos = [];
         vm.selectedVideo = {};
-        vm.message = '';
         activate();
         
         function activate() {           
