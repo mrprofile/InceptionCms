@@ -10,11 +10,11 @@
 
             request: function (config) {
                 var session = $cookies['X-ESQTV-SID'];
-
-                if (!session)
+                
+                if (session != null && session !== 'undefined') 
                     config.headers['X-ESQTV-SID'] = session;
 
-                return config;
+                return $q.when(config);
             }
         };
         
