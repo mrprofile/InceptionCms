@@ -2,7 +2,7 @@
 @using System.Web.Optimization
 @using Inception.Web.Infrastructure.Extensions
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-ng-app="@(ViewBag.NgApp != null ? ViewBag.NgApp : "")">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,53 +16,41 @@
         <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    @*<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">*@
     <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+    @*<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">*@
     @Styles.Render("~/Content/style/css/themes.css")
     @Styles.Render("~/Content/components/angular-ui-select/dist/select.css")
     @Styles.Render("~/Content/components/angularjs-toaster/toaster.css")
+    @Styles.Render("~/Content/components/angular-material/angular-material.css")
     @RenderSection("css", required: false)
     <base href="/">
 </head>
 <body>
-    <div>
-        <nav class="navbar navbar-inverse navbar-fixed-top">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <span class="navbar-brand">Inception CMS</span>
-                </div>
-                <div id="navbar" class="collapse navbar-collapse">
-                    <ul class="nav navbar-nav">
-                        <li class="@Html.SelectedPage("Home", "Index")">@Html.ActionLink("Home", "Index", "Home")</li>
-                        <li class="@Html.SelectedPage("Home", "Themes")">@Html.ActionLink("Themes", "Themes", "Home")</li>
-                        <li class="@Html.SelectedPage("Home", "Videos")">@Html.ActionLink("Videos", "Videos", "Home")</li>
-                        <li class="@Html.SelectedPage("Home", "Sliders")">@Html.ActionLink("Sliders", "Sliders", "Home")</li>
-                        @if (Request.IsAuthenticated)
-                        {
-                            <li>@Html.ActionLink("Log Out", "LogOff", "Home")</li>
-                        }
-                    </ul>
-                </div>
-                <!--/.nav-collapse -->
-            </div>
-        </nav>
-
-        <div class="container">
-            @RenderBody()
-
-        </div>
-        <!-- /.container -->
-    </div>
+    <div layout="column" >
+        <section layout="row" flex>
+            <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
+                <md-toolbar>
+                    <h1 class="md-toolbar-tools">Sidenav Left</h1>
+                </md-toolbar>
+                <md-content flex role="navigation" class="md-default-theme">
+                    <md-list ng-controller="SideNavController as vm">
+                        <md-list-item ng-repeat="link in vm.links" ng-click="vm.goToPage(link, $event)">
+                            <p> {{ link.text }} </p>
+                        </md-list-item>
+                    </md-list>
+                </md-content>
+            </md-sidenav>
+            <md-content flex layout-padding>
+                @RenderBody()
+            </md-content>
+        </section>
+    </div>    
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    @Scripts.Render("~/Content/components/angular/angular.js")
     @Scripts.Render("~/Content/components/jquery/dist/jquery.js")
+    @Scripts.Render("~/Content/components/angular/angular.js")
+    @Scripts.Render("~/Content/components/angular-aria/angular-aria.js")
+    @Scripts.Render("~/Content/components/angular-material/angular-material.js")
     @Scripts.Render("~/Content/Components/angular-route/angular-route.js")
     @Scripts.Render("~/Content/components/angular-bootstrap/ui-bootstrap-tpls.js")
     @Scripts.Render("~/Content/components/angular-sanitize/angular-sanitize.js")
@@ -81,7 +69,7 @@
         });
         @RenderSection("jsCode", required: false)
     </script>
-    
+
     @RenderSection("scripts", required: false)
 </body>
 </html>

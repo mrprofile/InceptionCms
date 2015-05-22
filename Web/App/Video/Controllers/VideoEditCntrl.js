@@ -5,8 +5,12 @@
     
     function videoCntrl($scope, $sce, $http, $q, $routeParams, $window, $location, video) {
         var vm = this;
+        console.log(video);
         vm.video = video.video;
+        vm.keywords = video.keywords;
+        vm.virtualDirectories = video.virtualdirectories;
         vm.selectedVideo = "hello";
+        vm.videoEmbed = generateEmbedUrl;
         
         vm.objectStr = '';
 
@@ -26,6 +30,9 @@
 
         }
 
+        function generateEmbedUrl() {           
+            return $sce.trustAsResourceUrl('http://tv.esquire.com/videos/embed/' + vm.video.InternalEncryptedKey);
+        }
 
     };
     

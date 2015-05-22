@@ -1,21 +1,33 @@
 ﻿<div class="video-search-container">
-    <div class="container-fluid  video-container">
-        <div class="row">
-            <div class="col-sm-10">
-                <div class=" form-inline">
-                    <div class="form-group">
-                        <label class="control-label" for="input01">Search Video By Title: </label>
-                        <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Search for a video by title" data-ng-model="vm.search.query" />
-                        </div>
+    <section class="md-whiteframe-z1">
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h3>Videos</h3>
+                <span flex></span>
+                <span>{{vm.paging.totalItems}} videos found</span>
+            </div>
+        </md-toolbar>
+        <md-content layout="row" layout-sm="column">
+            <md-input-container style="width:50%">
+                <label>Videos Search</label>
+                <input ng-model="vm.search.query">
+            </md-input-container>
+            <md-button data-ng-click="vm.searchVideos()" >Search</md-button>           
+        </md-content>
+        <md-content>
+            <md-list>
+                <md-list-item data-ng-repeat="video in vm.search.results" ng-click="vm.selectItem(video)" class="md-3-line">
+                    <img ng-src="{{vm.imgUrl(video.ImageDb3Url)}}" alt="{{video.Name}}" />
+                    <div class="md-list-item-text">
+                        <h3>{{ video.VideoName }}</h3>
+                        <h4>{{ video.Video_Key}}</h4>
+                        <p>{{ video.DatePublish }}</p>
                     </div>
-                    <button ng-click="vm.searchVideos()" class="btn btn-primary searchVideo">Search</button>
-                </div>
-            </div>
-            <div class="col-sm-2">
-                <span>Found: {{vm.paging.totalItems}} videos</span>
-            </div>
-        </div>
+                </md-list-item>
+            </md-list>
+        </md-content>
+    </section>
+    <!--<div class="container-fluid  video-container">        
         <div class="row">
             <div class="pull-right">
                 <pagination total-items="vm.paging.totalItems" data-ng-model="vm.paging.currentPage" data-ng-change="vm.paging.onSelectPage(page)" class="pagination-sm" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;" max-size="vm.paging.numPages"></pagination>
@@ -37,7 +49,7 @@
                 </thead>
                 <tbody>
                     <tr data-ng-repeat="video in vm.search.results">
-                        <td class="span2"><a href data-ng-click="vm.selectItem(video)"><img class="img-responsive" data-ng-src={{vm.imgUrl(video.ImageDb3Url)}} alt="{{video.Name}}" /></a></td>
+                        <td class="span2"><a href data-ng-click="vm.selectItem(video)"><img class="img-responsive" data-ng-src={{vm.imgUrl(video.ImageDb3Url)}} alt="{{video.VideoName}}" /></a></td>
                         <td class="span2">{{video.Video_Key}}</td>
                         <td>{{video.EncryptedKey}}</td>
                         <td>{{video.InternalEncryptedKey}}</td>
@@ -54,5 +66,5 @@
                 <pagination total-items="vm.paging.totalItems" data-ng-model="vm.paging.currentPage" data-ng-change="vm.paging.onSelectPage(page)" class="pagination-sm" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;" max-size="vm.paging.numPages"></pagination>
             </div>
         </div>
-    </div>
+    </div>-->
 </div>

@@ -2,6 +2,7 @@
 
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.NgApp = "esqtv.video";
 }
 
 @section scripts {
@@ -16,11 +17,6 @@
 
 }
 
-<div data-ng-app="esqtv.video">
-    <div ng-view></div>
-    <spinner>
-        <div id="spinner">
-            <img src="http://tv.esquire.com/images/static/ajax-loader.gif" />
-        </div>
-    </spinner>
+<div>
+    <div ng-view></div>    
 </div>
