@@ -1,42 +1,117 @@
-﻿<div layout="row">
-    <section class="md-whiteframe-z1" flex="50">
-        <md-toolbar class="md-theme-accent">
-            <div class="md-toolbar-tools">
-                <h3>{{vm.video.VideoName}}</h3>
-            </div>
-        </md-toolbar>
-        <md-content>
-            <div style="width: 100%; padding-bottom: 56.25%; height: 0px; position: relative;">
-                <iframe data-ng-src="{{vm.videoEmbed()}}" frameborder="0" style="width: 100%; height: 100%; position: absolute; top: 0; left: 0;"></iframe>
-            </div>
-            <md-list>
-                <md-list-item class="md-3-line">
-                    <img data-ng-src="http://tv.esquire.com/images/{{vm.video.ImageDb3Url}}" alt="{{vm.video.VideoName}}" />
-                    <div class="md-list-item-text">
-                        <h3>{{ vm.video.VideoName }}</h3>
-                        <h4>{{ vm.video.Video_Key}}</h4>
-                        <p>{{ vm.video.DatePublish }}</p>
-                    </div>
-                </md-list-item>
-            </md-list>
-        </md-content>
-        <md-content class="md-padding">
-            <md-input-container>
-                <label>Title</label>
-                <input ng-model="vm.video.VideoName">
-            </md-input-container>
-            <md-input-container>
-                <label>Description</label>
-                <textarea ng-model="vm.video.description" columns="1"></textarea>
-            </md-input-container>
-            <md-input-container>
-                <label>Keywords</label>
-                <input ng-model="vm.keywords">
-            </md-input-container>
+﻿<md-toolbar class="md-theme-accent">
+    <div class="md-toolbar-tools">
+        <h3>{{vm.video.VideoName}}</h3>
+    </div>
+</md-toolbar>
+<md-content layout="row" layout-sm="column">
+    <section flex="50" flex-sm="100">
+        <md-content class="md-padding">            
+            <md-card>
+                <div style="width: 100%; padding-bottom: 56.25%; height: 0px; position: relative;">
+                    <iframe data-ng-src="{{vm.videoEmbed()}}" frameborder="0" style="width: 100%; height: 100%; position: absolute; top: 0; left: 0;"></iframe>
+                </div>
+                <md-card-content>
+                    <md-content>
+                        <md-input-container>
+                            <label>Title</label>
+                            <input ng-model="vm.video.VideoName">
+                        </md-input-container>
+                        <md-input-container>
+                            <label>Description</label>
+                            <textarea ng-model="vm.video.description" columns="1"></textarea>
+                        </md-input-container>
+                        <md-input-container class="md-input-has-value">
+                            <label>Keywords</label>
+                        </md-input-container>
+                        <md-chips ng-model="vm.keywords" md-autocomplete-snap md-require-match>
+                            <md-autocomplete md-min-length="2"
+                                             md-delay="500"
+                                             md-search-text="vm.searchKeywordText"
+                                             md-item-selected-item-change="vm.selecteKeyword(item)"
+                                             md-items="item in vm.searchKeywords(vm.searchKeywordText)"
+                                             md-item-text="item.Text"
+                                             placeholder="Search for a keyword">
+                                <span md-highlight-text="vm.searchKeywordText">{{item.Text}} :: {{item.Id}}</span>
+                            </md-autocomplete>
+                            <md-chip-template>
+                                <span>
+                                    <strong>{{$chip.Text}}</strong>
+                                    <em>({{$chip.Id}})</em>
+                                </span>
+                            </md-chip-template>
+                        </md-chips>
+                        <p>&nbsp;</p>
+                        <md-input-container class="md-input-has-value">
+                            <label>Primary Virtual Directory</label>                            
+                        </md-input-container>
+                        <md-chips ng-model="vm.virtualDirectory">
+                            <md-autocomplete md-min-length="2"
+                                             md-delay="500"
+                                             md-search-text="vm.searchVdText"
+                                             md-selected-item-change="vm.selectVd(item)"
+                                             md-items="item in vm.searchVd(vm.searchVdText)"
+                                             md-item-text="item.Text"
+                                             placeholder="Search for a Virtual Directory">
+                                <span md-highlight-text="vm.searchVdText">{{item.Text}} :: {{item.Id}}</span>
+                            </md-autocomplete>
+                            <md-chip-template>
+                                <span>
+                                    <strong>{{$chip.Text}}</strong>
+                                    <em>({{$chip.Id}})</em>
+                                </span>
+                            </md-chip-template>
+                        </md-chips>  
+                        <p>&nbsp;</p>                      
+                        <md-input-container>
+                            <label>Additional Virtual Directories</label>
+                            <input ng-model="vm.virtualDirectories">
+                        </md-input-container>
+                    </md-content>
+                </md-card-content>
+            </md-card>
         </md-content>
     </section>
-    <span flex></span>
-</div>
+
+    <section>
+        <md-content class=" md-padding">
+            <md-card>
+                <md-card-content>
+                    <h2 class="md-title">Publish Settings</h2>
+                    <p>Insert Date: {{vm.video.InsertDate}}</p>
+                    <p>Publish Date: {{vm.video.DatePublish}}</p>
+                    <md-list>
+                        <md-list-item>
+                            <p>Playable</p>
+                            <md-checkbox class="md-secondary" data-ng-model="vm.video.bPlayable"></md-checkbox>
+                        </md-list-item>
+                    </md-list>
+                    <md-list>
+                        <md-list-item>
+                            <p>Exclude from index</p>
+                            <md-checkbox class="md-secondary" data-ng-model="vm.video.bExcludeFromVideoIndex"></md-checkbox>
+                        </md-list-item>
+                    </md-list>
+                    <div class="md-actions" layout="row" layout-align="end center">
+                        <md-button class="md-raised">Update</md-button>
+                    </div>
+                </md-card-content>
+            </md-card>
+            <md-card>
+                <img data-ng-src="http://tv.esquire.com/images/{{vm.video.ImageDb3Url}}" alt="{{vm.video.VideoName}}" class="md-card-image" />
+                <md-card-content>
+                    <md-button class="md-raised">Replace Image</md-button>                                        
+                    <p>
+                        Video Key: {{vm.video.Video_Key}}                        
+                    </p>
+                    <p>Public Embed Link: http://tv.esquire.com/videos/embed/{{vm.video.EncryptedKey}} </p>
+                    <p>Private Embed Link: http://tv.esquire.com/videos/embed/{{vm.video.InternalEncryptedKey}} </p>
+                    
+                    
+                </md-card-content>
+            </md-card>
+        </md-content>
+    </section>
+</md-content>
 <!--<div class="container">
   <div class=" row">
     <h3>{{vm.video.VideoName}}</h3>
@@ -44,7 +119,7 @@
   <div class="row">
     <div class="col-md-7">
       <div class="img-container">
-        
+
       </div>
     </div>
     <div class="col-md-5">
@@ -54,7 +129,7 @@
       <p>Publish Date: {{vm.video.DatePublish}}</p>
       <p>Requests: {{vm.video.AllTimeRequests}}</p>
       <p>Video URL: {{vm.video.EncryptedKey}}</p>
-      
+
     </div>
   </div>
   <div class="row">
@@ -70,7 +145,6 @@
 
       </form>
     </div>
-  </div>  
+  </div>
 </div>-->
-  
-<!--<div style="position: absolute; top: 50px; right: 50px; border: 1px solid #333; background: white; max-width: 300px;" data-ng-bind-html="vm.objectStr"></div>-->
+<!--<div style="position: absolute; top: 50px; left: 50px; border: 1px solid #333; background: white; max-width: 300px;" data-ng-bind-html="vm.objectStr"></div>-->
