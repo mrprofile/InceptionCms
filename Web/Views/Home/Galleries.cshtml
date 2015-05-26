@@ -1,0 +1,22 @@
+﻿@model Inception.Web.Models.Video.Index
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.NgApp = "esqtv.gallery";
+}
+
+@section scripts {
+
+    <script src="~/App/Gallery/App.js"></script>
+    <script src="~/App/Gallery/Config.js"></script>    
+    <script src="~/App/Gallery/Controllers/GalleryIndexCntrl.js"></script>
+    <script src="~/App/Gallery/Controllers/GalleryEditCntrl.js"></script>
+}
+
+@section jsCode {
+
+}
+
+<div>    
+    <div ng-view></div>    
+</div>

@@ -8,6 +8,7 @@
         
         vm.links = [
             { 'text': 'Home', 'url': '/' },
+            { 'text': 'Galleries', 'url': '/galleries' },
             { 'text': 'Themes', 'url': '/themes' },
             { 'text': 'Videos', 'url': '/videos' },
             { 'text': 'Sliders', 'url': '/sliders' },

@@ -1,9 +1,4 @@
-﻿body {
-    padding-top: 70px;
-    padding-bottom: 30px;
-}
-
-.theme-dropdown .dropdown-menu {
+﻿.theme-dropdown .dropdown-menu {
     position: static;
     display: block;
     margin-bottom: 20px;
@@ -53,4 +48,8 @@ md-list-item.md-3-line img {
 
 md-list-item.md-3-line .md-list-item-text{
     padding-left: 8px;
+}
+
+.md-chip-input-container {
+    clear: both;
 }

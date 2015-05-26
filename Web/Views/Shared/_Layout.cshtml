@@ -28,11 +28,11 @@
     <base href="/">
 </head>
 <body>
-    <div layout="column" >
-        <section layout="row" flex>
-            <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
+    <div layout="column" style="min-height: 100%;" >
+        <section layout="row">
+            <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left">
                 <md-toolbar>
-                    <h1 class="md-toolbar-tools">Sidenav Left</h1>
+                    <h1 class="md-toolbar-tools">Esquire Network</h1>
                 </md-toolbar>
                 <md-content flex role="navigation" class="md-default-theme">
                     <md-list ng-controller="SideNavController as vm">
@@ -43,7 +43,14 @@
                 </md-content>
             </md-sidenav>
             <md-content flex>
-                @RenderBody()
+                <md-toolbar ng-controller="TopNavController as vm" layout="row">
+                    <md-button data-ng-click="vm.toggle()">Menu</md-button>
+                    <span flex></span>
+
+                </md-toolbar>
+                <md-content class="md-padding">
+                    @RenderBody()
+                </md-content>
             </md-content>
         </section>
     </div>    

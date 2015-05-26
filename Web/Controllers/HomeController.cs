@@ -30,6 +30,18 @@ namespace Inception.Web.Controllers
 
         [HttpGet]
         [Authorize]
+        public ActionResult Galleries()
+        {
+            var viewModel = new Models.Video.Index
+            {
+                Title = "Home Page of Inception",
+            };
+
+            return View(viewModel);
+        }
+
+        [HttpGet]
+        [Authorize]
         public ActionResult Sliders()
         {
             var viewModel = new Models.Slider.Index()
