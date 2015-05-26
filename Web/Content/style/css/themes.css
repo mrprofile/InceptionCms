@@ -41,3 +41,16 @@
     height: 100%;
     background-color: rgba(0,0,0,0.3);
 }
+
+ul.pagination li {
+    list-style: none;
+    display: inline-block;
+}
+
+md-list-item.md-3-line img {
+    padding-top: 8px;
+}
+
+md-list-item.md-3-line .md-list-item-text{
+    padding-left: 8px;
+}
