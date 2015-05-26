@@ -198,7 +198,9 @@
     <Content Include="App\Common\Interceptors\SessionTokenInterceptor.js" />
     <Content Include="App\Common\Interceptors\RequestCountInterceptor.js" />
     <Content Include="App\Common\Services\Alerts.js" />
+    <Content Include="App\Common\Services\Keywords.js" />
     <Content Include="App\Common\Services\Videos.js" />
+    <Content Include="App\Common\Services\VirtualDirectories.js" />
     <Content Include="App\Common\Views\VideoSearch.html" />
     <Content Include="App\Video\Config.js" />
     <Content Include="App\Video\App.js" />

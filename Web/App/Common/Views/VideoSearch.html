@@ -7,7 +7,7 @@
                 <span>{{vm.paging.totalItems}} videos found</span>
             </div>
         </md-toolbar>
-        <md-content layout="row" layout-sm="column">
+        <md-content layout="row" layout-sm="column" class="md-padding">
             <md-input-container style="width:50%">
                 <label>Videos Search</label>
                 <input ng-model="vm.search.query">
@@ -25,6 +25,9 @@
                     </div>
                 </md-list-item>
             </md-list>
+        </md-content>
+        <md-content>
+            <pagination total-items="vm.paging.totalItems" data-ng-model="vm.paging.currentPage" data-ng-change="vm.paging.onSelectPage(page)" class="pagination-sm" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;" max-size="vm.paging.numPages"></pagination>
         </md-content>
     </section>
     <!--<div class="container-fluid  video-container">        
