@@ -192,6 +192,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Content Include="App\Common\App.js" />
     <Content Include="App\Common\Config.js" />
+    <Content Include="App\Common\Controllers\SideNav.Controller.js" />
     <Content Include="App\Common\Directives\Spinner.js" />
     <Content Include="App\Common\Directives\Videos.js" />
     <Content Include="App\Common\Interceptors\SessionTokenInterceptor.js" />
@@ -226,7 +227,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App\Article\" />
-    <Folder Include="App\Common\Controllers\" />
     <Folder Include="App\Slider\" />
     <Folder Include="App\Theme\" />
     <Folder Include="App_Data\" />
