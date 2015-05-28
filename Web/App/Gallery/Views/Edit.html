@@ -1,0 +1,48 @@
+﻿<section layout="row" layout-sm="column">
+    <md-card flex="35" flex-sm="1">
+        <img ng-src="http://tv.esquire.com/images/{{vm.gallery.ImageDB3.imageTypeCollection[2].URL}}" alt="{{vm.gallery.Title}}">
+        <md-card-content>
+            <md-input-container>
+                <label>Gallery Title</label>
+                <input data-ng-model="vm.gallery.Title" />
+            </md-input-container>
+            <md-input-container>
+                <label>Global Description</label>
+                <input data-ng-model="vm.gallery.Description" />
+            </md-input-container>
+            <md-input-container>
+                <label>Source Text</label>
+                <input data-ng-model="vm.gallery.SourceText" />
+            </md-input-container>
+            <md-input-container>
+                <label>Source Url</label>
+                <input data-ng-model="vm.gallery.SourceUrl" />
+            </md-input-container>
+            <md-input-container>
+                <label>Global Photo Credit</label>
+                <input data-ng-model="vm.gallery.Credit" />
+            </md-input-container>
+            <md-chips ng-model="vm.keywords" md-autocomplete-snap md-require-match>
+                <md-autocomplete md-min-length="2"
+                                 md-delay="500"
+                                 md-search-text="vm.searchKeywordText"
+                                 md-items="item in vm.searchKeywords(vm.searchKeywordText)"
+                                 md-item-text="item.Text"
+                                 placeholder="Search for a keyword"
+                                 md-floating-label="Keywords">
+                    <span md-highlight-text="vm.searchKeywordText">{{item.Text}} :: {{item.Id}}</span>
+                </md-autocomplete>
+                <md-chip-template>
+                    <span>
+                        <strong>{{$chip.Text}}</strong>
+                        <em>({{$chip.Id}})</em>
+                    </span>
+                </md-chip-template>
+            </md-chips>
+            <div class="md-actions" layout="row" layout-align="end center">
+                <md-button data-ng-click="vm.save()" class="md-raised">Save</md-button>
+            </div>
+        </md-card-content>
+    </md-card>
+    <span flex></span>
+</section>

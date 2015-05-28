@@ -1,17 +1,18 @@
 ﻿(function () {
     'use strict';
 
-    angular.module('esqtv.common').controller("SideNavController", ['$scope', '$location', SideNavController]);
+    angular.module('esqtv.common').controller("SideNavController", ['$scope', '$window', SideNavController]);
 
-    function SideNavController($scope, $location) {
+    function SideNavController($scope, $window) {
         var vm = this;
         
         vm.links = [
             { 'text': 'Home', 'url': '/' },
-            { 'text': 'Themes', 'url': '/' },
+            { 'text': 'Galleries', 'url': '/galleries' },
+            { 'text': 'Themes', 'url': '/themes' },
             { 'text': 'Videos', 'url': '/videos' },
-            { 'text': 'Sliders', 'url': '/' },
-            { 'text': 'Log Out', 'url': '/' },
+            { 'text': 'Sliders', 'url': '/sliders' },
+            { 'text': 'Log Out', 'url': '/logoff' },
         ];
 
         vm.goToPage = goToPage;
@@ -21,7 +22,7 @@
         function activate() {}
 
         function goToPage(link, $evt) {
-            $location.path(link);
+            $window.location = link.url;
         }
 
     };

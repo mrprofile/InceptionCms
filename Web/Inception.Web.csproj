@@ -192,16 +192,26 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Content Include="App\Common\App.js" />
     <Content Include="App\Common\Config.js" />
+    <Content Include="App\Common\Controllers\TopNav.Controller.js" />
     <Content Include="App\Common\Controllers\SideNav.Controller.js" />
+    <Content Include="App\Common\Directives\Galleries.js" />
     <Content Include="App\Common\Directives\Spinner.js" />
     <Content Include="App\Common\Directives\Videos.js" />
     <Content Include="App\Common\Interceptors\SessionTokenInterceptor.js" />
     <Content Include="App\Common\Interceptors\RequestCountInterceptor.js" />
     <Content Include="App\Common\Services\Alerts.js" />
+    <Content Include="App\Common\Services\Galleries.js" />
     <Content Include="App\Common\Services\Keywords.js" />
     <Content Include="App\Common\Services\Videos.js" />
     <Content Include="App\Common\Services\VirtualDirectories.js" />
+    <Content Include="App\Common\Views\GallerySearch.html" />
     <Content Include="App\Common\Views\VideoSearch.html" />
+    <Content Include="App\Gallery\Config.js" />
+    <Content Include="App\Gallery\App.js" />
+    <Content Include="App\Gallery\Controllers\GalleryEditCntrl.js" />
+    <Content Include="App\Gallery\Controllers\GalleryIndexCntrl.js" />
+    <Content Include="App\Gallery\Views\Edit.html" />
+    <Content Include="App\Gallery\Views\Index.html" />
     <Content Include="App\Video\Config.js" />
     <Content Include="App\Video\App.js" />
     <Content Include="App\Video\Controllers\VideoEditCntrl.js" />
@@ -278,6 +288,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="bower.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\Galleries.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

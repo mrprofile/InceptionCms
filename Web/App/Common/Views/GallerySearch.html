@@ -1,0 +1,29 @@
+﻿<div class="video-search-container">
+    <md-card>        
+        <md-card-content>
+            <div class="md-toolbar-tools">
+                <md-input-container>
+                    <label>Galleries Search</label>
+                    <input ng-model="vm.search.query">
+                </md-input-container>
+                <md-button class="md-raised" data-ng-click="vm.searchFunc()">Search</md-button>
+                <span flex></span>
+                <span>{{vm.paging.totalItems}} items found&nbsp;</span>
+            </div>            
+            <md-list>
+                <md-list-item data-ng-repeat="gallery in vm.search.results" class="md-3-line">
+                    <img ng-click="vm.selectItem(gallery)" ng-src="{{vm.imgUrl(gallery.ImageDB3.imageTypeCollection[2].URL)}}" alt="{{gallery.Title}}" />
+                    <div class="md-list-item-text">
+                        <h3>{{ gallery.Title }}</h3>
+                        <h4>{{ gallery.Gallery_Id}}</h4>
+                        <p>{{ gallery.PublishDate }}</p>
+                    </div>
+                    <md-divider ng-if="!$last"></md-divider>
+                </md-list-item>
+            </md-list>
+            <md-content layout="row">
+                <span flex></span> <pagination total-items="vm.paging.totalItems" data-ng-model="vm.paging.currentPage" data-ng-change="vm.paging.onSelectPage(page)" class="pagination-sm" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;" max-size="vm.paging.numPages"></pagination>
+            </md-content>
+        </md-card-content>        
+    </md-card>    
+</div>
