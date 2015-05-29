@@ -1,7 +1,7 @@
 ﻿<section layout="row" layout-sm="column">    
     <md-content flex>
         <md-card class="md-padding" style="position:relative;" data-ng-repeat="component in vm.template">
-            <a class="md-mini md-fab md-raised esqtv-btn-float-btm-right" data-ng-click="vm.remove(component)"><md-icon md-svg-src="/Content/img/SVG/0272-cross.svg" style="font-size: 10px; height:10px;width:14px;"alt="Remove"></md-icon></a>
+            <md-button class="md-fab md-mini esqtv-btn-float-top-right" aria-label="Remove" data-ng-click="vm.remove(component)"><md-icon class="svg-ic_remove_24px" style="color: #0F0; height: 24px; width: 24px;" alt="Plus"></md-icon></md-button>
             <component component-data="component"></component>
         </md-card>
     </md-content>
@@ -11,7 +11,7 @@
             <md-content>
                 <md-list>
                     <md-list-item ng-click="vm.addComponent(itm, $event)" data-ng-repeat="itm in vm.components">
-                        <md-icon md-svg-src="/Content/img/SVG/0267-plus.svg" alt="Plus" class="red" style="height: 14px; width: 14px; color: #4cff00;"></md-icon>
+                        <md-icon class="svg-ic_add_24px" style="color: #0F0; height: 24px;" alt="Plus"></md-icon>
                         <p>{{itm}}</p>
                     </md-list-item>
                 </md-list>                
@@ -35,6 +35,7 @@
                 <keyword-autocomplete data-ng-model="vm.keywords"></keyword-autocomplete>
                 <div class="md-actions" layout="row" layout-align="end center">
                     <md-button data-ng-click="vm.save()" class="md-raised">Save</md-button>
+                    <md-button data-ng-click="vm.publish()" class="md-raised md-accent">Publish</md-button>
                 </div>
             </md-card-content>
         </md-card>

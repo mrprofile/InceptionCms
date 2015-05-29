@@ -17,5 +17,7 @@
             </md-grid-tile-footer>
         </md-grid-tile>
     </md-grid-list>
-    <pagination total-items="vm.paging.totalItems" data-ng-model="vm.paging.currentPage" data-ng-change="vm.paging.onSelectPage(page)" class="pagination-sm" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;" max-size="5"></pagination>
+    <md-content layout="row" layout-align="center center">
+        <pagination total-items="vm.paging.totalItems" data-ng-model="vm.paging.currentPage" data-ng-change="vm.paging.onSelectPage(page)" class="pagination-sm" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;" max-size="5"></pagination>
+    </md-content>
 </md-content>

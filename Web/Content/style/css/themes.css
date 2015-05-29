@@ -67,6 +67,58 @@ md-list-item.md-3-line .md-list-item-text{
     z-index: 1;
 }
 
-path {
-    fill: #f00;
+.esqtv-btn-float-top-right {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    z-index: 1;
 }
+
+.responsive-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    max-width: 1400px;
+    clear: both;
+}
+.responsive-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;    
+}
+
+.svg-ic_add_24px-dims { width: 24px; height: 24px; }
+	.svg-ic_add_box_24px-dims { width: 24px; height: 24px; }
+	.svg-ic_add_circle_24px-dims { width: 24px; height: 24px; }
+	.svg-ic_add_circle_outline_24px-dims { width: 24px; height: 24px; }
+	.svg-ic_archive_24px-dims { width: 24px; height: 24px; }
+	.svg-ic_backspace_24px-dims { width: 24px; height: 24px; }
+	.svg-ic_block_24px-dims { width: 24px; height: 24px; }
+	.svg-ic_clear_24px-dims { width: 24px; height: 24px; }
+	.svg-ic_content_copy_24px-dims { width: 24px; height: 24px; }
+	.svg-ic_content_cut_24px-dims { width: 24px; height: 24px; }
+	.svg-ic_content_paste_24px-dims { width: 24px; height: 24px; }
+	.svg-ic_create_24px-dims { width: 24px; height: 24px; }
+	.svg-ic_drafts_24px-dims { width: 24px; height: 24px; }
+	.svg-ic_filter_list_24px-dims { width: 24px; height: 24px; }
+	.svg-ic_flag_24px-dims { width: 24px; height: 24px; }
+	.svg-ic_forward_24px-dims { width: 24px; height: 24px; }
+	.svg-ic_gesture_24px-dims { width: 24px; height: 24px; }
+	.svg-ic_inbox_24px-dims { width: 24px; height: 24px; }
+	.svg-ic_link_24px-dims { width: 24px; height: 24px; }
+	.svg-ic_mail_24px-dims { width: 24px; height: 24px; }
+	.svg-ic_markunread_24px-dims { width: 24px; height: 24px; }
+	.svg-ic_redo_24px-dims { width: 24px; height: 24px; }
+	.svg-ic_remove_24px-dims { width: 24px; height: 24px; }
+	.svg-ic_remove_circle_24px-dims { width: 24px; height: 24px; }
+	.svg-ic_remove_circle_outline_24px-dims { width: 24px; height: 24px; }
+	.svg-ic_reply_24px-dims { width: 24px; height: 24px; }
+	.svg-ic_reply_all_24px-dims { width: 24px; height: 24px; }
+	.svg-ic_report_24px-dims { width: 24px; height: 24px; }
+	.svg-ic_save_24px-dims { width: 24px; height: 24px; }
+	.svg-ic_select_all_24px-dims { width: 24px; height: 24px; }
+	.svg-ic_send_24px-dims { width: 24px; height: 24px; }
+	.svg-ic_sort_24px-dims { width: 24px; height: 24px; }
+	.svg-ic_text_format_24px-dims { width: 24px; height: 24px; }
+	.svg-ic_undo_24px-dims { width: 24px; height: 24px; }

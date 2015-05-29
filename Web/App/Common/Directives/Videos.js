@@ -67,7 +67,6 @@
             }
         };
     }]);
-   
 
     angular.module('esqtv.common').directive('videoList', ['esqtvSettings', 'VideoService', function (esqtvSettings, VideoService) {
         return {
@@ -113,5 +112,30 @@
                 }
             }
         };
+    }]);
+
+    angular.module('esqtv.common').directive('entVideoPreview', ['esqtvSettings', 'VideoService', function (esqtvSettings, VideoService) {
+        return {
+            restrict: 'E',
+            scope: {
+                'video': '='
+            },
+            controller: ['$scope', '$sce', function ($scope, $sce) {
+                $scope.embedUrl = embedUrl;
+
+                function embedUrl() {
+
+                    var urlToSanitize = $scope.video.embedUrl ? $scope.video.embedUrl : $scope.video.ValuesDict.videoEmbed[0];
+
+                    return $sce.trustAsResourceUrl(urlToSanitize);
+                };
+            }],
+            templateUrl: "template/esqtv/videos/preview.html",
+            link: function (scope, el, attr) {
+                console.log(scope.video);
+
+                
+            }
+        }
     }]);
 })();

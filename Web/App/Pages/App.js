@@ -16,7 +16,7 @@
                         break;
                     case 'video': obj = { title: 'Video', contentType: 'video', data: { id: '', source: '' } };
                         break;
-                    case 'videoList': obj = { title: 'Videos By Keyword', contentType: 'videoList', data: { id: '', itemCount: 6, keywords: '' } };
+                    case 'videoList': obj = { title: 'Videos By Keyword', contentType: 'videoList', data: { id: '', itemCount: 8, keywords: '' } };
                         break;
                     case 'gallery': obj = { title: 'Gallery', contentType: 'gallery', data: { id: '' } };
                         break;

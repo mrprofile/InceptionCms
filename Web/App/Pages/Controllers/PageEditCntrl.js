@@ -1,9 +1,9 @@
 ﻿/// <reference path="../Views/Edit.html" />
 'use strict';
 
-angular.module('esqtv.pages').controller("PageEditCntrl", ['$scope', '$sce', '$http', '$q', '$mdSidenav', '$routeParams', '$window', '$location', 'page', 'KeywordService', 'pageComponent', pageEditCntrl]);
+angular.module('esqtv.pages').controller("PageEditCntrl", ['$scope', '$sce', '$http', '$q', '$mdSidenav', '$routeParams', '$window', '$location', 'page', 'KeywordService', 'pageComponent', 'PageService', pageEditCntrl]);
 
-function pageEditCntrl($scope, $sce, $http, $q, $mdSidenav, $routeParams, $window, $location, page, KeywordService, pageComponent) {
+function pageEditCntrl($scope, $sce, $http, $q, $mdSidenav, $routeParams, $window, $location, page, KeywordService, pageComponent, PageService) {
     var vm = this;
 
     // Page related items
@@ -14,6 +14,7 @@ function pageEditCntrl($scope, $sce, $http, $q, $mdSidenav, $routeParams, $windo
     vm.searchKeywordText = '';
     vm.searchKeywords = searchKeywords;
     vm.save = save;
+    vm.publish = publish;
     vm.remove = remove;
     vm.addComponent = addComponent;
 
@@ -30,8 +31,29 @@ function pageEditCntrl($scope, $sce, $http, $q, $mdSidenav, $routeParams, $windo
         });
     }
 
+    function publish() {
+        PageService.publish(vm.page.id).then(function (data) {
+            console.log(data);
+        }, function (err) {
+            console.log(err);
+        });
+    }
+
     function save() {
         console.log(vm.page);
+
+        vm.page.contentParts = [];
+        vm.template.forEach(function (itm, idx) {
+            vm.page.contentParts.push(itm);
+        });
+
+        console.log(JSON.stringify(vm.pageObject));
+
+        PageService.update(vm.page).then(function (data) {
+            console.log(data);
+        }, function (err) {
+            console.log(err);
+        });        
     }
 
     function addComponent(componentType, $evt) {        

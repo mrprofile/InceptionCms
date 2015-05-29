@@ -223,6 +223,7 @@
     <Content Include="App\Pages\Config.js" />
     <Content Include="App\Pages\Controllers\PageEditCntrl.js" />
     <Content Include="App\Pages\Controllers\PageIndexCntrl.js" />
+    <Content Include="App\Pages\Directives\ckEditor.js" />
     <Content Include="App\Pages\Directives\Components.js" />
     <Content Include="App\Pages\Views\Edit.html" />
     <Content Include="App\Pages\Views\Index.html" />
@@ -240,6 +241,8 @@
     <Content Include="Content\js\angular\index.js" />
     <Content Include="Content\js\jquery.js" />
     <Content Include="Content\style\css\login.css" />
+    <Content Include="Content\style\css\svg-sprite-content.css" />
+    <Content Include="Content\style\css\svg-sprite-content.svg" />
     <Content Include="Content\style\css\themes.css" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />

@@ -4,7 +4,9 @@
 
         var service = {
             get: getPage,
-            search: search            
+            search: search,
+            publish: publish,
+            update: update
         };
 
         return service;
@@ -38,6 +40,14 @@
                      return [];
                  });
         };
+
+        function publish(contentPageId) {
+            return $http.post(esqtvSettings.api + "v1/publish", { "Type":"contentpage", "Id": contentPageId});
+        }
+
+        function update(contentPage) {
+            return $http.put(esqtvSettings.api + 'v1/contentpages/' + contentPage.id, contentPage);
+        }
 
     });
 })();

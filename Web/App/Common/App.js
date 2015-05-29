@@ -25,12 +25,22 @@
        '</md-grid-tile>\n' + '</md-grid-list>');
     }]);
 
-    angular.module('esqtv.tpls', ['template/esqtv/videos/related.html']);
+    angular.module("template/esqtv/videos/preview.html", []).run(["$templateCache", function ($templateCache) {
+        $templateCache.put("template/esqtv/videos/preview.html",
+            '<md-content class=\"responsive-container\" flex><iframe class=\"responsive-video\" data-ng-src=\"{{embedUrl(video.embedUrl)}}\" frameborder=\"0\" >{{video.Name}}</iframe></md-content>'
+            );
+    }]);
+
+    angular.module('esqtv.tpls', ['template/esqtv/videos/related.html','template/esqtv/videos/preview.html']);
 
     angular.module('esqtv.common', [ 'esqtv.tpls', 'ngRoute', 'ngCookies', 'ui.bootstrap', 'ngAnimate', 'toaster', 'ngMaterial', 'ui.select'])
     .config(function ($mdThemingProvider) {
         $mdThemingProvider.theme('default')
           .primaryPalette('blue')
           .accentPalette('grey');
+    })
+    .config(function ($mdIconProvider){
+        $mdIconProvider
+            .iconSet('content', '/Content/style/css/svg-sprite-content.svg', 24);
     });
 })();
