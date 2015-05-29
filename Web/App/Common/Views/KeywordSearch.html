@@ -1,0 +1,18 @@
+﻿<md-chips ng-model="vm.keywords" md-autocomplete-snap md-require-match>
+    <md-autocomplete md-min-length="2"
+                     md-delay="500"
+                     md-search-text="vm.searchKeywordText"
+                     md-items="item in vm.searchKeywords(vm.searchKeywordText)"
+                     md-selected-item-change="vm.selectedItemChange(item)"
+                     md-item-text="item.Text"
+                     
+                     placeholder="Search Keywords">
+        <span md-highlight-text="vm.searchKeywordText">{{item.Text}} :: {{item.Id}}</span>
+    </md-autocomplete>
+    <md-chip-template>
+        <span>
+            <strong>{{$chip.Text}}</strong>
+            <em>({{$chip.Id}})</em>
+        </span>
+    </md-chip-template>
+</md-chips>

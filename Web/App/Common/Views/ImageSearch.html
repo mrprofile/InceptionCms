@@ -1,0 +1,21 @@
+﻿<md-content>
+    <md-list-item layout="row">
+        <md-input-container>
+            <label>Image Search</label>
+            <input type="text" data-ng-model="vm.search.query" />
+            
+        </md-input-container>
+        <md-button ng-click="vm.searchPhotos()" class="btn btn-primary"><i class="glyphicon glyphicon-search">Search</md-button>
+    </md-list-item>
+    <md-grid-list md-cols-sm="1" md-cols-md="2" md-cols-gt-md="6"
+                  md-row-height-gt-md="1:1" md-row-height="2:2"
+                  md-gutter="12px" md-gutter-gt-sm="8px">
+        <md-grid-tile data-ng-repeat="gallery in vm.search.results">
+            <img class="img-responsive" data-ng-src="http://tv.esquire.com/images/{{gallery.ImageCollection[0].URL}}?w=124" />
+            <md-grid-tile-footer>
+                <h3><a href data-ng-click="vm.selectItem(gallery)">Select Image</a></h3>
+            </md-grid-tile-footer>
+        </md-grid-tile>
+    </md-grid-list>
+    <pagination total-items="vm.paging.totalItems" data-ng-model="vm.paging.currentPage" data-ng-change="vm.paging.onSelectPage(page)" class="pagination-sm" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;" max-size="5"></pagination>
+</md-content>

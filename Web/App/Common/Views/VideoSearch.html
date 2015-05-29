@@ -1,6 +1,6 @@
 ﻿<div class="video-search-container">
-    
-    <md-card>        
+
+    <md-card>
         <md-card-content>
             <div class="md-toolbar-tools">
                 <md-input-container>
@@ -10,23 +10,25 @@
                 <md-button class="md-raised" data-ng-click="vm.searchVideos()">Search</md-button>
                 <span flex></span>
                 <span>{{vm.paging.totalItems}} items found&nbsp;</span>
-            </div>            
+            </div>
             <md-list>
                 <md-list-item data-ng-repeat="video in vm.search.results" class="md-3-line">
-                    <img ng-click="vm.selectItem(video)" ng-src="{{vm.imgUrl(video.ImageDb3Url)}}" alt="{{video.Name}}" />
-                    <div class="md-list-item-text">
-                        <h3>{{ video.VideoName }}</h3>
-                        <h4>{{ video.Video_Key}}</h4>
+                    <img ng-click="vm.selectItem(video)" ng-src="{{vm.imgUrl(video.ImageDb3Url)}}" alt="{{video.Name}}" />&nbsp;
+                    <div layout="row" layout-align="center">
+                        <p>{{ video.VideoName }}&nbsp;</p>
+                        <p>{{ video.Video_Key}}&nbsp;</p>
                         <p>{{ video.DatePublish }}</p>
                     </div>
                     <md-divider ng-if="!$last"></md-divider>
                 </md-list-item>
             </md-list>
-            <md-content layout="row">
-                <span flex></span> <pagination total-items="vm.paging.totalItems" data-ng-model="vm.paging.currentPage" data-ng-change="vm.paging.onSelectPage(page)" class="pagination-sm" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;" max-size="vm.paging.numPages"></pagination>
+            <md-content>
+                <div layout horizontal center>
+                    <pagination total-items="vm.paging.totalItems" data-ng-model="vm.paging.currentPage" data-ng-change="vm.paging.onSelectPage(page)" class="pagination-sm" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;" max-size="vm.paging.numPages"></pagination>
+                </div>
             </md-content>
         </md-card-content>
-        
+
     </md-card>
     <!--<div class="container-fluid  video-container">
         <div class="row">

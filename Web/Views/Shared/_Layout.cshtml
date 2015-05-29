@@ -1,6 +1,10 @@
 ﻿@inherits Inception.Web.Infrastructure.MvcViewPage.WebViewPage<Inception.Web.Models.BasePageModel>
 @using System.Web.Optimization
 @using Inception.Web.Infrastructure.Extensions
+@{
+    String apiServerUrl = System.Configuration.ConfigurationManager.AppSettings["ApiBase"];
+    String cmsServerUrl = System.Configuration.ConfigurationManager.AppSettings["WebsiteBase"];    
+}
 <!DOCTYPE html>
 <html lang="en" data-ng-app="@(ViewBag.NgApp != null ? ViewBag.NgApp : "")">
 <head>
@@ -71,8 +75,8 @@
 
     <script type="text/javascript">
         angular.module('esqtv.common').value('esqtvSettings', {
-            'cms': 'http://localhost:1246/',
-            'api': 'http://staging.g4tv.com/cmsapi/',
+            'cms': '@cmsServerUrl',
+            'api': '@apiServerUrl',
             'preview': 'http://staging.g4tv.com/preview'
         });
         @RenderSection("jsCode", required: false)

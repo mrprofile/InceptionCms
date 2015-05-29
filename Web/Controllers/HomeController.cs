@@ -54,6 +54,18 @@ namespace Inception.Web.Controllers
 
         [HttpGet]
         [Authorize]
+        public ActionResult Pages()
+        {
+            var viewModel = new Models.Page.Index()
+            {
+                Title = "Home Page of Inception"
+            };
+
+            return View(viewModel);
+        }
+
+        [HttpGet]
+        [Authorize]
         public ActionResult Themes()
         {
             var viewModel = new Models.Theme.Index

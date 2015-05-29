@@ -33,6 +33,7 @@ namespace Inception.Web.App_Start
             bundles.Add(jsBundle);
             bundles.Add(cssBundle);*/
 
+
             bundles.Add(new Bundle("~/bundles/esqtv-common").Include(                               
                 "~/App/Common/App.js",
                 "~/App/Common/Config.js",
@@ -40,6 +41,13 @@ namespace Inception.Web.App_Start
                 "~/App/Common/Directives/*.js",
                 "~/App/Common/Services/*.js",
                 "~/App/Common/Controllers/*.js"));
+
+
+            bundles.Add(new Bundle("~/bundles/esqtv-pages").Include(
+                "~/App/Pages/App.js",
+                "~/App/Pages/Config.js",
+                "~/App/Pages/Directives/*.js",
+                "~/App/Pages/Controllers/*.js"));
         }
     }
 }

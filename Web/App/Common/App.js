@@ -13,7 +13,21 @@
           "</ul>");
     }]);
 
-    angular.module('esqtv.common', ['ngRoute', 'ngCookies', 'ui.bootstrap', 'ngAnimate', 'toaster', 'ngMaterial', 'ui.select'])
+    ////template: '<div class="video-search-container"><h4>{{keywordId.keywords}}</h4><div class="row"><ul class="col-md-12"><li class="video-item col-md-3 col-lg-2 col-sm-3" data-ng-repeat="video in videosList"><div class="image-container"><img class="img-responsive" data-ng-src="{{thumbnailUrl(video.ThumbnailUrl)}}" alt="{{title(video.Name)}}" /></div><p>{{title(video.Name)}}</p></li></ul></div></div>',
+    angular.module("template/esqtv/videos/related.html", []).run(["$templateCache", function ($templateCache) {
+        $templateCache.put("template/esqtv/videos/related.html",
+        '<md-grid-list md-cols-sm="1" md-cols-md="2" md-cols-gt-md="6" md-row-height-gt-md="1:1" md-row-height="2:2" md-gutter="12px" md-gutter-gt-sm="8px">\n' + 
+          '<md-grid-tile data-ng-repeat="video in videosList">\n' +
+            '<img class="img-responsive" data-ng-src="{{thumbnailUrl(video.ThumbnailUrl)}}" alt="{{title(video.Name)}}" />\n' +
+           '<md-grid-tile-footer>\n' +
+               '<h3>{{title(video.Name)}}</h3>\n' +
+           '</md-grid-tile-footer>\n' +
+       '</md-grid-tile>\n' + '</md-grid-list>');
+    }]);
+
+    angular.module('esqtv.tpls', ['template/esqtv/videos/related.html']);
+
+    angular.module('esqtv.common', [ 'esqtv.tpls', 'ngRoute', 'ngCookies', 'ui.bootstrap', 'ngAnimate', 'toaster', 'ngMaterial', 'ui.select'])
     .config(function ($mdThemingProvider) {
         $mdThemingProvider.theme('default')
           .primaryPalette('blue-grey')

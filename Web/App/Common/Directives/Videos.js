@@ -67,4 +67,51 @@
             }
         };
     }]);
+   
+
+    angular.module('esqtv.common').directive('videoList', ['esqtvSettings', 'VideoService', function (esqtvSettings, VideoService) {
+        return {
+            restrict: 'E',
+            scope: {
+                'keywordId': '=',
+                'itemCount': '='
+            },
+            templateUrl: "template/esqtv/videos/related.html",
+            //template: '<div class="video-search-container"><h4>{{keywordId.keywords}}</h4><div class="row"><ul class="col-md-12"><li class="video-item col-md-3 col-lg-2 col-sm-3" data-ng-repeat="video in videosList"><div class="image-container"><img class="img-responsive" data-ng-src="{{thumbnailUrl(video.ThumbnailUrl)}}" alt="{{title(video.Name)}}" /></div><p>{{title(video.Name)}}</p></li></ul></div></div>',
+            link: function ($scope, el, attr) {
+                $scope.videosList = [];
+                $scope.thumbnailUrl = thumbnailUrl;
+                $scope.title = title;
+                VideoService.searchKeyword({ query: $scope.keywordId.keywords }, { itemsPerPage: parseInt($scope.itemCount, 10), currentPage: 0 }).then(function (data) {
+                    $scope.videosList = data.Result;
+                });
+
+                $scope.$watch('itemCount', function (newValue, oldValue) {
+                    if (oldValue != newValue) {
+                        VideoService.searchKeyword({ query: $scope.keywordId.keywords }, { itemsPerPage: parseInt(newValue, 10), currentPage: 0 }).then(function (data) {
+                            $scope.videosList = data.Result;
+                        });
+                    }
+                })
+
+                $scope.$watch('keywordId.keywords', function (newValue, oldValue) {
+                    if (oldValue != newValue) {
+                        VideoService.searchKeyword({ query: newValue }, { itemsPerPage: parseInt($scope.itemCount, 10), currentPage: 0 }).then(function (data) {
+                            $scope.videosList = data.Result;
+                        });
+                    }
+                })
+
+
+
+                function title(videoTitle) {
+                    return videoTitle;
+                }
+
+                function thumbnailUrl(url) {
+                    return 'http://tv.esquire.com/images/' + url;
+                }
+            }
+        };
+    }]);
 })();

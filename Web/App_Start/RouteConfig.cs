@@ -22,6 +22,12 @@ namespace Inception.Web.App_Start
                 namespaces: new[] { "Inception.Web.Controllers" });
 
             routes.MapRoute(
+                name: "pages",
+                url: "pages/{*catchall}",
+                defaults: new { controller = "Home", action = "Pages" },
+                namespaces: new[] { "Inception.Web.Controllers" });
+
+            routes.MapRoute(
                 name: "sliders",
                 url: "sliders/{*catchall}",
                 defaults: new { controller = "Home", action = "Sliders" },

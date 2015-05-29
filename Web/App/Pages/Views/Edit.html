@@ -1,0 +1,36 @@
+﻿<section layout="row" layout-sm="column">    
+    <md-content flex>
+        <md-card class="md-padding" data-ng-repeat="component in vm.template track by $id($index)">
+            <component component-data="component"></component>
+        </md-card>
+    </md-content>
+
+    <md-content flex="25" flex-sm="1">
+        <md-card>
+            <md-content>
+                <md-button>Add Module</md-button>
+            </md-content>
+        </md-card>
+        <md-card>
+            <img ng-src="http://tv.esquire.com/images/{{vm.gallery.ImageDB3.imageTypeCollection[2].URL}}" alt="{{vm.gallery.Title}}">
+            <md-card-content>
+                <md-input-container>
+                    <label>Title</label>
+                    <input data-ng-model="vm.page.title" />
+                </md-input-container>
+                <md-input-container>
+                    <label>Permalink</label>
+                    <input data-ng-model="vm.page.permaLink" />
+                </md-input-container>
+                <md-input-container>
+                    <label>Ad Keywords</label>
+                    <input data-ng-model="vm.page.adKeywords" />
+                </md-input-container>
+                <keyword-autocomplete data-ng-model="vm.keywords"></keyword-autocomplete>
+                <div class="md-actions" layout="row" layout-align="end center">
+                    <md-button data-ng-click="vm.save()" class="md-raised">Save</md-button>
+                </div>
+            </md-card-content>
+        </md-card>
+    </md-content>
+</section>
