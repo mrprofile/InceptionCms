@@ -1,9 +1,9 @@
 ﻿/// <reference path="../Views/Edit.html" />
 'use strict';
 
-angular.module('esqtv.pages').controller("PageEditCntrl", ['$scope', '$sce', '$http', '$q', '$mdSidenav', '$routeParams', '$window', '$location', 'page', 'KeywordService', pageEditCntrl]);
+angular.module('esqtv.pages').controller("PageEditCntrl", ['$scope', '$sce', '$http', '$q', '$mdSidenav', '$routeParams', '$window', '$location', 'page', 'KeywordService', 'pageComponent', pageEditCntrl]);
 
-function pageEditCntrl($scope, $sce, $http, $q, $mdSidenav, $routeParams, $window, $location, page, KeywordService) {
+function pageEditCntrl($scope, $sce, $http, $q, $mdSidenav, $routeParams, $window, $location, page, KeywordService, pageComponent) {
     var vm = this;
 
     // Page related items
@@ -14,7 +14,12 @@ function pageEditCntrl($scope, $sce, $http, $q, $mdSidenav, $routeParams, $windo
     vm.searchKeywordText = '';
     vm.searchKeywords = searchKeywords;
     vm.save = save;
+    vm.remove = remove;
+    vm.addComponent = addComponent;
+
     activate();
+
+    vm.components = ['heading', 'text', 'image', 'gallery', 'video', 'videoList', 'embed'];
 
     function activate() {
         vm.page.contentParts.forEach(function (itm, idx) {
@@ -26,7 +31,19 @@ function pageEditCntrl($scope, $sce, $http, $q, $mdSidenav, $routeParams, $windo
     }
 
     function save() {
-        $mdSidenav('left').toggle();
+        console.log(vm.page);
+    }
+
+    function addComponent(componentType, $evt) {        
+        vm.template.push(pageComponent.create(componentType));
+    };
+
+    function remove(itm) {        
+        var idx = vm.template.indexOf(itm);
+        if (idx !== -1) {
+            vm.template.splice(idx, 1);            
+        }
+
     }
 
     function searchKeywords(keyword) {

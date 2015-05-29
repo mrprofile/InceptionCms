@@ -1,9 +1,8 @@
-﻿<md-content layout="row" layout-sm="column">    
+﻿<md-content layout="row" layout-sm="column" layout-align="center center">
     <section flex="50" flex-sm="100">
-        
-        <md-content class="md-padding">            
-            <md-card>
-                <h3 class="md-padding">{{vm.video.VideoName}}</h3>
+
+        <md-content class="md-padding">
+            <md-card>                
                 <div style="width: 100%; padding-bottom: 56.25%; height: 0px; position: relative;">
                     <iframe data-ng-src="{{vm.videoEmbed()}}" frameborder="0" style="width: 100%; height: 100%; position: absolute; top: 0; left: 0;"></iframe>
                 </div>
@@ -39,7 +38,7 @@
                         </md-chips>
                         <p>&nbsp;</p>
                         <md-input-container class="md-input-has-value">
-                            <label>Primary Virtual Directory</label>                            
+                            <label>Primary Virtual Directory</label>
                         </md-input-container>
                         <md-chips ng-model="vm.virtualDirectory">
                             <md-autocomplete md-min-length="2"
@@ -57,8 +56,8 @@
                                     <em>({{$chip.Id}})</em>
                                 </span>
                             </md-chip-template>
-                        </md-chips>  
-                        <p>&nbsp;</p>                      
+                        </md-chips>
+                        <p>&nbsp;</p>
                         <md-input-container>
                             <label>Additional Virtual Directories</label>
                             <input ng-model="vm.virtualDirectories">
@@ -96,52 +95,16 @@
             <md-card>
                 <img data-ng-src="http://tv.esquire.com/images/{{vm.video.ImageDb3Url}}" alt="{{vm.video.VideoName}}" class="md-card-image" />
                 <md-card-content>
-                    <md-button class="md-raised">Replace Image</md-button>                                        
+                    <md-button class="md-raised">Replace Image</md-button>
                     <p>
-                        Video Key: {{vm.video.Video_Key}}                        
+                        Video Key: {{vm.video.Video_Key}}
                     </p>
                     <p>Public Embed Link: http://tv.esquire.com/videos/embed/{{vm.video.EncryptedKey}} </p>
                     <p>Private Embed Link: http://tv.esquire.com/videos/embed/{{vm.video.InternalEncryptedKey}} </p>
-                    
-                    
+
+
                 </md-card-content>
             </md-card>
         </md-content>
     </section>
 </md-content>
-<!--<div class="container">
-  <div class=" row">
-    <h3>{{vm.video.VideoName}}</h3>
-  </div>
-  <div class="row">
-    <div class="col-md-7">
-      <div class="img-container">
-
-      </div>
-    </div>
-    <div class="col-md-5">
-
-      <h5>Video Information</h5>
-      <p>Insert Date: {{vm.video.InsertDate}}</p>
-      <p>Publish Date: {{vm.video.DatePublish}}</p>
-      <p>Requests: {{vm.video.AllTimeRequests}}</p>
-      <p>Video URL: {{vm.video.EncryptedKey}}</p>
-
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-5">
-      <form>
-        <div class="form-group">
-          <input data-ng-model="vm.video.VideoName" type="text" class="input-block form-control" />
-        </div>
-        <div class="form-group">
-          <textarea data-ng-model="vm.video.description" rows="10" class="form-control"></textarea>
-        </div>
-
-
-      </form>
-    </div>
-  </div>
-</div>-->
-<!--<div style="position: absolute; top: 50px; left: 50px; border: 1px solid #333; background: white; max-width: 300px;" data-ng-bind-html="vm.objectStr"></div>-->

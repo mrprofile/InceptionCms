@@ -59,3 +59,14 @@ md-list-item.md-3-line .md-list-item-text{
     top: 5px;
     z-index: 1;
 }
+
+.esqtv-btn-float-btm-right {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    z-index: 1;
+}
+
+path {
+    fill: #f00;
+}

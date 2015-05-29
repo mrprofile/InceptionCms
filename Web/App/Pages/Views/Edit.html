@@ -1,6 +1,7 @@
 ﻿<section layout="row" layout-sm="column">    
     <md-content flex>
-        <md-card class="md-padding" data-ng-repeat="component in vm.template track by $id($index)">
+        <md-card class="md-padding" style="position:relative;" data-ng-repeat="component in vm.template">
+            <a class="md-mini md-fab md-raised esqtv-btn-float-btm-right" data-ng-click="vm.remove(component)"><md-icon md-svg-src="/Content/img/SVG/0272-cross.svg" style="font-size: 10px; height:10px;width:14px;"alt="Remove"></md-icon></a>
             <component component-data="component"></component>
         </md-card>
     </md-content>
@@ -8,7 +9,12 @@
     <md-content flex="25" flex-sm="1">
         <md-card>
             <md-content>
-                <md-button>Add Module</md-button>
+                <md-list>
+                    <md-list-item ng-click="vm.addComponent(itm, $event)" data-ng-repeat="itm in vm.components">
+                        <md-icon md-svg-src="/Content/img/SVG/0267-plus.svg" alt="Plus" class="red" style="height: 14px; width: 14px; color: #4cff00;"></md-icon>
+                        <p>{{itm}}</p>
+                    </md-list-item>
+                </md-list>                
             </md-content>
         </md-card>
         <md-card>

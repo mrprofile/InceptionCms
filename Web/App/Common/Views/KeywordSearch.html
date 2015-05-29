@@ -4,8 +4,7 @@
                      md-search-text="vm.searchKeywordText"
                      md-items="item in vm.searchKeywords(vm.searchKeywordText)"
                      md-selected-item-change="vm.selectedItemChange(item)"
-                     md-item-text="item.Text"
-                     
+                     md-item-text="item.Text"                     
                      placeholder="Search Keywords">
         <span md-highlight-text="vm.searchKeywordText">{{item.Text}} :: {{item.Id}}</span>
     </md-autocomplete>

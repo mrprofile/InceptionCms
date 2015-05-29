@@ -3,8 +3,7 @@
     angular.module('esqtv.common').directive('imageSearch', ['esqtvSettings', function (esqtvSettings) {
         return {
             restrict: 'EA',            
-            controller: ['$scope', 'ImageService', function ($scope, ImageService) {
-                console.log($scope.imagetypekey);
+            controller: ['$scope', 'ImageService', function ($scope, ImageService) {                
                 var vm = this;
                 vm.selectItem = selectItem;
                 vm.search = {

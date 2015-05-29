@@ -5,7 +5,6 @@
             require: 'ngModel',
             restrict: 'EA',
             controller: ['$scope', 'KeywordService', function ($scope, KeywordService) {
-                console.log($scope);
                 var vm = this;
                 vm.selectedKeyword = { 'Id': vm.ngModel.id, 'Text': vm.ngModel.keywords };
                 vm.keywords = [];
@@ -15,8 +14,7 @@
                 
                 
 
-                function selectedItemChange(item) {
-                    console.log(item);
+                function selectedItemChange(item) {                    
                     if (item) {
                         vm.ngModel.keywords = item.Text;
                         vm.ngModel.id = item.Id;
@@ -37,9 +35,6 @@
             bindToController: true,
             scope: {
                 'ngModel': '='
-            },
-            link: function ($scope) {
-                console.log($scope);
             }
         };
     }]);

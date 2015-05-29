@@ -256,6 +256,7 @@
     <Folder Include="App\Slider\" />
     <Folder Include="App\Theme\" />
     <Folder Include="App_Data\" />
+    <Folder Include="Content\img\" />
     <Folder Include="Content\style\less\" />
   </ItemGroup>
   <ItemGroup>
