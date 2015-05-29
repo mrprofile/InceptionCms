@@ -45,7 +45,7 @@
                     
                     
                     itm.id = itm.Video_Key ? itm.Video_Key : itm.ObjectKey;
-                    //itm.embedUrl = itm.ValuesDict.videoEmbed[0];
+                    itm.embedUrl = itm.ValuesDict.videoEmbed[0];
                     //itm.source = "esquireTv";
                     vm.selectedVideo = itm;
                     $scope.$emit('esqtv:common:video:select', itm);

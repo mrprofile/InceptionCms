@@ -23,7 +23,7 @@ function pageEditCntrl($scope, $sce, $http, $q, $mdSidenav, $routeParams, $windo
     vm.components = ['heading', 'text', 'image', 'gallery', 'video', 'videoList', 'embed'];
 
     function activate() {
-        vm.page.contentParts.forEach(function (itm, idx) {
+        vm.page.contentParts.forEach(function (itm, idx) {            
             if (itm.contentType == 'videoList') {
                 itm.data.itemCount = parseInt(itm.data.itemCount, 10);
             }
