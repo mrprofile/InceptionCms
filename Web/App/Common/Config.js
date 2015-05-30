@@ -8,8 +8,8 @@
             return function (exception, cause) {
                 $delegate(exception, cause);
                 
-                var alertService = $injector.get("AlertService");
-                alertService.addDanger('Oops! Something went wrong!', exception.message);
+                var notifier = $injector.get("NotifierService");
+                notifier.notifyDanger('Oops! Something went wrong! \n\n' + exception.message);
             };
         });
     });

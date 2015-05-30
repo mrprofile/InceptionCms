@@ -1,9 +1,9 @@
 ﻿/// <reference path="../Views/Edit.html" />
 'use strict';
 
-angular.module('esqtv.pages').controller("PageEditCntrl", ['$scope', '$sce', '$http', '$q', '$mdDialog', '$routeParams', '$window', '$location', 'page', 'KeywordService', 'pageComponent', 'PageService', pageEditCntrl]);
+angular.module('esqtv.pages').controller("PageEditCntrl", ['$scope', '$sce', '$http', '$q', '$mdDialog', '$routeParams', '$window', '$location', 'page', 'KeywordService', 'pageComponent', 'PageService', 'NotifierService', pageEditCntrl]);
 
-function pageEditCntrl($scope, $sce, $http, $q, $mdDialog, $routeParams, $window, $location, page, KeywordService, pageComponent, PageService) {
+function pageEditCntrl($scope, $sce, $http, $q, $mdDialog, $routeParams, $window, $location, page, KeywordService, pageComponent, PageService, NotifierService) {
     var vm = this;
 
     // Page related items
@@ -111,6 +111,7 @@ function pageEditCntrl($scope, $sce, $http, $q, $mdDialog, $routeParams, $window
     function publish() {
         PageService.publish(vm.page.id).then(function (data) {
             console.log(data);
+            NotifierService.notifySuccess('Record Published!');
         }, function (err) {
             console.log(err);
         });
@@ -128,6 +129,7 @@ function pageEditCntrl($scope, $sce, $http, $q, $mdDialog, $routeParams, $window
 
         PageService.update(vm.page).then(function (result) {
             console.log(result);
+            NotifierService.notifySuccess('Record Saved!');
 
         }, function (err) {
             console.log(err);
