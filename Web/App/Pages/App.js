@@ -31,5 +31,37 @@
                 return obj;
             };
         });
+
+    // Override the tools controller
+    //angular.module('esqtv.pages').controller('ToolbarController', ['$rootScope', '$scope', '$location', '$route', function ($rootScope, $scope, $location, $route) {
+    //    var vm = this;
+    //    vm.toolbar = '';
+
+    //    vm.save = save;
+    //    vm.publish = publish;
+    //    vm.sort = sort;
+
+    //    function save() {               
+    //        $rootScope.$broadcast('esqtv:pages:edit:save');
+    //    }
+
+    //    function publish() {
+    //        $rootScope.$emit('esqtv:pages:edit:publish');
+    //    }
+
+    //    function sort() {
+    //        $rootScope.$emit('esqtv:pages:edit:sort');
+    //    }
+
+    //    $scope.$on('$locationChangeSuccess', function (event) {            
+    //        if ($location.$$path.indexOf('edit') > -1) {
+    //            vm.toolbar = '/App/Pages/Views/EditToolbar.html';
+    //        } else {
+    //            vm.toolbar = '';
+    //        }
+            
+    //    });
+        
+    //}]);
 })()
 

@@ -14,4 +14,13 @@
 
     };
 
+    angular.module('esqtv.common').controller("ToolbarController", ['$scope', '$mdSidenav', ToolbarController]);
+
+    function ToolbarController($scope, $mdSidenav) {
+        var vm = this;
+        vm.toolbar = '';
+        
+
+    };
+
 })();

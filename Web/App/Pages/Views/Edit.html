@@ -1,20 +1,22 @@
-﻿<section layout="row" layout-sm="column">    
+﻿
+<section layout="row" layout-sm="column">
     <md-content flex>
+        <div class="md-actions" layout="row" layout-align="start center">
+            <md-button data-ng-click="vm.add($event)" class="md-raised">Add Component</md-button>
+            <md-button data-ng-click="vm.sort($event)" class="md-raised">Reorder Components</md-button>
+        </div>
         <md-card class="md-padding" style="position:relative;" data-ng-repeat="component in vm.template">
-            <md-button class="md-fab md-mini esqtv-btn-float-top-right" aria-label="Remove" data-ng-click="vm.remove(component)"><md-icon class="svg-ic_remove_24px" style="color: #0F0; height: 24px; width: 24px;" alt="Plus"></md-icon></md-button>
-            <component component-data="component"></component>
+            <md-card-content>
+                <md-button class="md-fab md-mini md-hue-1 md-accent esqtv-btn-float-top-right" aria-label="Remove" title="Remove {{component.contentType}}" data-ng-click="vm.remove(component)"><md-icon class="svg-ic_remove_24px" style="height: 24px; width: 24px;" alt="Plus"></md-icon></md-button>
+                <component component-data="component"></component>
+            </md-card-content>
         </md-card>
     </md-content>
 
     <md-content flex="25" flex-sm="1">
         <md-card>
-            <md-content>
-                <md-list>
-                    <md-list-item ng-click="vm.addComponent(itm, $event)" data-ng-repeat="itm in vm.components">
-                        <md-icon class="svg-ic_add_24px" style="color: #0F0; height: 24px;" alt="Plus"></md-icon>
-                        <p>{{itm}}</p>
-                    </md-list-item>
-                </md-list>                
+            <md-content>                
+                
             </md-content>
         </md-card>
         <md-card>
