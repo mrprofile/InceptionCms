@@ -111,6 +111,7 @@ function pageEditCntrl($scope, $sce, $http, $q, $mdDialog, $routeParams, $window
     function publish() {
         PageService.publish(vm.page.id).then(function (data) {
             console.log(data);
+            NotifierService.notifySuccess('Record Published!');
         }, function (err) {
             console.log(err);
         });
@@ -128,7 +129,7 @@ function pageEditCntrl($scope, $sce, $http, $q, $mdDialog, $routeParams, $window
 
         PageService.update(vm.page).then(function (result) {
             console.log(result);
-            NotifierService.notifySuccess('Record saved!');
+            NotifierService.notifySuccess('Record Saved!');
 
         }, function (err) {
             console.log(err);

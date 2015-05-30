@@ -44,7 +44,7 @@
                     .action('ok')
                     .highlightAction(true)
                     .position('top right')
-                    .hideDelay(50000));
+                    .hideDelay(3500));
         }
     }
 })();
