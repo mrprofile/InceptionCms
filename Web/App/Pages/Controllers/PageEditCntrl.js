@@ -74,8 +74,9 @@ function pageEditCntrl($scope, $sce, $http, $q, $mdDialog, $routeParams, $window
                 '  <md-dialog-content>' +
                 '   <md-subheader class="md-primary">Re-order Components</md-subheader>' +
                '    <md-list ui-sortable ng-model="items">' +
-               '      <md-list-item ng-repeat="item in items">' +
+               '      <md-list-item ng-repeat="item in items"><div layout="row" layout-align="start center" >' +
                '       <md-icon md-font-icon="ion-drag"></md-icon><p>{{item.contentType}}</p>' +
+               '        <md-icon md-font-icon="ion-android-close" ng-click="remove(item)" aria-label="Remove Component" class="md-secondary md-hue-3"></md-icon></div>' +
                '       <md-divider ng-if="!$last"></md-divider>' +
                '    </md-list-item></md-list>' +
                '  </md-dialog-content>' +
@@ -93,6 +94,12 @@ function pageEditCntrl($scope, $sce, $http, $q, $mdDialog, $routeParams, $window
 
         function DialogController(scope, $mdDialog, items) {
             scope.items = items;
+            scope.remove = function (itm) {
+                var idx = items.indexOf(itm);
+                if (idx !== -1) {
+                    items.splice(idx, 1);
+                }
+            }
             scope.closeDialog = function () {
                 $mdDialog.hide();
             }
