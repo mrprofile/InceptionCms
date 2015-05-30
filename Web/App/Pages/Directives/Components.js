@@ -19,7 +19,7 @@
                     break;
                 case 'embed': template = '<p>{{component.contentType}}</p>';
                     break;
-                case 'text': template = '<md-content class=\"content\" ck-editor ck-style=\"content_styles\" data-ng-model=\"component.data.text\" contenteditable=\"true\"></md-content>';
+                case 'text': template = '<div class=\"content\" style="min-height: 150px;" ck-editor ck-style=\"content_styles\" data-ng-model=\"component.data.text\" contenteditable=\"true\"></div>';
                     break;
             };
 

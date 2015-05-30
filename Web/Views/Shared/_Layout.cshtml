@@ -3,7 +3,7 @@
 @using Inception.Web.Infrastructure.Extensions
 @{
     String apiServerUrl = System.Configuration.ConfigurationManager.AppSettings["ApiBase"];
-    String cmsServerUrl = System.Configuration.ConfigurationManager.AppSettings["WebsiteBase"];    
+    String cmsServerUrl = System.Configuration.ConfigurationManager.AppSettings["WebsiteBase"];
 }
 <!DOCTYPE html>
 <html lang="en" data-ng-app="@(ViewBag.NgApp != null ? ViewBag.NgApp : "")">
@@ -33,8 +33,10 @@
     <base href="/">
 </head>
 <body>
-    <div layout="column" style="min-height: 100%;" >
+    <ent-spinner></ent-spinner>
+    <div layout="column" style="min-height: 100%;">
         <section layout="row">
+
             <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left">
                 <md-toolbar>
                     <h1 class="md-toolbar-tools">Esquire Network</h1>
@@ -48,19 +50,21 @@
                 </md-content>
             </md-sidenav>
             <md-content flex>
-                <md-toolbar ng-controller="TopNavController as vm" layout="row">
-                    <md-button data-ng-click="vm.toggle()">Menu</md-button>
-                    <span flex></span>
-
+                <md-toolbar layout="row">
+                    <md-button class="md-icon-button" ng-controller="TopNavController as vm" data-ng-click="vm.toggle()"><md-icon class="svg-ic_filter_list_24px"></md-icon></md-button>
+                    <div layout="row" flex ng-controller="ToolbarController as vm">
+                        <ng-include src="vm.toolbar"></ng-include>
+                    </div>
                 </md-toolbar>
                 <md-content class="md-padding">
                     @RenderBody()
                 </md-content>
             </md-content>
         </section>
-    </div>    
+    </div>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     @Scripts.Render("~/Content/components/jquery/dist/jquery.js")
+    @Scripts.Render("~/Content/components/jquery-ui/jquery-ui.js")
     @Scripts.Render("~/Content/components/angular/angular.js")
     @Scripts.Render("~/Content/components/angular-aria/angular-aria.js")
     @Scripts.Render("~/Content/components/angular-material/angular-material.js")
@@ -72,6 +76,7 @@
     @Scripts.Render("~/Content/components/moment/moment.js")
     @Scripts.Render("~/Content/components/angularjs-toaster/toaster.js")
     @Scripts.Render("~/Content/components/angular-ui-select/dist/select.js")
+    @Scripts.Render("~/Content/components/angular-ui-sortable/sortable.js")
     @Scripts.Render("~/bundles/esqtv-common")
 
     <script type="text/javascript">

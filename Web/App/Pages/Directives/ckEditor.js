@@ -9,7 +9,7 @@
                 if (!CKEDITOR) return;
                 if (!ngModel) return;
 
-                var ck = CKEDITOR.replace(elm[0], {
+                var ck = CKEDITOR.inline(elm[0], {
                     toolbar: [{
                         name: "custom", items: ["Bold", "Italic", "RemoveFormat", '-', 'NumberedList', 'BulletedList', "Styles", "Format", "ShowBlocks", "CreateDiv", "Source"]
                     }],

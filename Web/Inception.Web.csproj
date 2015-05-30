@@ -226,12 +226,14 @@
     <Content Include="App\Pages\Directives\ckEditor.js" />
     <Content Include="App\Pages\Directives\Components.js" />
     <Content Include="App\Pages\Views\Edit.html" />
+    <Content Include="App\Pages\Views\EditToolbar.html" />
     <Content Include="App\Pages\Views\Index.html" />
     <Content Include="App\Video\Config.js" />
     <Content Include="App\Video\App.js" />
     <Content Include="App\Video\Controllers\VideoEditCntrl.js" />
     <Content Include="App\Video\Controllers\VideoIndexCntrl.js" />
     <Content Include="App\Video\Views\Detail.html" />
+    <Content Include="App\Video\Views\EditToolbar.html" />
     <Content Include="App\Video\Views\Index.html" />
     <Content Include="App\Video\Views\Create.html" />
     <Content Include="App\Video\Views\Edit.html" />
