@@ -1,0 +1,43 @@
+﻿<section layout="row" layout-sm="column">    
+    <md-content flex>
+        <md-card class="md-padding" style="position:relative;" data-ng-repeat="component in vm.template">
+            <md-button class="md-fab md-mini esqtv-btn-float-top-right" aria-label="Remove" data-ng-click="vm.remove(component)"><md-icon class="svg-ic_remove_24px" style="color: #0F0; height: 24px; width: 24px;" alt="Plus"></md-icon></md-button>
+            <component component-data="component"></component>
+        </md-card>
+    </md-content>
+
+    <md-content flex="25" flex-sm="1">
+        <md-card>
+            <md-content>
+                <md-list>
+                    <md-list-item ng-click="vm.addComponent(itm, $event)" data-ng-repeat="itm in vm.components">
+                        <md-icon class="svg-ic_add_24px" style="color: #0F0; height: 24px;" alt="Plus"></md-icon>
+                        <p>{{itm}}</p>
+                    </md-list-item>
+                </md-list>                
+            </md-content>
+        </md-card>
+        <md-card>
+            <img ng-src="http://tv.esquire.com/images/{{vm.gallery.ImageDB3.imageTypeCollection[2].URL}}" alt="{{vm.gallery.Title}}">
+            <md-card-content>
+                <md-input-container>
+                    <label>Title</label>
+                    <input data-ng-model="vm.page.title" />
+                </md-input-container>
+                <md-input-container>
+                    <label>Permalink</label>
+                    <input data-ng-model="vm.page.permaLink" />
+                </md-input-container>
+                <md-input-container>
+                    <label>Ad Keywords</label>
+                    <input data-ng-model="vm.page.adKeywords" />
+                </md-input-container>
+                <keyword-autocomplete data-ng-model="vm.keywords"></keyword-autocomplete>
+                <div class="md-actions" layout="row" layout-align="end center">
+                    <md-button data-ng-click="vm.save()" class="md-raised">Save</md-button>
+                    <md-button data-ng-click="vm.publish()" class="md-raised md-accent">Publish</md-button>
+                </div>
+            </md-card-content>
+        </md-card>
+    </md-content>
+</section>

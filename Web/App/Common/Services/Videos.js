@@ -30,7 +30,7 @@
                 searchQuery += '&query=' + search.query;
             }
 
-            return $http.get(esqtvSettings.api + 'video/search?format=json' + encodeURI(searchQuery))
+            return $http.get(esqtvSettings.api + 'v1/video/search?format=json' + encodeURI(searchQuery))
                  .then(function (data) {
                      if (data.status === 200) {
                          return data.data;

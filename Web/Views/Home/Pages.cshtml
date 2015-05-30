@@ -1,0 +1,21 @@
+﻿@using System.Web.Optimization
+@model Inception.Web.Models.Page.Index
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.NgApp = "esqtv.pages";
+}
+
+@section scripts {
+
+    <script src="/Content/components/ckeditor/ckeditor.js"></script>
+    @Scripts.Render("~/bundles/esqtv-pages")    
+}
+
+@section jsCode {
+
+}
+
+<div>
+    <div ng-view></div>
+</div>
