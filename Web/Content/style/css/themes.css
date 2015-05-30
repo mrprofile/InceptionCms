@@ -122,3 +122,7 @@ md-list-item.md-3-line .md-list-item-text{
 	.svg-ic_sort_24px-dims { width: 24px; height: 24px; }
 	.svg-ic_text_format_24px-dims { width: 24px; height: 24px; }
 	.svg-ic_undo_24px-dims { width: 24px; height: 24px; }
+
+md-toast {
+    position: fixed;
+}

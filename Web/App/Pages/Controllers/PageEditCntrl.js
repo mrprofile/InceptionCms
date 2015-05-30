@@ -75,7 +75,7 @@ function pageEditCntrl($scope, $sce, $http, $q, $mdDialog, $routeParams, $window
                 '   <md-subheader class="md-primary">Re-order Components</md-subheader>' +
                '    <md-list ui-sortable ng-model="items">' +
                '      <md-list-item ng-repeat="item in items">' +
-               '       <p>{{item.contentType}}</p>' +
+               '       <md-icon md-font-icon="ion-drag"></md-icon><p>{{item.contentType}}</p>' +
                '       <md-divider ng-if="!$last"></md-divider>' +
                '    </md-list-item></md-list>' +
                '  </md-dialog-content>' +

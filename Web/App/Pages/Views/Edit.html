@@ -1,9 +1,5 @@
-﻿<section layout="row" layout-sm="column">
+﻿<section layout="column" layout-gt-md="row">
     <md-content flex>
-        <div class="md-actions" layout="row" layout-align="start center">
-            <md-button data-ng-click="vm.add($event)" class="md-raised"><md-icon md-font-icon="ion-android-add" style="font-size: 24px;"></md-icon>Add Component</md-button>
-            <md-button data-ng-click="vm.sort($event)" class="md-raised">Reorder Components</md-button>
-        </div>
         <md-card class="md-padding" style="position:relative;" data-ng-repeat="component in vm.template">            
             <md-card-content>
                 <md-button class="md-icon-button esqtv-btn-float-top-right" aria-label="Remove" title="Remove {{component.contentType}}" data-ng-click="vm.remove(component)"><md-icon md-font-icon="ion-close" alt="Plus"></md-icon></md-button>
@@ -42,3 +38,9 @@
         </md-card>
     </md-content>
 </section>
+<nav mfb-menu position="br" effect="zoomin" label="Actions"
+     active-icon="ion-edit" resting-icon="ion-plus-round"
+     toggling-method="hover">
+    <button mfb-button icon="ion-grid" label="Reorder components" ng-click="vm.sort()"></button>
+    <button mfb-button icon="ion-plus" label="Add components" ng-click="vm.add()"></button>
+</nav>

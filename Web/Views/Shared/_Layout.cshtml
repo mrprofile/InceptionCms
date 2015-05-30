@@ -25,6 +25,7 @@
     @*<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">*@
     <link href="/Content/components/ionicons/css/ionicons.css" rel="stylesheet" />
     <link href="/Content/style/css/svg-sprite-content.css" rel="stylesheet" />
+    <link href="/Content/components/ng-mfb/mfb/dist/mfb.css" rel="stylesheet" />
     @Styles.Render("~/Content/components/angular-ui-select/dist/select.css")
     @Styles.Render("~/Content/components/angularjs-toaster/toaster.css")
     @Styles.Render("~/Content/components/angular-material/angular-material.css")
@@ -51,9 +52,8 @@
             </md-sidenav>
             <md-content flex>
                 <md-toolbar layout="row">
-                    <md-button class="md-icon-button" ng-controller="TopNavController as vm" data-ng-click="vm.toggle()"><md-icon class="svg-ic_filter_list_24px"></md-icon></md-button>
-                    <div layout="row" flex ng-controller="ToolbarController as vm">
-                        <ng-include src="vm.toolbar"></ng-include>
+                    <div class="md-toolbar-tools">
+                        <md-button class="md-icon-button" ng-controller="TopNavController as vm" data-ng-click="vm.toggle()"><md-icon md-font-icon="ion-android-menu" style="font-size: 24px;"></md-icon></md-button>
                     </div>
                 </md-toolbar>
                 <md-content class="md-padding">
@@ -76,7 +76,8 @@
     @Scripts.Render("~/Content/components/moment/moment.js")
     @Scripts.Render("~/Content/components/angularjs-toaster/toaster.js")
     @Scripts.Render("~/Content/components/angular-ui-select/dist/select.js")
-    @Scripts.Render("~/Content/components/angular-ui-sortable/sortable.js")
+        @Scripts.Render("~/Content/components/angular-ui-sortable/sortable.js")        
+    <script src="/Content/components/ng-mfb/src/mfb-directive.js"></script>
     @Scripts.Render("~/bundles/esqtv-common")
 
     <script type="text/javascript">
