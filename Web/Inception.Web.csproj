@@ -203,12 +203,14 @@
     <Content Include="App\Common\Interceptors\SessionTokenInterceptor.js" />
     <Content Include="App\Common\Interceptors\RequestCountInterceptor.js" />
     <Content Include="App\Common\Services\Alerts.js" />
+    <Content Include="App\Common\Services\Notifier.js" />
     <Content Include="App\Common\Services\Images.js" />
     <Content Include="App\Common\Services\Pages.js" />
     <Content Include="App\Common\Services\Galleries.js" />
     <Content Include="App\Common\Services\Keywords.js" />
     <Content Include="App\Common\Services\Videos.js" />
     <Content Include="App\Common\Services\VirtualDirectories.js" />
+    <Content Include="App\Common\Views\Toast.html" />
     <Content Include="App\Common\Views\GallerySearch.html" />
     <Content Include="App\Common\Views\ImageSearch.html" />
     <Content Include="App\Common\Views\KeywordSearch.html" />
