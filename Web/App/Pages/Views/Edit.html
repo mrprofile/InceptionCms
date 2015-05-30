@@ -1,13 +1,12 @@
-﻿
-<section layout="row" layout-sm="column">
+﻿<section layout="row" layout-sm="column">
     <md-content flex>
         <div class="md-actions" layout="row" layout-align="start center">
-            <md-button data-ng-click="vm.add($event)" class="md-raised">Add Component</md-button>
+            <md-button data-ng-click="vm.add($event)" class="md-raised"><md-icon md-font-icon="ion-android-add" style="font-size: 24px;"></md-icon>Add Component</md-button>
             <md-button data-ng-click="vm.sort($event)" class="md-raised">Reorder Components</md-button>
         </div>
-        <md-card class="md-padding" style="position:relative;" data-ng-repeat="component in vm.template">
+        <md-card class="md-padding" style="position:relative;" data-ng-repeat="component in vm.template">            
             <md-card-content>
-                <md-button class="md-fab md-mini md-hue-1 md-accent esqtv-btn-float-top-right" aria-label="Remove" title="Remove {{component.contentType}}" data-ng-click="vm.remove(component)"><md-icon class="svg-ic_remove_24px" style="height: 24px; width: 24px;" alt="Plus"></md-icon></md-button>
+                <md-button class="md-icon-button esqtv-btn-float-top-right" aria-label="Remove" title="Remove {{component.contentType}}" data-ng-click="vm.remove(component)"><md-icon md-font-icon="ion-close" alt="Plus"></md-icon></md-button>
                 <component component-data="component"></component>
             </md-card-content>
         </md-card>
@@ -36,8 +35,8 @@
                 </md-input-container>
                 <keyword-autocomplete data-ng-model="vm.keywords"></keyword-autocomplete>
                 <div class="md-actions" layout="row" layout-align="end center">
-                    <md-button data-ng-click="vm.save()" class="md-raised">Save</md-button>
-                    <md-button data-ng-click="vm.publish()" class="md-raised md-accent">Publish</md-button>
+                    <md-button data-ng-click="vm.save()">Save</md-button>
+                    <md-button data-ng-click="vm.publish()" class="md-hue-2">Publish</md-button>
                 </div>
             </md-card-content>
         </md-card>
