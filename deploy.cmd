@@ -89,8 +89,8 @@ IF /I "%IN_PLACE_DEPLOYMENT%" NEQ "1" (
 )
 
 :: 4. Bower Install
-if EXIST "%DEPLOYMENT_TARGET%\Web\bower.json" (
-    pushd "%DEPLOYMENT_TARGET%\Web"
+if EXIST "%DEPLOYMENT_TARGET%\Wbower.json" (
+    pushd "%DEPLOYMENT_TARGET%"
     call :ExecuteCmd bower install
     IF !ERRORLEVEL! NEQ 0 goto error
     popd
