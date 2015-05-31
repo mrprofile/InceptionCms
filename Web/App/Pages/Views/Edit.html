@@ -1,17 +1,17 @@
 ﻿<section layout="column" layout-gt-md="row">
-    <md-content flex>
-        <md-card  style="position:relative;" data-ng-repeat="component in vm.template">            
-            <md-card-content>
+    <md-content flex layout="row" layout-align="center center">
+        <div ng-class="vm.layout" class="layout-base">
+            <div style="position:relative;" data-ng-repeat="component in vm.template">
                 <!--<div layout="row" layout-align="end center">
                     <md-button class="md-icon-button" aria-label="Remove" title="Remove {{component.contentType}}" data-ng-click="vm.remove(component)"><md-icon md-font-icon="ion-close" alt="Plus"></md-icon></md-button>
                 </div>-->
                 <component component-data="component"></component>
-            </md-card-content>
-        </md-card>
+            </div>
+        </div>
     </md-content>
-
     <md-content flex="25" flex-sm="1">
-        <md-card>            
+        <md-card>
+            <md-subheader class="md-primary">Page Settings</md-subheader>
             <md-card-content>
                 <md-input-container>
                     <label>Title</label>
@@ -25,6 +25,14 @@
                     <label>Ad Keywords</label>
                     <input data-ng-model="vm.page.adKeywords" />
                 </md-input-container>
+
+
+                <md-select placeholder="Choose a layout" ng-model="vm.layout">
+                    <md-option value="layout-default">Default</md-option>
+                    <md-option value="layout-full-width">Full-Width</md-option>
+                    <md-option value="layout-ad-right">Ad Sidebar</md-option>
+                </md-select>                
+
                 <keyword-autocomplete data-ng-model="vm.keywords"></keyword-autocomplete>
                 <div class="md-actions" layout="row" layout-align="end center">
                     <md-button data-ng-click="vm.save()">Save</md-button>

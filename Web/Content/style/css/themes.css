@@ -132,3 +132,20 @@ md-toast {
     width: 100%;
     margin: 0 auto;
 }
+
+.layout-base {    
+    width: 100%;
+    transition: max-width .5s ease, height .5s, ease;
+}
+
+.layout-default {
+    max-width: 1000px;
+}
+
+.layout-full-width {
+    max-width: 1400px;
+}
+
+.layout-ad-right {
+    max-width: 660px;
+}

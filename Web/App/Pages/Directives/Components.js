@@ -15,7 +15,7 @@
                     break;
                 case 'gallery': template = '<p>{{component.contentType}}</p>';
                     break;
-                case 'image': template = '<md-content data-ng-if="show(component)"><md-button class=\"md-accent md-raised esq-btn-float \" data-ng-click=\"clearComponent(component)\">Change Image</md-button><img class="img-responsive" data-ng-src="{{component.data.url}}" /></md-content><md-content data-ng-if=\"!show(component)\"><md-input-container><label>Image Url</label><input type="text" data-ng-model=\"component.data.url\" /></md-input-container><image-search selected-item="component.data" imagetypekey=\"31\"></image-search></md-content>';
+                case 'image': template = '<md-content data-ng-if="show(component)"><md-button class=\"md-icon-button md-accent esqtv-btn-float-top-right\" data-ng-click=\"clearComponent(component)\" title="Change Image"><md-icon md-font-icon="ion-edit"></md-icon></md-button><img class="img-responsive" data-ng-src="{{component.data.url}}" /></md-content><md-content data-ng-if=\"!show(component)\"><md-input-container><label>Image Url</label><input type="text" data-ng-model=\"component.data.url\" /></md-input-container><image-search selected-item="component.data" imagetypekey=\"31\"></image-search></md-content>';
                     break;
                 case 'embed': template = '<p>{{component.contentType}}</p>';
                     break;
