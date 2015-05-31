@@ -3,7 +3,7 @@
     angular.module('esqtv.common').directive('videoSearch', ['esqtvSettings', function (esqtvSettings) {
         return {
             restrict: 'E',
-            controller: ['$scope', 'VideoService', function ($scope, VideoService) {
+            controller: ['$scope', 'VideoService', function ($scope, VideoService) {                
                 var vm = this;
                 vm.selectItem = selectItem;
                 vm.search = {
@@ -18,7 +18,7 @@
                     numPages: 10,
                     totalItems: 0,
                     currentPage: 1,
-                    itemsPerPage: 12,
+                    itemsPerPage: vm.itemsPerPage ? vm.itemsPerPage : 12,
                     onSelectPage: function () {
 
                         searchVideos();
@@ -51,7 +51,7 @@
                     $scope.$emit('esqtv:common:video:select', itm);
                 }
 
-                function searchVideos() {
+                function searchVideos() {                    
                     VideoService.search(vm.search, vm.paging)
                     .then(function (data) {
                         vm.search.results = data.Result;
@@ -63,7 +63,8 @@
             templateUrl: esqtvSettings.cms + '/App/Common/Views/VideoSearch.html',
             bindToController: true,
             scope: {
-                'selectedVideo': '='
+                'selectedVideo': '=',
+                'itemsPerPage': '@'
             }
         };
     }]);

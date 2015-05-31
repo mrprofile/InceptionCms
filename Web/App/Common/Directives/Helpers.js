@@ -9,13 +9,13 @@
                 buttontext: "@",
                 labeltext: "@"
             },
-            template: '<md-list-item layout="row">'+
+            template: '<div layout="row" layout-align="start center">'+
                         '<md-input-container>'+
                             '<label>{{labeltext}}</label>' +
                             '<input type="text" data-ng-model="query" ent-enter action="search()" />' +
                         '</md-input-container>'+
-                        '<md-button ng-click="search()" class="btn btn-primary"><i class="glyphicon glyphicon-search">{{buttontext}}</md-button>' +
-                      '</md-list-item>'
+                        '<md-button ng-click="search()" class="btn btn-primary">{{buttontext}}</md-button>' +
+                      '</div>'
         };
     });
     

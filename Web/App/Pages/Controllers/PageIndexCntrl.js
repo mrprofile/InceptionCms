@@ -16,7 +16,7 @@ function pageIndexCntrl($scope, $sce, $http, $q, $routeParams, $window, $locatio
     };
 
     vm.paging = {
-        numPages: 10,
+        numPages: 5,
         totalItems: 0,
         currentPage: 1,
         itemsPerPage: 12,
