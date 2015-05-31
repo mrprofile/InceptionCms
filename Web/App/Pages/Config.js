@@ -1,4 +1,4 @@
-﻿(function () {
+﻿;(function () {
     'use strict';
 
     angular.module('esqtv.pages').config(function ($routeProvider, $locationProvider) {
@@ -14,9 +14,23 @@
                 }
             })
             .when('/pages/create', {
-                templateUrl: '/App/Pages/Views/Create.html',
-                controller: 'PageCreateCntrl',
-                controllerAs: 'vm'
+                templateUrl: '/App/Pages/Views/Edit.html',
+                controller: 'PageEditCntrl',
+                controllerAs: 'vm',
+                resolve: {
+                    page: function ($route, PageService) {
+                        return {
+                            "id": "",
+                            "title": "",
+                            "permaLink": "",
+                            "publishDate": moment().format(),//2015-04-16T15:52:12.6951395
+                            "expirationDate": moment().format(),
+                            "modifiedDate": moment().format(),
+                            "createdDate": moment().format(),
+                            "contentParts": []
+                        }
+                    }
+                }
             })
             .when('/pages/edit/:id', {
                 templateUrl: '/App/Pages/Views/Edit.html', controller: 'PageEditCntrl', controllerAs: 'vm',

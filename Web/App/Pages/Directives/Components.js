@@ -1,4 +1,4 @@
-﻿(function () {
+﻿;(function () {
     'use strict';
     angular.module('esqtv.pages').directive('component', ['$compile', 'esqtvSettings', function ($compile, esqtvSettings) {
 
