@@ -6,7 +6,8 @@
             get: getPage,
             search: search,
             publish: publish,
-            update: update
+            update: update,
+            create: create
         };
 
         return service;
@@ -47,6 +48,10 @@
 
         function update(contentPage) {
             return $http.put(esqtvSettings.api + 'v1/contentpages/' + contentPage.id, contentPage);
+        }
+        
+        function create(contentPage) {
+            return $http.post(esqtvSettings.api + 'v1/contentpages', contentPage);
         }
 
     });

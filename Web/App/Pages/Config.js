@@ -13,10 +13,15 @@
                     }
                 }
             })
+            .when('/pages/create', {
+                templateUrl: '/App/Pages/Views/Create.html',
+                controller: 'PageCreateCntrl',
+                controllerAs: 'vm'
+            })
             .when('/pages/edit/:id', {
                 templateUrl: '/App/Pages/Views/Edit.html', controller: 'PageEditCntrl', controllerAs: 'vm',
                 resolve: {
-                    page: function ($route, PageService) {                        
+                    page: function ($route, PageService) {
                         return PageService.get($route.current.params.id);
                     }
                 }

@@ -222,10 +222,12 @@
     <Content Include="App\Gallery\Views\Index.html" />
     <Content Include="App\Pages\App.js" />
     <Content Include="App\Pages\Config.js" />
+    <Content Include="App\Pages\Controllers\PageCreateCntrl.js" />
     <Content Include="App\Pages\Controllers\PageEditCntrl.js" />
     <Content Include="App\Pages\Controllers\PageIndexCntrl.js" />
     <Content Include="App\Pages\Directives\ckEditor.js" />
     <Content Include="App\Pages\Directives\Components.js" />
+    <Content Include="App\Pages\Views\Create.html" />
     <Content Include="App\Pages\Views\Edit.html" />
     <Content Include="App\Pages\Views\EditToolbar.html" />
     <Content Include="App\Pages\Views\Index.html" />
