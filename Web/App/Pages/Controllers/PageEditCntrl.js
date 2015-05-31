@@ -1,4 +1,6 @@
 ﻿/// <reference path="../Views/Edit.html" />
+;(function () {
+
 'use strict';
 
 angular.module('esqtv.pages').controller("PageEditCntrl", ['$scope', '$sce', '$http', '$q', '$mdDialog', '$routeParams', '$window', '$location', 'page', 'KeywordService', 'pageComponent', 'PageService', 'NotifierService', pageEditCntrl]);
@@ -162,3 +164,5 @@ function pageEditCntrl($scope, $sce, $http, $q, $mdDialog, $routeParams, $window
         });
     }
 }
+
+})();

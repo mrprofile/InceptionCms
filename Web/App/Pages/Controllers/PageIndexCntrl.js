@@ -1,4 +1,6 @@
-﻿'use strict';
+﻿;(function () {
+
+'use strict';
 
 angular.module('esqtv.pages').controller("PageIndexCntrl", ['$scope', '$sce', '$http', '$q', '$routeParams', '$window', '$location', 'pages', pageIndexCntrl]);
 
@@ -41,3 +43,5 @@ function pageIndexCntrl($scope, $sce, $http, $q, $routeParams, $window, $locatio
         $location.path('/pages/edit/' + itm.id);
     });
 }
+
+})();

@@ -1,4 +1,4 @@
-﻿(function () {
+﻿;(function () {
     'use strict';
     angular.module('esqtv.pages').directive('ckEditor', [function () {
         return {

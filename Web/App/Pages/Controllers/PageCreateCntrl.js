@@ -1,4 +1,5 @@
 ﻿/// <reference path="../Views/Edit.html" />
+;(function () {
 'use strict';
 
 angular.module('esqtv.pages').controller("PageCreateCntrl", ['$scope', '$sce', '$http', '$q', '$mdDialog', '$routeParams', '$location', 'KeywordService', 'pageComponent', 'PageService', 'NotifierService', pageCreateCntrl]);
@@ -139,3 +140,5 @@ function pageCreateCntrl($scope, $sce, $http, $q, $mdDialog, $routeParams, $loca
         });
     }
 }
+
+})();

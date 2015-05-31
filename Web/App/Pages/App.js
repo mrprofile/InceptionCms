@@ -1,4 +1,4 @@
-﻿(function () {
+﻿;(function () {
     'use strict';
 
     //TODO: INJECT DEPENDENCIES
@@ -59,9 +59,8 @@
     //        } else {
     //            vm.toolbar = '';
     //        }
-            
-    //    });
-        
-    //}]);
-})()
 
+    //    });
+
+    //}]);
+})();
