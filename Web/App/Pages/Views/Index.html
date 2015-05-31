@@ -7,12 +7,14 @@
         </md-toolbar>
         <md-content>
             <md-list>
-                <md-list-item class="md-3-line" data-ng-repeat="item in vm.search.results">
-                    <md-button data-ng-click="vm.selectItem(item)">Edit</md-button>
-                    <div class="md-list-item-text">
-                        <h3>{{item.title}}</h3>
-                        <h4>{{item.permaLink}}</h4>
-                        <p>{{item.id}}</p>
+                <md-list-item ng-click="vm.selectItem(item)" class="md-3-line" data-ng-repeat="item in vm.search.results">
+                    <div layout="row" layout-align="start center">
+                        <md-button class="md-icon-button" aria-label="Edit {{item.title}}" title="Edit {{item.title}}"><md-icon md-font-icon="ion-edit"></md-icon></md-button>
+                        <div class="md-list-item-text">
+                            <h3>{{item.title}}</h3>
+                            <h4>{{item.permaLink}}</h4>
+                            <p>{{item.id}}</p>
+                        </div>
                     </div>
                     <md-divider ng-if="!$last"></md-divider>
                 </md-list-item>

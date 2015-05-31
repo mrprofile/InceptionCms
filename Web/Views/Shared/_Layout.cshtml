@@ -52,8 +52,16 @@
             </md-sidenav>
             <md-content flex>
                 <md-toolbar layout="row">
-                    <div class="md-toolbar-tools">
-                        <md-button class="md-icon-button" ng-controller="TopNavController as vm" data-ng-click="vm.toggle()"><md-icon md-font-icon="ion-android-menu" style="font-size: 24px;"></md-icon></md-button>
+                    <div class="md-toolbar-tools" ng-controller="TopNavController as vm">
+                        <md-button class="md-icon-button" data-ng-click="vm.toggle()"><md-icon md-font-icon="ion-android-menu" style="font-size: 24px;"></md-icon></md-button>
+                        <span flex></span>
+                        <md-button class="md-accent" aria-label="refresh" ng-click="vm.refresh()">
+                            <md-tooltip>
+                                Refresh
+                            </md-tooltip>
+                            <md-icon md-font-icon="ion-android-refresh" style="font-size: 24px;">
+                            </md-icon>
+                        </md-button>
                     </div>
                 </md-toolbar>
                 <md-content class="md-padding">

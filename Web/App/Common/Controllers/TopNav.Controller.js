@@ -1,13 +1,15 @@
 ﻿(function () {
     'use strict';
 
-    angular.module('esqtv.common').controller("TopNavController", ['$scope', '$mdSidenav', SideNavController]);
+    angular.module('esqtv.common').controller("TopNavController", ['$scope', '$mdSidenav', '$route', SideNavController]);
 
-    function SideNavController($scope, $mdSidenav) {
+    function SideNavController($scope, $mdSidenav, $route) {
         var vm = this;
         
         vm.toggle = toggleMenu;
-
+        vm.refresh = function () {
+            $route.reload();
+        }
         function toggleMenu() {
             $mdSidenav('left').toggle();
         }
