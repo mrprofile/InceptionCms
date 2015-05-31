@@ -135,11 +135,10 @@ function pageEditCntrl($scope, $sce, $http, $q, $mdDialog, $routeParams, $window
         console.log(JSON.stringify(vm.page));
 
         PageService.update(vm.page).then(function (result) {
-            console.log(result);
             NotifierService.notifySuccess('Record Saved!');
 
         }, function (err) {
-            console.log(err);
+            throw new Error(err.data.ResponseStatus.Message);
         });
     }
 
