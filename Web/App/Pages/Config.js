@@ -6,12 +6,7 @@
             .when('/pages', {
                 templateUrl: '/App/Pages/Views/Index.html',
                 controller: 'PageIndexCntrl',
-                controllerAs: 'vm',
-                resolve: {
-                    pages: function (PageService) {
-                        return PageService.search({ 'query': '' }, { itemsPerPage: 24, currentPage: 0 });
-                    }
-                }
+                controllerAs: 'vm'
             })
             .when('/pages/create', {
                 templateUrl: '/App/Pages/Views/Edit.html',

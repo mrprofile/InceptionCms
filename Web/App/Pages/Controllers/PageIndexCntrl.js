@@ -2,15 +2,14 @@
 
 'use strict';
 
-angular.module('esqtv.pages').controller("PageIndexCntrl", ['$scope', '$sce', '$http', '$q', '$routeParams', '$window', '$location', 'pages', pageIndexCntrl]);
+angular.module('esqtv.pages').controller("PageIndexCntrl", ['$scope', '$sce', '$http', '$q', '$routeParams', '$window', '$location', 'PageService', pageIndexCntrl]);
 
-function pageIndexCntrl($scope, $sce, $http, $q, $routeParams, $window, $location, pages) {    
+function pageIndexCntrl($scope, $sce, $http, $q, $routeParams, $window, $location, pageService) {    
     var vm = this;
-    console.log(pages);
     vm.selectItem = selectItem;
     vm.search = {
         query: '',
-        results: pages.result,
+        results: [],
         clear: function () {
             this.query = '';
         }
@@ -23,13 +22,27 @@ function pageIndexCntrl($scope, $sce, $http, $q, $routeParams, $window, $locatio
         itemsPerPage: 12,
         onSelectPage: function () {
 
-            search();
+            searchPages();
         }
     };
 
-    vm.searchFunc = function () {
+    activate();
+    
+    function activate() {
+        searchPages();
+    }
+
+    vm.searchPages = function() {
         vm.paging.currentPage = 1;
-        search();
+        searchPages();
+    };
+    
+    function searchPages(){
+        pageService.search(vm.search, vm.paging)
+                    .then(function (data) {
+                        vm.search.results = data.result;
+                        vm.paging.totalItems = data.totalItems;
+                    });
     }
 
     vm.selectedVideo = {};

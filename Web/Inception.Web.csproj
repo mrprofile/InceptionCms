@@ -196,6 +196,7 @@
     <Content Include="App\Common\Controllers\TopNav.Controller.js" />
     <Content Include="App\Common\Controllers\SideNav.Controller.js" />
     <Content Include="App\Common\Directives\Galleries.js" />
+    <Content Include="App\Common\Directives\Helpers.js" />
     <Content Include="App\Common\Directives\Images.js" />
     <Content Include="App\Common\Directives\Keywords.js" />
     <Content Include="App\Common\Directives\Spinner.js" />
