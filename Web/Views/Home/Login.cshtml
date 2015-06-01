@@ -9,40 +9,45 @@
 <head>
     <meta charset="utf-8" />
     <title>@ViewBag.Title - CMS 3.0</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
     <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
-    @Styles.Render("~/Content/style/css/themes.css")
-    @Styles.Render("~/Content/style/css/login.css")
+    @*<link href="https://fezvrasta.github.io/bootstrap-material-design/dist/css/roboto.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://fezvrasta.github.io/bootstrap-material-design/dist/css/material-fullpalette.min.css">
+        <link href="https://fezvrasta.github.io/bootstrap-material-design/dist/css/ripples.min.css" rel="stylesheet">*@
+    @Styles.Render("~/Content/components/angular-material/angular-material.css")
 </head>
-<body class="login">
-    <div class="wrapper">
-        <div class="login-body">
-            <h2>ESQUIRE NETWORK CMS</h2>
-            @using (Html.BeginForm("login", "home", new {ReturnUrl = ViewBag.ReturnUrl}, FormMethod.Post, new {@class = "form-validate"}))
-            {
-                @Html.AntiForgeryToken()
-                @Html.BeginControlGroupFor("Errors")
-                @Html.GetValidationMessage("Errors", "alert-error alert")
-                @Html.EndControlGroup()
-
-                <div class="control-group">
-                    <label class="control-label email"></label>
-                    @Html.TextBoxFor(x => x.UserName, new {placeholder = "Domain\\SSO", @class = "input-block-level", data_rule_required = "true"})
-                    @Html.GetValidationMessage("UserName", "alert-error alert")
-
-                    <div class="submit">
-                        <div class="remember"></div>
-                        <input type="submit" value="Sign In" class="btn btn-primary">
-                    </div>
+<body class="login" data-ng-app="esqtv.login">
+    <section layout="column" layout-align="start center">
+        
+        <section layout="column" layout-fill layout-align="center center">
+            <h2>Esquire Network CMS</h2>
+            <md-whiteframe class="md-whiteframe-z1 md-padding" layout layout-align="center center">
+                @using (Html.BeginForm("login", "home", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-validate form-horizontal" }))
+                {
+                    <md-content>
+                        @Html.AntiForgeryToken()
+                        @Html.BeginControlGroupFor("Errors")
+                        @Html.GetValidationMessage("Errors", "alert-error alert")
+                        @Html.EndControlGroup()
+                        <md-input-container>
+                            <label>Domain\SSO</label>
+                            @Html.TextBoxFor(x => x.UserName, new { @class = "form-control empty", data_rule_required = "true" })
+                            @Html.GetValidationMessage("UserName", "alert-error alert")
+                        </md-input-container>
+                        <div class="md-actions" layout="row" layout-align="end center">
+                            <md-button class="md-primary md-raised">Submit</md-button>
+                        </div>
+                    </md-content>
+                }
+                <div class="forget">
+                    <a href="#"><span class="esquire-logo"></span></a>
                 </div>
-
-            }
-            <div class="forget">
-                <a href="#"><span class="esquire-logo"></span></a>
-            </div>
-
-        </div>
-    </div>
+            </md-whiteframe>
+        </section>
+    </section>
+    @Scripts.Render("~/bundles/angularjs")
+    <script type="text/javascript">
+        angular.module('esqtv.login', ['ui.bootstrap', 'ngAnimate', 'ngMaterial']);
+    </script>
 </body>
 </html>

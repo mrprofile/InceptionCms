@@ -33,8 +33,26 @@ namespace Inception.Web.App_Start
             bundles.Add(jsBundle);
             bundles.Add(cssBundle);*/
 
+            bundles.Add(new Bundle("~/bundles/angularjs").Include(
+                 "~/Content/components/jquery/dist/jquery.js",
+                "~/Content/components/jquery-ui/jquery-ui.js",
+                "~/Content/components/angular/angular.js",
+                "~/Content/components/angular-aria/angular-aria.js",
+                "~/Content/components/angular-material/angular-material.js",
+                "~/Content/Components/angular-route/angular-route.js",
+                "~/Content/components/angular-bootstrap/ui-bootstrap-tpls.js",
+                "~/Content/components/angular-sanitize/angular-sanitize.js",
+                "~/Content/components/angular-cookies/angular-cookies.js",
+                "~/Content/components/angular-animate/angular-animate.min.js",
+                "~/Content/components/moment/moment.js",
+                "~/Content/components/angularjs-toaster/toaster.js",
+                "~/Content/components/angular-ui-select/dist/select.js",
+                "~/Content/components/angular-ui-sortable/sortable.js",
+                "~/Content/components/ng-mfb/src/mfb-directive.js"
+                ));
 
-            bundles.Add(new Bundle("~/bundles/esqtv-common").Include(                               
+
+            bundles.Add(new Bundle("~/bundles/esqtv-common").Include(
                 "~/App/Common/App.js",
                 "~/App/Common/Config.js",
                 "~/App/Common/Interceptors/*.js",
