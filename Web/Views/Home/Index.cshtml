@@ -1,7 +1,19 @@
-﻿@model Inception.Web.Models.Home.Index
+﻿@using System.Web.Optimization
+@model Inception.Web.Models.Home.Index
 
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.NgApp = "esqtv.home";
 }
 
-<h1>Home Index</h1>
+@section scripts {
+
+    @Scripts.Render("~/bundles/esqtv-home")
+}
+
+@section jsCode {
+
+}
+
+
+<div ng-view></div>

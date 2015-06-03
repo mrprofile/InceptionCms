@@ -221,6 +221,10 @@
     <Content Include="App\Gallery\Controllers\GalleryIndexCntrl.js" />
     <Content Include="App\Gallery\Views\Edit.html" />
     <Content Include="App\Gallery\Views\Index.html" />
+    <Content Include="App\Home\App.js" />
+    <Content Include="App\Home\Config.js" />
+    <Content Include="App\Home\Controllers\HomIndexCntrl.js" />
+    <Content Include="App\Home\Views\Index.html" />
     <Content Include="App\Pages\App.js" />
     <Content Include="App\Pages\Config.js" />
     <Content Include="App\Pages\Controllers\PageCreateCntrl.js" />

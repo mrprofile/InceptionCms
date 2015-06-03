@@ -66,6 +66,11 @@ namespace Inception.Web.App_Start
                 "~/App/Pages/Config.js",
                 "~/App/Pages/Directives/*.js",
                 "~/App/Pages/Controllers/*.js"));
+
+            bundles.Add(new Bundle("~/bundles/esqtv-home").Include(
+                "~/App/Home/App.js",
+                "~/App/Home/Config.js",
+                "~/App/Home/Controllers/*.js"));
         }
     }
 }
