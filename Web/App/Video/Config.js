@@ -12,8 +12,7 @@
                     }
                 }
             });
-        $routeProvider.otherwise({ redirectTo: '/videos' });
-        $locationProvider.html5Mode(true);
+        
     });
 
     // Inject addTokenInterceptor for this moddule.

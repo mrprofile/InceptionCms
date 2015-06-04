@@ -24,8 +24,8 @@
 
         function goToPage(link, $evt) {
             //console.log(link);
-            //$location.url(link.url);
-            $window.location = link.url;
+            $location.url(link.url);
+            //$window.location = link.url;
         }
 
     };

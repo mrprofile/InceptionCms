@@ -225,6 +225,7 @@
     <Content Include="App\Home\Config.js" />
     <Content Include="App\Home\Controllers\HomIndexCntrl.js" />
     <Content Include="App\Home\Views\Index.html" />
+    <Content Include="App\main.js" />
     <Content Include="App\Pages\App.js" />
     <Content Include="App\Pages\Config.js" />
     <Content Include="App\Pages\Controllers\PageCreateCntrl.js" />

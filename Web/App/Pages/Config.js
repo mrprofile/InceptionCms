@@ -35,8 +35,8 @@
                     }
                 }
             });
-        $routeProvider.otherwise({ redirectTo: '/pages' });
-        $locationProvider.html5Mode(true);
+        //$routeProvider.otherwise({ redirectTo: '/pages' });
+        //$locationProvider.html5Mode(true);
     });
 
     // Inject addTokenInterceptor for this moddule.

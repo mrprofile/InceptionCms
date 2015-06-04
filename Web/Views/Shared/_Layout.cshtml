@@ -6,7 +6,7 @@
     String cmsServerUrl = System.Configuration.ConfigurationManager.AppSettings["WebsiteBase"];
 }
 <!DOCTYPE html>
-<html lang="en" data-ng-app="@(ViewBag.NgApp != null ? ViewBag.NgApp : "")">
+<html lang="en" data-ng-app="esqtv.cms">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -71,7 +71,7 @@
         </section>
     </div>
     <!-- Include all compiled plugins (below), or include individual files as needed -->    
-    @Scripts.Render("~/bundles/angularjs");
+    @Scripts.Render("~/bundles/angularjs")
     @Scripts.Render("~/bundles/esqtv-common")
 
     <script type="text/javascript">
@@ -81,7 +81,8 @@
             'preview': 'http://staging.g4tv.com/preview'
         });
         @RenderSection("jsCode", required: false)
-    </script>
+    </script>    
+
 
     @RenderSection("scripts", required: false)
 </body>

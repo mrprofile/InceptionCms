@@ -7,8 +7,13 @@
 }
 
 @section scripts {
+    
+    <script src="/Content/components/ckeditor/ckeditor.js"></script>
 
-    @Scripts.Render("~/bundles/esqtv-home")
+    @Scripts.Render("~/bundles/esqtv-pages")
+    @Scripts.Render("~/bundles/esqtv-video")
+    <script src="~/App/main.js"></script>
+    @*@Scripts.Render("~/bundles/esqtv-home")*@
 }
 
 @section jsCode {
