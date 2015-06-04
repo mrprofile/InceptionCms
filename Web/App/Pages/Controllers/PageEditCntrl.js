@@ -172,6 +172,7 @@ function pageEditCntrl($route, $scope, $sce, $http, $q, $mdDialog, $routeParams,
     function save() {
         console.log(vm.page);
 
+        vm.page.layout = vm.layout;
         vm.page.contentParts = [];
         vm.template.forEach(function (itm, idx) {
             vm.page.contentParts.push(itm);
