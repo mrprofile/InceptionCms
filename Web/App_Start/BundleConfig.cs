@@ -48,7 +48,8 @@ namespace Inception.Web.App_Start
                 "~/Content/components/angularjs-toaster/toaster.js",
                 "~/Content/components/angular-ui-select/dist/select.js",
                 "~/Content/components/angular-ui-sortable/sortable.js",
-                "~/Content/components/ng-mfb/src/mfb-directive.js"
+                "~/Content/components/ng-mfb/src/mfb-directive.js",
+                "~/Content/components/angular-bootstrap-datetimepicker/src/js/datetimepicker.js"
                 ));
 
 

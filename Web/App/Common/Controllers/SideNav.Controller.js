@@ -24,6 +24,10 @@
 
         function goToPage(link, $evt) {
             //console.log(link);
+            if (link.url === '/logoff') {
+                $window.location = link.url;
+                return;
+            }
             $location.url(link.url);
             $mdSidenav('left').close();
             //$window.location = link.url;

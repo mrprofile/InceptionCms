@@ -23,12 +23,13 @@
     @*<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">*@
     <!-- Optional theme -->
     @*<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">*@
-    <link href="/Content/components/ionicons/css/ionicons.css" rel="stylesheet" />
-    <link href="/Content/style/css/svg-sprite-content.css" rel="stylesheet" />
+    <link href="/Content/components/ionicons/css/ionicons.css" rel="stylesheet" />    
     <link href="/Content/components/ng-mfb/mfb/dist/mfb.css" rel="stylesheet" />
-    @Styles.Render("~/Content/components/angular-ui-select/dist/select.css")
+    <link href="/Content/components/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="/Content/components/angular-bootstrap-datetimepicker/src/css/datetimepicker.css" rel="stylesheet" />
     @Styles.Render("~/Content/components/angularjs-toaster/toaster.css")
     @Styles.Render("~/Content/components/angular-material/angular-material.css")
+    @Styles.Render("~/Content/components/angular-ui-select/dist/select.css")
     @Styles.Render("~/Content/style/css/themes.css")
     @RenderSection("css", required: false)
     <base href="/">
@@ -46,7 +47,7 @@
                     <md-list ng-controller="SideNavController as vm">
                         <md-list-item ng-repeat="link in vm.links" ng-click="vm.goToPage(link, $event)">
                             <p> {{ link.text }} </p>
-                        </md-list-item>
+                        </md-list-item>                        
                     </md-list>
                 </md-content>
             </md-sidenav>
@@ -70,7 +71,7 @@
             </md-content>
         </section>
     </div>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->    
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
     @Scripts.Render("~/bundles/angularjs")
     @Scripts.Render("~/bundles/esqtv-common")
 
@@ -81,7 +82,7 @@
             'preview': 'http://staging.g4tv.com/preview'
         });
         @RenderSection("jsCode", required: false)
-    </script>    
+    </script>
 
 
     @RenderSection("scripts", required: false)

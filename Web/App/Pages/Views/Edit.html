@@ -12,8 +12,8 @@
     <md-content flex="25" flex-sm="1">
         <md-card>
             <md-subheader class="md-primary">Page Settings</md-subheader>
-            <md-card-content>
-                <md-input-container>
+            <md-card-content>               
+                <md-input-container >
                     <label>Title</label>
                     <input data-ng-model="vm.page.title" />
                 </md-input-container>
@@ -25,21 +25,34 @@
                     <label>Ad Keywords</label>
                     <input data-ng-model="vm.page.adKeywords" />
                 </md-input-container>
-
-
                 <md-select placeholder="Choose a layout" ng-model="vm.layout">
                     <md-option value="layout-default">Default</md-option>
                     <md-option value="layout-full-width">Full-Width</md-option>
                     <md-option value="layout-ad-right">Ad Sidebar</md-option>
                 </md-select>                
-
                 <keyword-autocomplete data-ng-model="vm.keywords"></keyword-autocomplete>
                 <div class="md-actions" layout="row" layout-align="end center">
                     <md-button data-ng-click="vm.save()">Save</md-button>
                     <md-button data-ng-click="vm.publish()" class="md-hue-2">Publish</md-button>
                 </div>
             </md-card-content>
-        </md-card>
+        </md-card>   
+        <md-card>
+            <md-content>
+                <md-subheader class="md-primary">Publish & Expiration </md-subheader>
+                <md-list>
+                    <md-list-item ng-click="vm.setDate($event, 'publishDate')">
+                        <md-icon md-font-icon="ion-android-calendar" style="font-size: 24px;"></md-icon>
+                        <p>Publish on {{vm.page.publishDate | date:'MMMM d yyyy, h:mm a'}}</p>
+                    </md-list-item>
+                    <md-list-item ng-click="vm.setDate($event, 'expirationDate')">
+                        <md-icon md-font-icon="ion-android-alarm-clock" style="font-size: 24px;"></md-icon>
+                        <p>Expire on {{vm.page.expirationDate | date:'MMMM d yyyy, h:mm a'}}</p>
+                        <md-checkbox class="md-secondary"></md-checkbox>
+                    </md-list-item>
+                </md-list>                
+            </md-content>
+        </md-card>     
     </md-content>
 </section>
 <nav mfb-menu position="br" effect="slidein" label="Actions"

@@ -33,7 +33,7 @@
 
     angular.module('esqtv.tpls', ['template/esqtv/videos/related.html','template/esqtv/videos/preview.html']);
 
-    angular.module('esqtv.common', [ 'esqtv.tpls', 'ngRoute', 'ngCookies', 'ui.bootstrap', 'ngAnimate', 'toaster', 'ngMaterial', 'ui.select', 'ui.sortable', 'ng-mfb'])
+    angular.module('esqtv.common', ['esqtv.tpls', 'ngRoute', 'ngCookies', 'ui.bootstrap', 'ngAnimate', 'toaster', 'ngMaterial', 'ui.select', 'ui.sortable', 'ng-mfb', 'ui.bootstrap.datetimepicker'])
     .config(function ($mdThemingProvider) {
         $mdThemingProvider.theme('default')
           .primaryPalette('indigo')

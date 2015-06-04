@@ -23,10 +23,50 @@ function pageEditCntrl($route, $scope, $sce, $http, $q, $mdDialog, $routeParams,
     vm.remove = remove;
     vm.add = add;
     vm.addComponent = addComponent;
+    vm.setDate = setDate;
 
     activate();
 
     vm.components = ['heading', 'text', 'image', 'gallery', 'video', 'videoList', 'embed'];
+
+    function setDate($event, propName) {
+        var parentEl = angular.element(document.body);
+        $mdDialog.show({
+            clickOutsideToClose: true,
+            scope: $scope,
+            preserveScope: true,
+            parent: parentEl,
+            targetEvent: $event,
+            template:
+                '<md-dialog aria-label="Set Date/Time">' +
+                '  <md-dialog-content>' +
+                '   <md-subheader class="md-primary">Set Date</md-subheader>' +
+                '<datetimepicker data-ng-model="dateTime" data-on-set-time="onTimeSet(newDate, oldDate)" ></datetimepicker>' +
+               '  </md-dialog-content>' +
+               '  <div class="md-actions">' +
+               '    <md-button ng-click="closeDialog()" class="md-primary">' +
+               '      Done' +
+               '    </md-button>' +
+               '  </div>' +
+               '</md-dialog>',            
+            controller: dialogController,
+            locals: {
+                propertyName: propName
+            }
+        });
+
+        function dialogController(scope, $mdDialog, propertyName) {
+
+            scope.dateTime = vm.page[propertyName];
+            scope.onTimeSet = function (newValue, oldValue) {                
+                console.log(newValue);
+                vm.page[propertyName] = newValue;
+            }
+            scope.closeDialog = function () {
+                $mdDialog.hide();
+            }
+        }
+    }
 
     function add($event) {
         var parentEl = angular.element(document.body);
