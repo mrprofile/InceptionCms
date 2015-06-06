@@ -44,8 +44,8 @@
                 function selectItem(itm) {
                     
                     
-                    itm.id = itm.Video_Key ? itm.Video_Key : itm.ObjectKey;
-                    itm.embedUrl = itm.ValuesDict.videoEmbed[0];
+                    itm.id = itm.Video_Key ? itm.Video_Key : itm.objectKey;
+                    itm.embedUrl = itm.valuesDict.videoEmbed[0];
                     //itm.source = "esquireTv";
                     vm.selectedVideo = itm;
                     $scope.$emit('esqtv:common:video:select', itm);
@@ -54,8 +54,8 @@
                 function searchVideos() {                    
                     VideoService.search(vm.search, vm.paging)
                     .then(function (data) {
-                        vm.search.results = data.Result;
-                        vm.paging.totalItems = data.TotalItems;
+                        vm.search.results = data.result;
+                        vm.paging.totalItems = data.totalItems;
                     });
                 }
             }],
