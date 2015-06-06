@@ -37,5 +37,15 @@
             }
         };  
     });
-
+    
+    angular.module('esqtv.common').directive('entButtonDelete', function() {
+        return {
+            restrict: 'E',
+            scope: {
+                action: "&",
+                buttontext: "@",
+            },
+            template: '<md-button class="md-primary md-raised" ng-click="action()" flex flex-md="100">{{buttontext}}</md-button>'
+        };
+    });
 })();
