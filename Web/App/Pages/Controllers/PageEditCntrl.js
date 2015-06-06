@@ -3,9 +3,9 @@
 
 'use strict';
 
-angular.module('esqtv.pages').controller("PageEditCntrl", ['$route', '$scope', '$sce', '$http', '$q', '$mdDialog', '$routeParams', '$window', '$location', 'page', 'KeywordService', 'pageComponent', 'PageService', 'NotifierService', pageEditCntrl]);
+angular.module('esqtv.pages').controller("PageEditCntrl", ['$route', '$scope', '$sce', '$http', '$q', '$mdDialog', '$routeParams', '$window', '$location', 'page', 'KeywordService', 'pageComponent', 'PageService', 'NotifierService', 'DialogService', pageEditCntrl]);
 
-function pageEditCntrl($route, $scope, $sce, $http, $q, $mdDialog, $routeParams, $window, $location, page, KeywordService, pageComponent, PageService, NotifierService) {
+function pageEditCntrl($route, $scope, $sce, $http, $q, $mdDialog, $routeParams, $window, $location, page, KeywordService, pageComponent, PageService, NotifierService, DialogService) {
     var vm = this;
     vm.isEdit = ($window.location.href.indexOf('edit') > 0);
     // Page related items
@@ -18,6 +18,7 @@ function pageEditCntrl($route, $scope, $sce, $http, $q, $mdDialog, $routeParams,
     vm.searchKeywordText = '';
     vm.searchKeywords = searchKeywords;
     vm.save = save;
+    vm.deleteRecord = deleteRecord;
     vm.publish = publish;
     vm.sort = sort;
     vm.remove = remove;
@@ -167,6 +168,14 @@ function pageEditCntrl($route, $scope, $sce, $http, $q, $mdDialog, $routeParams,
                 console.log(err);
             });
         }
+    }
+
+    function deleteRecord(ev) {
+        DialogService.confirmDelete(ev, "OK", "CANCEL", alertDelete);
+    }
+    
+    function alertDelete() {
+        alert('delete record TODO hook up service');
     }
 
     function save() {
