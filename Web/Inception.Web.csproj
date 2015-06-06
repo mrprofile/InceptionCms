@@ -193,6 +193,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Content Include="App\Common\App.js" />
     <Content Include="App\Common\Config.js" />
+    <Content Include="App\Common\Controllers\MdToast.Controller.js" />
     <Content Include="App\Common\Controllers\TopNav.Controller.js" />
     <Content Include="App\Common\Controllers\SideNav.Controller.js" />
     <Content Include="App\Common\Directives\Galleries.js" />

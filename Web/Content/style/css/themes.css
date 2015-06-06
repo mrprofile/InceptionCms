@@ -12,6 +12,26 @@
     width: auto;
 }
 
+.md-toast.error {
+    background-color: red;
+}
+
+.md-toast.info {
+    background-color: red;
+}
+
+.md-toast.error {
+    background-color: red;
+}
+
+.md-toast.success {
+    background-color: green;
+}
+
+.md-toast.warn {
+    background-color: blue;
+}
+
 #spinner {
     position: fixed;
     z-index: 999;

@@ -17,34 +17,34 @@
         return notifier;
 
         function notifyWarning(message) {
-            notifyMessage(message);
+            notifyMessage('error', message);
         }
 
         function notifySuccess(message) {
-            notifyMessage(message);
+            notifyMessage('success', message);
         }
 
         function notifyInfo(message) {
-            notifyMessage(message);
+            notifyMessage('info', message);
         }
 
         function notifyDanger(message) {
-            notifyMessage(message);
+            notifyMessage('error', message);
         }
 
         function notifyWait(message) {
-            notifyMessage(message);
+            notifyMessage('wait', message);
         }
 
-        function notifyMessage(message) {
-
-            $mdToast.show(
-                $mdToast.simple()
-                    .content(message)
-                    .action('ok')
-                    .highlightAction(true)
-                    .position('top right')
-                    .hideDelay(3500));
+        function notifyMessage(type, message) {
+            var config =
+            {
+                controller: 'MdToastController',
+                template: '<md-toast class="md-toast ' + type + '"><span flex>' + message + '</span><md-button ng-click="closeToast()">Ok</md-button></md-toast>',
+                hideDelay: 6000,
+                position: 'top right'
+            };
+            $mdToast.show(config);
         }
     }
 })();
