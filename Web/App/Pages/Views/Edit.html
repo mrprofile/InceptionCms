@@ -32,7 +32,7 @@
                 </md-select>                
                 <keyword-autocomplete data-ng-model="vm.keywords"></keyword-autocomplete>
                 <div class="md-actions" layout="row" layout-align="end center">
-                    <ent-button-delete buttontext="DELETE" object-type="page" object-id="{{vm.page.id}}"><md-button class="md-warn md-raised">Delete</md-button></ent-button-delete>
+                    <ent-button-delete url-redirect="/pages" buttontext="DELETE" object-type="page" object-id="{{vm.page.id}}"><md-button class="md-warn md-raised">Delete</md-button></ent-button-delete>
                     <span flex></span>
                     <md-button data-ng-click="vm.save()">Save</md-button>
                     <md-button data-ng-click="vm.publish()" class="md-hue-2">Publish</md-button>

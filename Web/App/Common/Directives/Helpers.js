@@ -44,9 +44,10 @@
             scope: {                                
                 confirm: "&",
                 objectType: "@",
-                objectId: "@"
+                objectId: "@",
+                urlRedirect: "@"
             },
-            controller: ['$scope', '$mdDialog', 'esqtvDeleteService', 'NotifierService', function ($scope, $mdDialog, esqtvDeleteService, notifierService) {
+            controller: ['$scope', '$mdDialog', '$location', 'esqtvDeleteService', 'NotifierService', function ($scope, $mdDialog, $location, esqtvDeleteService, notifierService) {
 
                 var confirm = $mdDialog.confirm()
                 .parent(angular.element(document.body))
@@ -63,6 +64,10 @@
                             if ($scope.confirm !== 'undefined' && $scope.confirm != null) {
                                 $scope.confirm();
                                 notifierService.notifySuccess("Record Deleted!");
+                                
+                                if ($scope.urlRedirect !== 'undefined' && $scope.urlRedirect != null) {
+                                    $location.url($scope.urlRedirect);
+                                }
                             }
                         });
                     }, function() {
