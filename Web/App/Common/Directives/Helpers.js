@@ -43,11 +43,11 @@
             restrict: 'E',
             scope: {                                
                 confirm: "&",
-                //cancel: "&",
                 objectType: "@",
-                objectId: "@"
+                objectId: "@",
+                urlRedirect: "@"
             },
-            controller:['$scope', '$mdDialog', 'esqtvDeleteService', function ($scope, $mdDialog, esqtvDeleteService) {
+            controller: ['$scope', '$mdDialog', '$location', 'esqtvDeleteService', 'NotifierService', function ($scope, $mdDialog, $location, esqtvDeleteService, notifierService) {
 
                 var confirm = $mdDialog.confirm()
                 .parent(angular.element(document.body))
@@ -56,28 +56,27 @@
                 .ariaLabel('Lucky day')
                 .ok("Ok")
                 .cancel("Cancel");
-                //.targetEvent(ev);
 
-                $scope.action = function () {
-                    $mdDialog.show(confirm).then(function () {
+                $scope.action = function() {
+                    $mdDialog.show(confirm).then(function() {
 
-                        esqtvDeleteService[$scope.objectType]($scope.objectId).then(function () {                            
+                        esqtvDeleteService[$scope.objectType]($scope.objectId).then(function() {
                             if ($scope.confirm !== 'undefined' && $scope.confirm != null) {
                                 $scope.confirm();
+                                notifierService.notifySuccess("Record Deleted!");
+                                
+                                if ($scope.urlRedirect !== 'undefined' && $scope.urlRedirect != null) {
+                                    $location.url($scope.urlRedirect);
+                                }
                             }
                         });
-                    }, function () {                      
+                    }, function() {
                     });
-                }
-
-
+                };
             }],
-            link: function(scope, elem, attrs) {
-                
+            link: function(scope, elem) {
                 elem.bind('click', scope.action);
-
             }
-            //template: '<md-button class="md-accent md-warn" ng-click="action()">Delete</md-button>'
         };
     });
 })();
