@@ -200,12 +200,14 @@
     <Content Include="App\Common\Directives\Helpers.js" />
     <Content Include="App\Common\Directives\Images.js" />
     <Content Include="App\Common\Directives\Keywords.js" />
+    <Content Include="App\Common\Directives\mdTable.js" />
     <Content Include="App\Common\Directives\Spinner.js" />
     <Content Include="App\Common\Directives\Videos.js" />
     <Content Include="App\Common\Interceptors\SessionTokenInterceptor.js" />
     <Content Include="App\Common\Interceptors\RequestCountInterceptor.js" />
     <Content Include="App\Common\Services\Alerts.js" />
     <Content Include="App\Common\Services\Dialog.js" />
+    <Content Include="App\Common\Services\Helpers.js" />
     <Content Include="App\Common\Services\Notifier.js" />
     <Content Include="App\Common\Services\Images.js" />
     <Content Include="App\Common\Services\Pages.js" />
@@ -216,6 +218,7 @@
     <Content Include="App\Common\Views\GallerySearch.html" />
     <Content Include="App\Common\Views\ImageSearch.html" />
     <Content Include="App\Common\Views\KeywordSearch.html" />
+    <Content Include="App\Common\Views\mdTable.html" />
     <Content Include="App\Common\Views\VideoSearch.html" />
     <Content Include="App\Gallery\Config.js" />
     <Content Include="App\Gallery\App.js" />
@@ -254,6 +257,7 @@
     <Content Include="Content\js\angular\index.js" />
     <Content Include="Content\js\jquery.js" />
     <Content Include="Content\style\css\login.css" />
+    <Content Include="Content\style\css\mdTable.css" />
     <Content Include="Content\style\css\svg-sprite-content.css" />
     <Content Include="Content\style\css\svg-sprite-content.svg" />
     <Content Include="Content\style\css\themes.css" />

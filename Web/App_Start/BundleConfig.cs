@@ -56,9 +56,9 @@ namespace Inception.Web.App_Start
             bundles.Add(new Bundle("~/bundles/esqtv-common").Include(
                 "~/App/Common/App.js",
                 "~/App/Common/Config.js",
-                "~/App/Common/Interceptors/*.js",
-                "~/App/Common/Directives/*.js",
+                "~/App/Common/Interceptors/*.js",                
                 "~/App/Common/Services/*.js",
+                "~/App/Common/Directives/*.js",
                 "~/App/Common/Controllers/*.js"));
 
 

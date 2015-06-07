@@ -6,6 +6,22 @@ angular.module('esqtv.pages').controller("PageIndexCntrl", ['$scope', '$sce', '$
 
 function pageIndexCntrl($scope, $sce, $http, $q, $routeParams, $window, $location, pageService) {    
     var vm = this;
+
+    vm.headers = [
+    {
+        name:'',
+        field:'thumb'
+    },{
+        name: 'Name', 
+        field: 'name'
+    },{
+        name:'Description', 
+        field: 'description'
+    },{
+        name: 'Last Modified', 
+        field: 'last_modified'
+    }
+    ];
     vm.selectItem = selectItem;
     vm.search = {
         query: '',
@@ -32,8 +48,8 @@ function pageIndexCntrl($scope, $sce, $http, $q, $routeParams, $window, $locatio
         searchPages();
     }
 
-    vm.searchPages = function() {
-        vm.paging.currentPage = 1;
+    vm.searchPages = function (page) {        
+        vm.paging.currentPage = page ? page : 1;
         searchPages();
     };
     

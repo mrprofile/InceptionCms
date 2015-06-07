@@ -37,15 +37,47 @@
             }
         };  
     });
-    
+
     angular.module('esqtv.common').directive('entButtonDelete', function() {
         return {
             restrict: 'E',
-            scope: {
-                action: "&",
-                buttontext: "@",
+            scope: {                                
+                confirm: "&",
+                //cancel: "&",
+                objectType: "@",
+                objectId: "@"
             },
-            template: '<md-button class="md-primary md-raised" ng-click="action()" flex flex-md="100">{{buttontext}}</md-button>'
+            controller:['$scope', '$mdDialog', 'esqtvDeleteService', function ($scope, $mdDialog, esqtvDeleteService) {
+
+                var confirm = $mdDialog.confirm()
+                .parent(angular.element(document.body))
+                .title('Are you sure you want to delete this record?')
+                .content('This record will be permanently removed from the system.')
+                .ariaLabel('Lucky day')
+                .ok("Ok")
+                .cancel("Cancel");
+                //.targetEvent(ev);
+
+                $scope.action = function () {
+                    $mdDialog.show(confirm).then(function () {
+
+                        esqtvDeleteService[$scope.objectType]($scope.objectId).then(function () {                            
+                            if ($scope.confirm !== 'undefined' && $scope.confirm != null) {
+                                $scope.confirm();
+                            }
+                        });
+                    }, function () {                      
+                    });
+                }
+
+
+            }],
+            link: function(scope, elem, attrs) {
+                
+                elem.bind('click', scope.action);
+
+            }
+            //template: '<md-button class="md-accent md-warn" ng-click="action()">Delete</md-button>'
         };
     });
 })();

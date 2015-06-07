@@ -26,6 +26,18 @@ function pageEditCntrl($route, $scope, $sce, $http, $q, $mdDialog, $routeParams,
     vm.addComponent = addComponent;
     vm.setDate = setDate;
 
+    vm.confirmDelete = function (id) {
+
+        console.log("deleted!" + id);
+
+    }
+
+    vm.cancelDelete = function () {
+
+        console.log("cancelled!");
+
+    }
+
     activate();
 
     vm.components = ['heading', 'text', 'image', 'gallery', 'video', 'videoList', 'embed'];
@@ -171,7 +183,9 @@ function pageEditCntrl($route, $scope, $sce, $http, $q, $mdDialog, $routeParams,
     }
 
     function deleteRecord(ev) {
-        DialogService.confirmDelete(ev, "OK", "CANCEL", alertDelete);
+        //DialogService.confirmDelete(ev, "OK", "CANCEL", alertDelete).then(function() {
+            
+        //}, function() {});
     }
     
     function alertDelete() {
