@@ -62,5 +62,11 @@
                 });
         };
 
+        function transformVideos(data, headersGetter, status) {
+            console.log(data);
+
+            return data;
+        };
+
     });
 })();

@@ -83,13 +83,13 @@
                 $scope.thumbnailUrl = thumbnailUrl;
                 $scope.title = title;
                 VideoService.searchKeyword({ query: $scope.keywordId.keywords }, { itemsPerPage: parseInt($scope.itemCount, 10), currentPage: 0 }).then(function (data) {
-                    $scope.videosList = data.Result;
+                    $scope.videosList = data.result;
                 });
 
                 $scope.$watch('itemCount', function (newValue, oldValue) {
                     if (oldValue != newValue) {
                         VideoService.searchKeyword({ query: $scope.keywordId.keywords }, { itemsPerPage: parseInt(newValue, 10), currentPage: 0 }).then(function (data) {
-                            $scope.videosList = data.Result;
+                            $scope.videosList = data.result;
                         });
                     }
                 })
@@ -97,7 +97,7 @@
                 $scope.$watch('keywordId.keywords', function (newValue, oldValue) {
                     if (oldValue != newValue) {
                         VideoService.searchKeyword({ query: newValue }, { itemsPerPage: parseInt($scope.itemCount, 10), currentPage: 0 }).then(function (data) {
-                            $scope.videosList = data.Result;
+                            $scope.videosList = data.result;
                         });
                     }
                 })

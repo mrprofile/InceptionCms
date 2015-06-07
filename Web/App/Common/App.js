@@ -18,9 +18,9 @@
         $templateCache.put("template/esqtv/videos/related.html",
         '<md-grid-list md-cols-sm="1" md-cols-md="2" md-cols-gt-md="4" md-row-height-gt-md="1:1" md-row-height="2:2" md-gutter="12px" md-gutter-gt-sm="8px">\n' + 
           '<md-grid-tile data-ng-repeat="video in videosList">\n' +
-            '<img class="img-responsive" data-ng-src="{{thumbnailUrl(video.ThumbnailUrl)}}" alt="{{title(video.Name)}}" />\n' +
+            '<img class="img-responsive" data-ng-src="{{thumbnailUrl(video.thumbnailUrl)}}" alt="{{title(video.name)}}" />\n' +
            '<md-grid-tile-footer>\n' +
-               '<h3>{{title(video.Name)}}</h3>\n' +
+               '<h3>{{title(video.name)}}</h3>\n' +
            '</md-grid-tile-footer>\n' +
        '</md-grid-tile>\n' + '</md-grid-list>');
     }]);
@@ -71,7 +71,7 @@
     angular.module('esqtv.common', ['esqtv.tpls', 'ngRoute', 'ngCookies', 'ui.bootstrap', 'ngAnimate', 'toaster', 'ngMaterial', 'ui.select', 'ui.sortable', 'ng-mfb', 'ui.bootstrap.datetimepicker'])
     .config(function ($mdThemingProvider) {
         $mdThemingProvider.theme('default')
-          .primaryPalette('indigo')
+          .primaryPalette('blue')
           .accentPalette('grey');
     })
     .config(function ($mdIconProvider){
