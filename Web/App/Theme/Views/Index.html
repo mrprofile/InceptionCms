@@ -1,0 +1,32 @@
+﻿<div layout="row" layout-align="center center">
+
+    <md-content flex="66" flex-sm="100">
+        <ent-search-box buttontext="Search" labeltext="Theme Search" query="vm.ss.search.query" search="vm.searchThemes()"></ent-search-box>
+        <md-content class="md-whiteframe-z1">
+            <div class="table-responsive-vertical shadow-z-1">
+                <!-- Table starts here -->
+                <table id="table" class="table table-hover table-mc-light-blue">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Name</th>
+                            <th>Keyword</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr data-ng-repeat="item in vm.ss.search.results">
+                            <td data-title="Edit"><md-button class="md-font-icon" ng-click="vm.selectItem(item)"><md-icon md-font-icon="ion-android-create" aria-label="Edit {{item.title}}" title="Edit {{item.title}}"></md-icon></md-button></td>
+                            <td data-title="{{item.title}}">{{item.title}}</td>
+                            <td data-title="Keyword">{{item.keyword.Name}}</td>
+                            <td data-title="Delete"><ent-button-delete object-type="page" object-id="{{item.id}}" confirm="vm.searchPages(vm.paging.currentPage)"><md-button class="md-font-icon" href><md-icon md-font-icon="ion-android-delete"></md-icon></md-button></ent-button-delete></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </md-content>
+        <md-content layout="row" layout-align="center center">
+            <pagination total-items="vm.ss.paging.totalItems" data-ng-model="vm.ss.paging.currentPage" data-ng-change="vm.ss.paging.onSelectPage(page)" class="pagination-sm" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;" max-size="vm.ss.paging.numPages"></pagination>
+        </md-content>
+    </md-content>
+</div>
