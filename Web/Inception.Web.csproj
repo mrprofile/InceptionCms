@@ -206,6 +206,7 @@
     <Content Include="App\Common\Interceptors\SessionTokenInterceptor.js" />
     <Content Include="App\Common\Interceptors\RequestCountInterceptor.js" />
     <Content Include="App\Common\Services\Alerts.js" />
+    <Content Include="App\Common\Services\Search.js" />
     <Content Include="App\Common\Services\Dialog.js" />
     <Content Include="App\Common\Services\Helpers.js" />
     <Content Include="App\Common\Services\Notifier.js" />

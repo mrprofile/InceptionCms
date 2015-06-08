@@ -3,34 +3,15 @@
     angular.module('esqtv.common').directive('videoSearch', ['esqtvSettings', function (esqtvSettings) {
         return {
             restrict: 'E',
-            controller: ['$scope', 'VideoService', function ($scope, VideoService) {                
+            controller: ['$scope', 'VideoService', 'SearchService', function ($scope, VideoService, searchService) {
                 var vm = this;
+                vm.searchService = searchService;
+                vm.searchService.paging.onSelectPage = searchVideos;
                 vm.selectItem = selectItem;
-                vm.search = {
-                    query: '',
-                    results: [],
-                    clear: function () {
-                        this.query = '';
-                    }
-                };
-
-                vm.paging = {
-                    numPages: 10,
-                    totalItems: 0,
-                    currentPage: 1,
-                    itemsPerPage: vm.itemsPerPage ? vm.itemsPerPage : 12,
-                    onSelectPage: function () {
-
-                        searchVideos();
-                        //this.currentPage = page;
-                        //searchVideos();
-                    }
-                };
-
-                vm.searchVideos = function () {
-                    vm.paging.currentPage = 1;
+                vm.searchVideos = function() {
+                    vm.searchService.paging.currentPage = 1;
                     searchVideos();
-                }
+                };
                 vm.title = "Videos";
                 vm.imgUrl = function (slug) {
                     return "http://tv.esquire.com/images/" + slug + "?w=124";
@@ -42,20 +23,17 @@
                 };
 
                 function selectItem(itm) {
-                    
-                    
                     itm.id = itm.Video_Key ? itm.Video_Key : itm.objectKey;
                     itm.embedUrl = itm.valuesDict.videoEmbed[0];
-                    //itm.source = "esquireTv";
                     vm.selectedVideo = itm;
                     $scope.$emit('esqtv:common:video:select', itm);
                 }
 
-                function searchVideos() {                    
-                    VideoService.search(vm.search, vm.paging)
+                function searchVideos() {
+                    VideoService.search(vm.searchService.search, vm.searchService.paging)
                     .then(function (data) {
-                        vm.search.results = data.result;
-                        vm.paging.totalItems = data.totalItems;
+                        vm.searchService.search.results = data.result;
+                        vm.searchService.paging.totalItems = data.totalItems;
                     });
                 }
             }],
