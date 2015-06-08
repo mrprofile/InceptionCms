@@ -65,7 +65,8 @@
                 $scope.videosList = [];
                 $scope.thumbnailUrl = thumbnailUrl;
                 $scope.title = title;
-                VideoService.searchKeyword({ query: $scope.keywordId.keywords }, { itemsPerPage: parseInt(newValue, 10), currentPage: 0 }, searchKeywordCompleted, searchKeywordError);
+                
+                VideoService.searchKeyword({ query: $scope.keywordId.keywords }, { itemsPerPage: parseInt($scope.itemCount, 10), currentPage: 0 }, searchKeywordCompleted, searchKeywordError);
 
                 $scope.$watch('itemCount', function (newValue, oldValue) {
                     if (oldValue != newValue) {
@@ -75,11 +76,12 @@
 
                 $scope.$watch('keywordId.keywords', function (newValue, oldValue) {
                     if (oldValue != newValue) {
-                        VideoService.searchKeyword({ query: $scope.keywordId.keywords }, { itemsPerPage: parseInt(newValue, 10), currentPage: 0 }, searchKeywordCompleted, searchKeywordError);
+                        VideoService.searchKeyword({ query: $scope.keywordId.keywords }, { itemsPerPage: parseInt($scope.itemCount, 10), currentPage: 0 }, searchKeywordCompleted, searchKeywordError);
                     }
                 })
 
                 function searchKeywordCompleted(response) {
+                    console.log(response);
                     $scope.videosList = response.result;
                 }
                 
