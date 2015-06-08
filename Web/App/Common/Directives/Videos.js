@@ -30,11 +30,16 @@
                 }
 
                 function searchVideos() {
-                    VideoService.search(vm.searchService.search, vm.searchService.paging)
-                    .then(function (data) {
-                        vm.searchService.search.results = data.result;
-                        vm.searchService.paging.totalItems = data.totalItems;
-                    });
+                    VideoService.search(vm.searchService.search, vm.searchService.paging, searchVideosCompleted, searchVideosError);
+                }
+
+                function searchVideosCompleted(response) {
+                    vm.searchService.search.results = response.result;
+                    vm.searchService.paging.totalItems = response.totalItems;
+                }
+                
+                function searchVideosError(response) {
+                   //TODO: Call Notify Service
                 }
             }],
             controllerAs: 'vm',
@@ -60,27 +65,27 @@
                 $scope.videosList = [];
                 $scope.thumbnailUrl = thumbnailUrl;
                 $scope.title = title;
-                VideoService.searchKeyword({ query: $scope.keywordId.keywords }, { itemsPerPage: parseInt($scope.itemCount, 10), currentPage: 0 }).then(function (data) {
-                    $scope.videosList = data.result;
-                });
+                VideoService.searchKeyword({ query: $scope.keywordId.keywords }, { itemsPerPage: parseInt(newValue, 10), currentPage: 0 }, searchKeywordCompleted, searchKeywordError);
 
                 $scope.$watch('itemCount', function (newValue, oldValue) {
                     if (oldValue != newValue) {
-                        VideoService.searchKeyword({ query: $scope.keywordId.keywords }, { itemsPerPage: parseInt(newValue, 10), currentPage: 0 }).then(function (data) {
-                            $scope.videosList = data.result;
-                        });
+                        VideoService.searchKeyword({ query: $scope.keywordId.keywords }, { itemsPerPage: parseInt(newValue, 10), currentPage: 0 }, searchKeywordCompleted, searchKeywordError);
                     }
                 })
 
                 $scope.$watch('keywordId.keywords', function (newValue, oldValue) {
                     if (oldValue != newValue) {
-                        VideoService.searchKeyword({ query: newValue }, { itemsPerPage: parseInt($scope.itemCount, 10), currentPage: 0 }).then(function (data) {
-                            $scope.videosList = data.result;
-                        });
+                        VideoService.searchKeyword({ query: $scope.keywordId.keywords }, { itemsPerPage: parseInt(newValue, 10), currentPage: 0 }, searchKeywordCompleted, searchKeywordError);
                     }
                 })
 
-
+                function searchKeywordCompleted(response) {
+                    $scope.videosList = response.result;
+                }
+                
+                function searchKeywordError(response) {
+                    //TODO: Display TO USER
+                }
 
                 function title(videoTitle) {
                     return videoTitle;
@@ -112,8 +117,6 @@
             templateUrl: "template/esqtv/videos/preview.html",
             link: function (scope, el, attr) {
                 console.log(scope.video);
-
-                
             }
         }
     }]);

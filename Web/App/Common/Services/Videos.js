@@ -1,6 +1,6 @@
 ﻿(function () {
     'use strict';    
-    angular.module('esqtv.common').service('VideoService', function ($http, esqtvSettings) {
+    angular.module('esqtv.common').service('VideoService', ['$http', 'esqtvSettings', 'AjaxService', function ($http, esqtvSettings, ajaxService) {
 
         var service = {
             getVideo: getVideo,
@@ -21,7 +21,7 @@
                 });
         }
 
-        function search(search, paging) {
+        function search(search, paging, successFunction, errorFunction) {
 
             var searchQuery = '';
             searchQuery += '&limit=' + paging.itemsPerPage + '&offset=' + paging.currentPage;
@@ -30,17 +30,10 @@
                 searchQuery += '&query=' + search.query;
             }
 
-            return $http.get(esqtvSettings.api + 'v1/video/search?format=json' + encodeURI(searchQuery))
-                 .then(function (data) {
-                     if (data.status === 200) {
-                         return data.data;
-                     }
+            ajaxService.ajaxGet(esqtvSettings.api + 'v1/video/search?format=json' + encodeURI(searchQuery), successFunction, errorFunction);
+        }
 
-                     return [];
-                 });
-        };
-
-        function searchKeyword(search, paging) {
+        function searchKeyword(search, paging, successFunction, errorFunction) {
             if (search.query == '') {
                 return;
             }
@@ -51,22 +44,8 @@
             if (search.query != '') {
                 searchQuery += '&query=' + search.query;
             }
-
-            return $http.get(esqtvSettings.api + 'video/related/keyword?format=json' + encodeURI(searchQuery))
-                .then(function (data) {
-                    if (data.status === 200) {
-                        return data.data;
-                    }
-
-                    return [];
-                });
-        };
-
-        function transformVideos(data, headersGetter, status) {
-            console.log(data);
-
-            return data;
-        };
-
-    });
+            
+            ajaxService.ajaxGet(esqtvSettings.api + 'video/related/keyword?format=json' + encodeURI(searchQuery), successFunction, errorFunction);
+        }
+    }]);
 })();
