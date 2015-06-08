@@ -16,66 +16,6 @@ namespace Inception.Web.Controllers
             return View(viewModel);
         }
 
-        [HttpGet]
-        [Authorize]
-        public ActionResult Videos()
-        {
-            var viewModel = new Models.Video.Index
-            {
-                Title = "Home Page of Inception",
-            };
-
-            return View(viewModel);
-        }
-
-        [HttpGet]
-        [Authorize]
-        public ActionResult Galleries()
-        {
-            var viewModel = new Models.Video.Index
-            {
-                Title = "Home Page of Inception",
-            };
-
-            return View(viewModel);
-        }
-
-        [HttpGet]
-        [Authorize]
-        public ActionResult Sliders()
-        {
-            var viewModel = new Models.Slider.Index()
-            {
-                Title = "Home Page of Inception"
-            };
-
-            return View(viewModel);
-        }
-
-        [HttpGet]
-        [Authorize]
-        public ActionResult Pages()
-        {
-            var viewModel = new Models.Page.Index()
-            {
-                Title = "Home Page of Inception"
-            };
-
-            return View(viewModel);
-        }
-
-        [HttpGet]
-        [Authorize]
-        public ActionResult Themes()
-        {
-            var viewModel = new Models.Theme.Index
-            {
-                Title = "Theme Page of Inception"
-            };
-
-            return View(viewModel);
-        }
-
         [AllowAnonymous]
         [HttpGet]
         public ActionResult Login(string returnUrl)
