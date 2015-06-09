@@ -1,9 +1,9 @@
 ﻿(function() {
     'use strict';
 
-    angular.module('esqtv.theme').controller("ThemeIndexCntrl", ['SearchService', 'ThemeService', themeCntrl]);
+    angular.module('esqtv.theme').controller("ThemeIndexCntrl", ['SearchService', 'ThemeService', 'NotifierService', themeCntrl]);
     
-    function themeCntrl(searchService, themeService) {
+    function themeCntrl(searchService, themeService, notifierService) {
         var vm = this;
 
         vm.ss = searchService;
@@ -25,13 +25,12 @@
         }
 
         function searchThemesCompleted(response) {
-            console.log(response);
             vm.ss.search.results = response.result;
             vm.ss.paging.totalItems = response.totalItems;
         }
 
-        function searchThemesError(response) {
-            //TODO: Call Notify Service
+        function searchThemesError() {
+            notifierService.notifyDanger("Something went wrong with the search!");
         }
         
         function selectedItem(item) {

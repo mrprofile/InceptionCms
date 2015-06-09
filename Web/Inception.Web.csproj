@@ -249,10 +249,6 @@
     <Content Include="App\Theme\Config.js" />
     <Content Include="App\Theme\Controllers\VideoEditCntrl.js" />
     <Content Include="App\Theme\Controllers\ThemeIndexCntrl.js" />
-    <Content Include="App\Theme\Views\Create.html" />
-    <Content Include="App\Theme\Views\Detail.html" />
-    <Content Include="App\Theme\Views\Edit.html" />
-    <Content Include="App\Theme\Views\EditToolbar.html" />
     <Content Include="App\Theme\Views\Index.html" />
     <Content Include="App\Video\Config.js" />
     <Content Include="App\Video\App.js" />
