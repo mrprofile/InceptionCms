@@ -213,6 +213,7 @@
     <Content Include="App\Common\Services\Pages.js" />
     <Content Include="App\Common\Services\Galleries.js" />
     <Content Include="App\Common\Services\Keywords.js" />
+    <Content Include="App\Common\Services\Sliders.js" />
     <Content Include="App\Common\Services\Videos.js" />
     <Content Include="App\Common\Services\VirtualDirectories.js" />
     <Content Include="App\Common\Views\GallerySearch.html" />
@@ -242,6 +243,12 @@
     <Content Include="App\Pages\Views\Edit.html" />
     <Content Include="App\Pages\Views\EditToolbar.html" />
     <Content Include="App\Pages\Views\Index.html" />
+    <Content Include="App\Slider\App.js" />
+    <Content Include="App\Slider\Config.js" />
+    <Content Include="App\Slider\Controllers\SliderEditCntrl.js" />
+    <Content Include="App\Slider\Controllers\SliderIndexCntrl.js" />
+    <Content Include="App\Slider\Views\Edit.html" />
+    <Content Include="App\Slider\Views\Index.html" />
     <Content Include="App\Video\Config.js" />
     <Content Include="App\Video\App.js" />
     <Content Include="App\Video\Controllers\VideoEditCntrl.js" />
@@ -273,7 +280,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App\Article\" />
-    <Folder Include="App\Slider\" />
     <Folder Include="App\Theme\" />
     <Folder Include="App_Data\" />
     <Folder Include="Content\img\" />

@@ -79,4 +79,83 @@
             }
         };
     });
+
+    // Iterates through each of the object's properties and displays them using un-ordered list.
+    angular.module('esqtv.common').directive('esqtvDisplayObject', function () {
+        return {
+            restrict: 'EAC',
+            scope: {
+                model: "=",                
+            },
+            link: function(scope, element, attr) {
+
+                scope.props = [];
+
+                for (var key in scope.model) {
+                    scope.props.push({"key": key, "value" : scope.model[key]})
+                }
+
+            },
+            template: '<md-list>' +
+                '<md-list-item data-ng-repeat="prop in props">' +
+                '<p>{{prop.key}} : {{prop.value}}</p>' +
+                '</md-list-item>' +
+                '</md-list>'                      
+        };
+    });
+
+    angular.module("esqtv.common").directive('esqtvDateTimePickerModal', function () {
+        return {
+            restrict: 'EAC',
+            scope: {
+                model: "=",
+                propertyName: "@"
+            },
+            link: function(scope, elem, attr) {
+                elem.bind('click', scope.showDialog);
+            },
+            //template: '<md-button ng-click="showDialog()">Set Date</md-button>',
+            controller: ['$scope', '$mdDialog', function($scope, $mdDialog) {
+                var parentEl = angular.element(document.body);
+                var dialogConfig = {
+                    clickOutsideToClose: true,
+                    scope: $scope,
+                    preserveScope: true,
+                    parent: parentEl,
+                    template:
+                        '<md-dialog aria-label="Set Date/Time">' +
+                        '  <md-dialog-content>' +
+                        '   <md-subheader class="md-primary">Set Date</md-subheader>' +
+                        '<datetimepicker data-ng-model="dateTime" data-on-set-time="onTimeSet(newDate, oldDate)" ></datetimepicker>' +
+                       '  </md-dialog-content>' +
+                       '  <div class="md-actions">' +
+                       '    <md-button ng-click="closeDialog()" class="md-primary">' +
+                       '      Done' +
+                       '    </md-button>' +
+                       '  </div>' +
+                       '</md-dialog>',
+                    controller: dialogController,
+                    locals: {
+                        propertyName: $scope.propertyName,                        
+                    }
+                }
+
+                $scope.showDialog = function () {
+                    $mdDialog.show(dialogConfig);
+                };
+
+                function dialogController(scope, $mdDialog, propertyName) {
+
+                    scope.dateTime = $scope.model;
+                    scope.onTimeSet = function (newValue, oldValue) {
+                        console.log(newValue);
+                        $scope.model = newValue;
+                    }
+                    scope.closeDialog = function () {
+                        $mdDialog.hide();
+                    }
+                }
+            }]
+        }
+    });
 })();

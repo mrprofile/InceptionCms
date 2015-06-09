@@ -1,0 +1,59 @@
+﻿<section layout="column" layout-gt-md="row">
+    <md-content flex layout="row" layout-align="center start">
+        <img ng-src="{{vm.slide.BackgroundUrl}}" />
+        <esqtv-display-object model="vm.slide"></esqtv-display-object>
+    </md-content>
+    <md-content flex="25" flex-sm="1">        
+        <md-card>
+            <md-card-content>
+                <md-subheader class="md-primary">Slide Settings</md-subheader>
+                <md-list>
+                    <md-list-item>
+                        <md-button class="md-font-icon"><md-icon md-font-icon="ion-images" class="font-icon-sz-24"></md-icon></md-button>
+                        <p>Set Background Image</p>
+                    </md-list-item>
+                    <md-list-item>
+                        <md-button class="md-font-icon"><md-icon md-font-icon="ion-android-film" class="font-icon-sz-24"></md-icon></md-button>
+                        <p>Set Video</p>
+                    </md-list-item>
+                    <md-list-item>
+                        <md-button class="md-font-icon"><md-icon md-font-icon="ion-image" class="font-icon-sz-24"></md-icon></md-button>
+                        <p>Set SVG Image</p>
+                    </md-list-item>
+                    <md-list-item>
+                        <md-input-contianer>
+                            <label>Keywords</label>
+                            <input type="text" />
+                        </md-input-contianer>
+                    </md-list-item>
+                </md-list>
+                <div class="md-actions" layout="row" layout-align="end center">
+                    <ent-button-delete url-redirect="/sliders" buttontext="DELETE" object-type="slider" object-id="{{vm.slide.id}}"><md-button class="md-warn md-raised">Delete</md-button></ent-button-delete>
+                    <span flex></span>
+                    <md-button data-ng-click="vm.save()">Save</md-button>
+                    <md-button data-ng-click="vm.publish()" class="md-hue-2">Publish</md-button>
+
+                </div>
+            </md-card-content>
+        </md-card>
+        <md-card>
+            <md-card-content>
+                <md-subheader class="md-primary">Publish & Expiration </md-subheader>
+                <md-list>
+                    <md-list-item class="esqtv-date-time-picker-modal" model="vm.slide.PublishDate" property-name="PublishDate">
+                        <md-button class="md-font-icon" aria-label="Set Publish Date" title="Set Publish Date">
+                            <md-icon md-font-icon="ion-android-calendar" style="font-size: 24px;"></md-icon>
+                        </md-button>
+                        <p>Publish on {{vm.slide.PublishDate | date:'MMMM d yyyy, h:mm a'}}</p>
+                    </md-list-item>
+                    <md-list-item class="esqtv-date-time-picker-modal" model="vm.slide.ExpirationDate" property-name="ExpirationDate">
+                        <md-button class="md-font-icon" aria-label="Set Expiration Date" title="Set Expiration Date">
+                            <md-icon md-font-icon="ion-android-alarm-clock" style="font-size: 24px;"></md-icon>
+                        </md-button>
+                        <p>Expire on {{vm.slide.ExpirationDate | date:'MMMM d yyyy, h:mm a'}}</p>
+                    </md-list-item>
+                </md-list>
+            </md-card-content>
+        </md-card>
+    </md-content>
+</section>
