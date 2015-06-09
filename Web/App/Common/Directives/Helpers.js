@@ -129,7 +129,11 @@
                         '<datetimepicker data-ng-model="dateTime" data-on-set-time="onTimeSet(newDate, oldDate)" ></datetimepicker>' +
                        '  </md-dialog-content>' +
                        '  <div class="md-actions">' +
-                       '    <md-button ng-click="closeDialog()" class="md-primary">' +
+                       '    <md-button ng-click="setToday()" class="md-accent md-hue-1 md-raised">' +
+                       '      Today' +
+                       '    </md-button>' +
+                       '    <span flex></span>' +
+                       '    <md-button ng-click="closeDialog()" class="md-primary md-hue-2 md-raised">' +
                        '      Done' +
                        '    </md-button>' +
                        '  </div>' +
@@ -151,6 +155,11 @@
                         console.log(newValue);
                         $scope.model = newValue;
                     }
+
+                    scope.setToday = function() {
+                        scope.dateTime = $scope.model = moment().format('MMMM d YYYY, h:mm a');                        
+                    }
+
                     scope.closeDialog = function () {
                         $mdDialog.hide();
                     }

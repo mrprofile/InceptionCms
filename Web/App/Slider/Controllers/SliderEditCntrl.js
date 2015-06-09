@@ -1,7 +1,10 @@
 ﻿; (function () {
     'use strict';
-    angular.module('esqtv.slider').controller('SlideEditCntrl', ['$scope', 'slide', function ($scope, slide) {
+    angular.module('esqtv.slider').controller('SlideEditCntrl', ['$scope', 'KeywordService', 'slide', function ($scope, KeywordService, slide) {
         var vm = this;
-        vm.slide = slide;        
+        vm.keywords = [];
+        vm.slide = slide;
+
+        
     }]);
 })();
