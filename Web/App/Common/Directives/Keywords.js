@@ -67,11 +67,26 @@
 
                         });
                     }
+
+                    $scope.$watchCollection('vm.keywords', function (newVal, oldVal) {
+                        vm.ngModel = [];
+                        if (newVal.length > 0) {
+                            for (var i = 0; i < newVal.length; i++) {
+                                vm.ngModel.push(newVal[i].Id);
+                            }
+                        }
+                    });
+                    
                 }
 
+                
+
                 function selectedKeyword(item) {
-                    console.log(item);
+
                 }
+
+
+
                 function searchKeywords(keyword) {
 
                     return KeywordService.search({ 'query': keyword }, { itemsPerPage: 24, currentPage: 0 }).then(function (response) {
@@ -84,7 +99,7 @@
                 '<md-autocomplete md-min-length="2" \n'+
                 'md-delay="500" \n'+
                 'md-search-text="vm.searchKeywordText" \n'+
-                'md-item-selected-item-change="vm.selectedKeyword(item)" \n' +
+                'md-selected-item-change="vm.selectedKeyword(item)" \n' +
                 'md-items="item in vm.searchKeywords(vm.searchKeywordText)" \n'+
                 'md-item-text="item.Text" \n'+
                 'placeholder="Search for a keyword"> \n'+
