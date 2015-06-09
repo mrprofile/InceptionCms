@@ -26,7 +26,7 @@
             });
         }
         
-        function ajaxPut(data, route, successFunction, errorFunction) {
+        function ajaxPut(route, data, successFunction, errorFunction) {
             $http.put(route, data).success(function (response, status, headers, config) {
                 successFunction(response, status);
             }).error(function (response) {
@@ -34,7 +34,7 @@
             });
         }
         
-        function ajaxDelete(data, route, successFunction, errorFunction) {
+        function ajaxDelete(route, data, successFunction, errorFunction) {
             $http.delete(route, data).success(function (response, status, headers, config) {
                 successFunction(response, status);
             }).error(function (response) {

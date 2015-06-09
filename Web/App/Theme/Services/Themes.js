@@ -4,10 +4,25 @@
 
         var service = {
             getTheme: getTheme,
-            search: searchThemes
+            search: searchThemes,
+            publish: publish,
+            update: update,
+            create: create
         };
 
         return service;
+        
+        function publish(themeId, successFunction, errorFunction) {
+            ajaxService.ajaxPost(esqtvSettings.api + "v1/publish", { "Type": "themes", "Id": themeId }, successFunction, errorFunction);
+        }
+
+        function update(theme, successFunction, errorFunction) {
+            ajaxService.ajaxPut((esqtvSettings.api + 'v1/themes/' + theme.id, theme), successFunction, errorFunction);
+        }
+
+        function create(theme, successFunction, errorFunction) {
+            ajaxService.ajaxPost(esqtvSettings.api + 'v1/themes', theme, successFunction, errorFunction);
+        }
 
         function getTheme(id, successFunction, errorFunction) {
 

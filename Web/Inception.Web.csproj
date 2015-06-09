@@ -216,7 +216,6 @@
     <Content Include="App\Common\Services\Galleries.js" />
     <Content Include="App\Common\Services\Keywords.js" />
     <Content Include="App\Common\Services\Sliders.js" />
-    <Content Include="App\Common\Services\Themes.js" />
     <Content Include="App\Common\Services\Videos.js" />
     <Content Include="App\Common\Services\VirtualDirectories.js" />
     <Content Include="App\Common\Views\GallerySearch.html" />
@@ -256,6 +255,7 @@
     <Content Include="App\Theme\Config.js" />
     <Content Include="App\Theme\Controllers\VideoEditCntrl.js" />
     <Content Include="App\Theme\Controllers\ThemeIndexCntrl.js" />
+    <Content Include="App\Theme\Services\Themes.js" />
     <Content Include="App\Theme\Views\Index.html" />
     <Content Include="App\Video\Config.js" />
     <Content Include="App\Video\App.js" />
@@ -288,8 +288,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App\Article\" />
-    <Folder Include="App\Theme\" />
-    <Folder Include="App\Slider\" />
     <Folder Include="App_Data\" />
     <Folder Include="Content\img\" />
     <Folder Include="Content\style\less\" />
