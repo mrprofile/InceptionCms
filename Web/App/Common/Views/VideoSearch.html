@@ -1,13 +1,13 @@
 ﻿<md-content>
-    <ent-search-box buttontext="Search" labeltext="Videos Search" query="vm.search.query" search="vm.searchVideos()"></ent-search-box>
+    <ent-search-box buttontext="Search" labeltext="Videos Search" query="vm.searchService.search.query" search="vm.searchVideos()"></ent-search-box>
     <md-content >
         <md-card>
             <md-card-content>
-                <span style="font-size: 10px;">{{vm.paging.totalItems}} items found&nbsp;</span>
+                <span style="font-size: 10px;">{{vm.searchService.paging.totalItems}} items found&nbsp;</span>
                 <md-grid-list md-cols-sm="1" md-cols-md="2" md-cols-gt-md="6"
                               md-row-height-gt-md="1:1" md-row-height="2:2"
                               md-gutter="12px" md-gutter-gt-sm="8px">
-                    <md-grid-tile href data-ng-click="vm.selectItem(video)" data-ng-repeat="video in vm.search.results">
+                    <md-grid-tile href data-ng-click="vm.selectItem(video)" data-ng-repeat="video in vm.searchService.search.results">
                         <img class="img-responsive" data-ng-src="{{vm.imgUrl(video.thumbnailUrl)}}?w=244" alt="{{video.name}}" />
                         <md-grid-tile-footer>
                             <h3><a href>{{ video.name }}</a></h3>
@@ -17,7 +17,7 @@
             </md-card-content>
         </md-card>
         <md-content layout="row" layout-align="center center">
-            <pagination total-items="vm.paging.totalItems" data-ng-model="vm.paging.currentPage" data-ng-change="vm.paging.onSelectPage(page)" class="pagination-sm" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;" max-size="vm.paging.numPages"></pagination>
+            <pagination total-items="vm.searchService.paging.totalItems" data-ng-model="vm.searchService.paging.currentPage" data-ng-change="vm.searchService.paging.onSelectPage(page)" class="pagination-sm" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;" max-size="vm.searchService.paging.numPages"></pagination>
         </md-content>
         
     </md-content>
