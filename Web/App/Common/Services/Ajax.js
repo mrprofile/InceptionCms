@@ -7,7 +7,8 @@
             ajaxGet: ajaxGet,
             ajaxPut: ajaxPut,
             ajaxDelete: ajaxDelete,
-        };
+            ajaxCustom: ajaxCustom
+    };
 
         function ajaxPost(data, route, successFunction, errorFunction) {
             $http.post(route, data).success(function (response, status, headers, config) {
@@ -35,6 +36,14 @@
         
         function ajaxDelete(data, route, successFunction, errorFunction) {
             $http.delete(route, data).success(function (response, status, headers, config) {
+                successFunction(response, status);
+            }).error(function (response) {
+                errorFunction(response);
+            });
+        }
+        
+        function ajaxCustom(reqConfig, successFunction, errorFunction) {
+            $http(reqConfig).success(function (response, status, headers, config) {
                 successFunction(response, status);
             }).error(function (response) {
                 errorFunction(response);

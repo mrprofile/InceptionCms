@@ -23,7 +23,20 @@
                 searchQuery += '&query=' + search.query;
             }
 
-            ajaxService.ajaxGet(esqtvSettings.api + 'v1/themes?format=json' + encodeURI(searchQuery), successFunction, errorFunction);
+            var req = {                
+                method: 'GET',
+                url : esqtvSettings.api + 'v1/themes?format=json' + encodeURI(searchQuery),
+                transformResponse: function (data) {
+                    console.log(data);
+                    var themes = angular.fromJson(data);
+                    themes.result.forEach(function(theme) {
+                        theme["id"] = theme.id.replace('themes/', '');    
+                    });
+                    return themes;
+                }
+            };
+
+            ajaxService.ajaxCustom(req, successFunction, errorFunction);
         }
     }]);
 })();
