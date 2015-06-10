@@ -49,10 +49,10 @@ function pageCreateCntrl($scope, $sce, $http, $q, $mdDialog, $routeParams, $loca
                 items: vm.components,
                 templates: vm.template
             },
-            controller: DialogController
+            controller: dialogController
         });
 
-        function DialogController(scope, $mdDialog, pageComponent, items, templates) {
+        function dialogController(scope, $mdDialog, pageComponent, items, templates) {
             scope.items = items;
             scope.add = function (itm) {
                 templates.push(pageComponent.create(itm));

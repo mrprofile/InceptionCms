@@ -7,6 +7,10 @@ namespace Inception.Web.App_Start
         // For more information on Bundling, visit http://go.microsoft.com/fwlink/?LinkId=254725
         public static void RegisterBundles(BundleCollection bundles)
         {
+            #if !DEBUG
+            BundleTable.EnableOptimizations = true;
+            #endif
+
             /*BundleTable.EnableOptimizations = true;
 
             var jsBundle = new Bundle("~/bundles/js/web", new JsMinify());
@@ -62,7 +66,7 @@ namespace Inception.Web.App_Start
                 "~/App/Common/Controllers/*.js"));
 
 
-            bundles.Add(new Bundle("~/bundles/esqtv-pages").Include(
+            bundles.Add(new ScriptBundle("~/bundles/esqtv-pages").Include(
                 "~/App/Pages/App.js",
                 "~/App/Pages/Config.js",
                 "~/App/Pages/Directives/*.js",
@@ -73,7 +77,7 @@ namespace Inception.Web.App_Start
                 "~/App/Home/Config.js",
                 "~/App/Home/Controllers/*.js"));
 
-            bundles.Add(new Bundle("~/bundles/esqtv-video").Include(
+            bundles.Add(new ScriptBundle("~/bundles/esqtv-video").Include(
                 "~/App/Video/App.js",
                 "~/App/Video/Config.js",
                 "~/App/Video/Controllers/*.js"));
@@ -83,7 +87,7 @@ namespace Inception.Web.App_Start
                 "~/App/Slider/Config.js",
                 "~/App/Slider/Controllers/*.js"));
 
-            bundles.Add(new Bundle("~/bundles/esqtv-theme").Include(
+            bundles.Add(new ScriptBundle("~/bundles/esqtv-theme").Include(
                 "~/App/Theme/App.js",
                 "~/App/Theme/Config.js",
                 "~/App/Theme/Services/*.js",

@@ -3,9 +3,9 @@
 
 'use strict';
 
-angular.module('esqtv.pages').controller("PageEditCntrl", ['$route', '$scope', '$sce', '$http', '$q', '$mdDialog', '$routeParams', '$window', '$location', 'page', 'KeywordService', 'pageComponent', 'PageService', 'NotifierService', 'DialogService', pageEditCntrl]);
+angular.module('esqtv.pages').controller("PageEditCntrl", ['$route', '$scope', '$sce', '$http', '$q', '$mdDialog', '$routeParams', '$window', '$location', 'page', 'KeywordService', 'pageComponent', 'PageService', 'NotifierService', pageEditCntrl]);
 
-function pageEditCntrl($route, $scope, $sce, $http, $q, $mdDialog, $routeParams, $window, $location, page, KeywordService, pageComponent, PageService, NotifierService, DialogService) {
+function pageEditCntrl($route, $scope, $sce, $http, $q, $mdDialog, $routeParams, $window, $location, page, keywordService, pageComponent, pageService, notifierService) {
     var vm = this;
     vm.isEdit = ($window.location.href.indexOf('edit') > 0);
     // Page related items
@@ -173,9 +173,9 @@ function pageEditCntrl($route, $scope, $sce, $http, $q, $mdDialog, $routeParams,
 
     function publish() {
         if (vm.isEdit) {
-            PageService.publish(vm.page.id).then(function (data) {
+            pageService.publish(vm.page.id).then(function (data) {
                 console.log(data);
-                NotifierService.notifySuccess('Record Published!');
+                notifierService.notifySuccess('Record Published!');
             }, function (err) {
                 console.log(err);
             });
@@ -203,16 +203,16 @@ function pageEditCntrl($route, $scope, $sce, $http, $q, $mdDialog, $routeParams,
 
         console.log(JSON.stringify(vm.page));
         if (vm.isEdit) {
-            PageService.update(vm.page).then(function (result) {
-                NotifierService.notifySuccess('Record Saved!');
+            pageService.update(vm.page).then(function (result) {
+                notifierService.notifySuccess('Record Saved!');
 
             }, function (err) {
                 throw new Error(err.data.ResponseStatus.Message);
             });
         } else {
-            PageService.create(vm.page).then(function (result) {
+            pageService.create(vm.page).then(function (result) {
                 var id = result.data.id;
-                NotifierService.notifySuccess('Record Created!');
+                notifierService.notifySuccess('Record Created!');
                 $location.url('/pages/edit/' + id);
             }, function (err) {
                 console.log(err);
@@ -235,7 +235,7 @@ function pageEditCntrl($route, $scope, $sce, $http, $q, $mdDialog, $routeParams,
 
     function searchKeywords(keyword) {
 
-        return KeywordService.search({ 'query': keyword }, { itemsPerPage: 24, currentPage: 0 }).then(function (response) {
+        return keywordService.search({ 'query': keyword }, { itemsPerPage: 24, currentPage: 0 }).then(function (response) {
             return response.Result;
         });
     }
