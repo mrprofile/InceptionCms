@@ -2,9 +2,9 @@
     'use strict';
     var commonModule = angular.module('esqtv.common');
 
-    commonModule.factory('addTokenInterceptor', ['$q', '$cookies', addTokenInterceptor]);
+    commonModule.factory('addTokenInterceptor', ['$q', '$cookies', '$window', addTokenInterceptor]);
     
-    function addTokenInterceptor($q, $cookies) {
+    function addTokenInterceptor($q, $cookies, $window) {
 
         var request = {
 
@@ -13,7 +13,9 @@
                 
                 if (session != null && session !== 'undefined') 
                     config.headers['X-ESQTV-SID'] = session;
-
+                else
+                    $window.location.href = '/logoff';
+                
                 return $q.when(config);
             }
         };
