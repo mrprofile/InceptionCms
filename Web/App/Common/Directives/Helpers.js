@@ -148,7 +148,7 @@
                     $mdDialog.show(dialogConfig);
                 };
 
-                function dialogController(scope, $mdDialog, propertyName) {
+                function dialogController(scope) {
 
                     scope.dateTime = $scope.model;
                     scope.onTimeSet = function (newValue, oldValue) {

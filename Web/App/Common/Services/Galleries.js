@@ -1,6 +1,6 @@
 ﻿(function () {
     'use strict';
-    angular.module('esqtv.common').service('GalleryService', function ($http, esqtvSettings) {
+    angular.module('esqtv.common').service('GalleryService', ['$http', 'esqtvSettings', function ($http, esqtvSettings) {
 
         var service = {
             get: getGallery,
@@ -49,5 +49,5 @@
             });
         };
 
-    });
+    }]);
 })();

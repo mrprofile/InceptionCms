@@ -1,9 +1,9 @@
 ﻿(function () {
     'use strict';
 
-    angular.module('esqtv.common').controller("SideNavController", ['$scope', '$location', '$window', '$mdSidenav', SideNavController]);
+    angular.module('esqtv.common').controller("SideNavController", ['$scope', '$location', '$window', '$mdSidenav', sideNavController]);
 
-    function SideNavController($scope, $location, $window, $mdSidenav) {
+    function sideNavController($scope, $location, $window, $mdSidenav) {
         var vm = this;
         
         vm.links = [

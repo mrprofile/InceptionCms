@@ -57,7 +57,7 @@ namespace Inception.Web.App_Start
                 ));
 
 
-            bundles.Add(new Bundle("~/bundles/esqtv-common").Include(
+            bundles.Add(new ScriptBundle("~/bundles/esqtv-common").Include(
                 "~/App/Common/App.js",
                 "~/App/Common/Config.js",
                 "~/App/Common/Interceptors/*.js",                

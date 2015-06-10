@@ -1,6 +1,6 @@
 ﻿(function () {
     'use strict';
-    angular.module('esqtv.common').service('VirtualDirectoryService', function ($http, esqtvSettings) {
+    angular.module('esqtv.common').service('VirtualDirectoryService', ['$http', 'esqtvSettings', function ($http, esqtvSettings) {
 
         var service = {
             getDirectories: getDirectories,
@@ -40,5 +40,5 @@
                  });
         };
 
-    });
+    }]);
 })();

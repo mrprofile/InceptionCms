@@ -1,6 +1,6 @@
 ﻿(function () {
     'use strict';
-    angular.module('esqtv.common').service('ImageService', function ($http, esqtvSettings) {
+    angular.module('esqtv.common').service('ImageService', ['$http', 'esqtvSettings', function ($http, esqtvSettings) {
 
         var service = {
             search: search
@@ -28,5 +28,5 @@
                      return [];
                  });
         };
-    });
+    }]);
 })();

@@ -3,7 +3,7 @@
     angular.module('esqtv.common').directive('videoSearch', ['esqtvSettings', function (esqtvSettings) {
         return {
             restrict: 'E',
-            controller: ['$scope', 'VideoService', 'SearchService', function ($scope, VideoService, searchService) {
+            controller: ['$scope', 'VideoService', 'SearchService', function ($scope, videoService, searchService) {
                 var vm = this;
                 vm.searchService = searchService;
                 vm.searchService.paging.onSelectPage = searchVideos;
@@ -30,7 +30,7 @@
                 }
 
                 function searchVideos() {
-                    VideoService.search(vm.searchService.search, vm.searchService.paging, searchVideosCompleted, searchVideosError);
+                    videoService.search(vm.searchService.search, vm.searchService.paging, searchVideosCompleted, searchVideosError);
                 }
 
                 function searchVideosCompleted(response) {
@@ -52,7 +52,7 @@
         };
     }]);
 
-    angular.module('esqtv.common').directive('videoList', ['esqtvSettings', 'VideoService', function (esqtvSettings, VideoService) {
+    angular.module('esqtv.common').directive('videoList', ['esqtvSettings', 'VideoService', function (esqtvSettings, videoService) {
         return {
             restrict: 'E',
             scope: {
@@ -66,17 +66,17 @@
                 $scope.thumbnailUrl = thumbnailUrl;
                 $scope.title = title;
                 
-                VideoService.searchKeyword({ query: $scope.keywordId.keywords }, { itemsPerPage: parseInt($scope.itemCount, 10), currentPage: 0 }, searchKeywordCompleted, searchKeywordError);
+                videoService.searchKeyword({ query: $scope.keywordId.keywords }, { itemsPerPage: parseInt($scope.itemCount, 10), currentPage: 0 }, searchKeywordCompleted, searchKeywordError);
 
                 $scope.$watch('itemCount', function (newValue, oldValue) {
                     if (oldValue != newValue) {
-                        VideoService.searchKeyword({ query: $scope.keywordId.keywords }, { itemsPerPage: parseInt(newValue, 10), currentPage: 0 }, searchKeywordCompleted, searchKeywordError);
+                        videoService.searchKeyword({ query: $scope.keywordId.keywords }, { itemsPerPage: parseInt(newValue, 10), currentPage: 0 }, searchKeywordCompleted, searchKeywordError);
                     }
                 })
 
                 $scope.$watch('keywordId.keywords', function (newValue, oldValue) {
                     if (oldValue != newValue) {
-                        VideoService.searchKeyword({ query: $scope.keywordId.keywords }, { itemsPerPage: parseInt($scope.itemCount, 10), currentPage: 0 }, searchKeywordCompleted, searchKeywordError);
+                        videoService.searchKeyword({ query: $scope.keywordId.keywords }, { itemsPerPage: parseInt($scope.itemCount, 10), currentPage: 0 }, searchKeywordCompleted, searchKeywordError);
                     }
                 })
 
@@ -100,13 +100,13 @@
         };
     }]);
 
-    angular.module('esqtv.common').directive('entVideoPreview', ['esqtvSettings', 'VideoService', function (esqtvSettings, VideoService) {
+    angular.module('esqtv.common').directive('entVideoPreview', function () {
         return {
             restrict: 'E',
             scope: {
                 'video': '='
             },
-            controller: ['$scope', '$sce', function ($scope, $sce) {
+            controller: ['$scope', '$sce', function($scope, $sce) {
                 $scope.embedUrl = embedUrl;
 
                 function embedUrl() {
@@ -114,12 +114,14 @@
                     var urlToSanitize = $scope.video.embedUrl ? $scope.video.embedUrl : $scope.video.ValuesDict.videoEmbed[0];
 
                     return $sce.trustAsResourceUrl(urlToSanitize);
-                };
+                }
+
+                ;
             }],
             templateUrl: "template/esqtv/videos/preview.html",
-            link: function (scope, el, attr) {
+            link: function(scope, el, attr) {
                 console.log(scope.video);
             }
-        }
-    }]);
+        };
+    });
 })();

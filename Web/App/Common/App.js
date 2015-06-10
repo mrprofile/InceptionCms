@@ -69,13 +69,13 @@
     angular.module('esqtv.tpls', ['template/esqtv/videos/related.html','template/esqtv/videos/preview.html']);
 
     angular.module('esqtv.common', ['esqtv.tpls', 'ngRoute', 'ngCookies', 'ui.bootstrap', 'ngAnimate', 'toaster', 'ngMaterial', 'ui.select', 'ui.sortable', 'ng-mfb', 'ui.bootstrap.datetimepicker'])
-    .config(function ($mdThemingProvider) {
+    .config(['$mdThemingProvider', function ($mdThemingProvider) {
         $mdThemingProvider.theme('default')
           .primaryPalette('blue')
           .accentPalette('grey');
-    })
-    .config(function ($mdIconProvider){
+    }])
+    .config(['$mdIconProvider', function ($mdIconProvider){
         $mdIconProvider
             .iconSet('content', '/Content/style/css/svg-sprite-content.svg', 24);
-    });
+    }]);
 })();

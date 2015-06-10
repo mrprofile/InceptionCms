@@ -3,7 +3,7 @@
     angular.module('esqtv.common').directive('imageSearch', ['esqtvSettings', function (esqtvSettings) {
         return {
             restrict: 'EA',            
-            controller: ['$scope', 'ImageService', function ($scope, ImageService) {                
+            controller: ['$scope', 'ImageService', function ($scope, imageService) {                
                 var vm = this;
                 vm.selectItem = selectItem;
                 vm.search = {
@@ -51,7 +51,7 @@
                 }
 
                 function searchVideos() {
-                    ImageService.search(vm.search, vm.paging)
+                    imageService.search(vm.search, vm.paging)
                     .then(function (data) {
                         vm.search.results = data.Result;
                         vm.paging.totalItems = data.TotalItems;

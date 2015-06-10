@@ -1,6 +1,6 @@
 ﻿(function () {
     'use strict';
-    angular.module('esqtv.common').factory('AjaxService', function ($http) {
+    angular.module('esqtv.common').factory('AjaxService', ['$http', function ($http) {
 
         var service = {
             ajaxPost: ajaxPost,
@@ -8,7 +8,7 @@
             ajaxPut: ajaxPut,
             ajaxDelete: ajaxDelete,
             ajaxCustom: ajaxCustom
-    };
+        };
 
         function ajaxPost(data, route, successFunction, errorFunction) {
             $http.post(route, data).success(function (response, status, headers, config) {
@@ -25,7 +25,7 @@
                 errorFunction(response);
             });
         }
-        
+
         function ajaxPut(route, data, successFunction, errorFunction) {
             $http.put(route, data).success(function (response, status, headers, config) {
                 successFunction(response, status);
@@ -33,7 +33,7 @@
                 errorFunction(response);
             });
         }
-        
+
         function ajaxDelete(route, data, successFunction, errorFunction) {
             $http.delete(route, data).success(function (response, status, headers, config) {
                 successFunction(response, status);
@@ -41,7 +41,7 @@
                 errorFunction(response);
             });
         }
-        
+
         function ajaxCustom(reqConfig, successFunction, errorFunction) {
             $http(reqConfig).success(function (response, status, headers, config) {
                 successFunction(response, status);
@@ -51,5 +51,5 @@
         }
 
         return service;
-    });
+    }]);
 })();

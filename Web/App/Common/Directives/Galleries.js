@@ -3,7 +3,7 @@
     angular.module('esqtv.common').directive('gallerySearch', ['esqtvSettings', function (esqtvSettings) {
         return {
             restrict: 'E',
-            controller: ['$scope', 'GalleryService', function ($scope, GalleryService) {
+            controller: ['$scope', 'GalleryService', function ($scope, galleryService) {
                 var vm = this;
                 vm.selectItem = selectItem;
                 vm.search = {
@@ -50,7 +50,7 @@
                 }
 
                 function search() {
-                    GalleryService.search(vm.search, vm.paging)
+                    galleryService.search(vm.search, vm.paging)
                     .then(function (data) {
                         vm.search.results = data.Result;
                         vm.paging.totalItems = data.TotalItems;

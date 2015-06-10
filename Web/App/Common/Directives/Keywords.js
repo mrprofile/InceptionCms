@@ -4,7 +4,7 @@
         return {
             require: 'ngModel',
             restrict: 'EA',
-            controller: ['$scope', 'KeywordService', function ($scope, KeywordService) {
+            controller: ['$scope', 'KeywordService', function ($scope, keywordService) {
                 var vm = this;
                 vm.selectedKeyword = { 'Id': vm.ngModel.id, 'Text': vm.ngModel.keywords };
                 vm.keywords = [];
@@ -24,7 +24,7 @@
 
                 function searchKeywords(keyword) {
 
-                    return KeywordService.search({ 'query': keyword }, { itemsPerPage: 24, currentPage: 0 }).then(function (response) {
+                    return keywordService.search({ 'query': keyword }, { itemsPerPage: 24, currentPage: 0 }).then(function (response) {
                         return response.Result;
                     });
                 }
@@ -43,7 +43,7 @@
         return {
             require: 'ngModel',
             restrict: 'EA',
-            controller: ['$scope', 'KeywordService', function ($scope, KeywordService) {
+            controller: ['$scope', 'KeywordService', function ($scope, keywordService) {
                 var vm = this;
 
                 vm.keywords = [];// $scope.ngModel;
@@ -56,7 +56,7 @@
                 function activate() {
                     if (vm.ngModel.length > 0) {
                         var _keys = vm.ngModel.join(',');
-                        KeywordService.getKeywords(_keys).then(function (data) {
+                        keywordService.getKeywords(_keys).then(function (data) {
 
                             if (data.Result.length > 0) {
                                 for (var i = 0; i < data.Result.length; i++) {
@@ -89,7 +89,7 @@
 
                 function searchKeywords(keyword) {
 
-                    return KeywordService.search({ 'query': keyword }, { itemsPerPage: 24, currentPage: 0 }).then(function (response) {
+                    return keywordService.search({ 'query': keyword }, { itemsPerPage: 24, currentPage: 0 }).then(function (response) {
                         return response.Result;
                     });
                 }

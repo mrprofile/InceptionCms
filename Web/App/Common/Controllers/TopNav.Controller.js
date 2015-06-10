@@ -1,9 +1,9 @@
 ﻿(function () {
     'use strict';
 
-    angular.module('esqtv.common').controller("TopNavController", ['$scope', '$mdSidenav', '$route', SideNavController]);
+    angular.module('esqtv.common').controller("TopNavController", ['$scope', '$mdSidenav', '$route', sideNavController]);
 
-    function SideNavController($scope, $mdSidenav, $route) {
+    function sideNavController($scope, $mdSidenav, $route) {
         var vm = this;
         
         vm.toggle = toggleMenu;
@@ -16,13 +16,10 @@
 
     };
 
-    angular.module('esqtv.common').controller("ToolbarController", ['$scope', '$mdSidenav', ToolbarController]);
+    angular.module('esqtv.common').controller("ToolbarController", ['$scope', '$mdSidenav', toolbarController]);
 
-    function ToolbarController($scope, $mdSidenav) {
+    function toolbarController() {
         var vm = this;
         vm.toolbar = '';
-        
-
     };
-
 })();

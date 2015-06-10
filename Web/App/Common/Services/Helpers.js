@@ -1,6 +1,6 @@
 ﻿; (function () {
     'use strict';
-    angular.module('esqtv.common').service('esqtvDeleteService', ['$http', 'esqtvSettings', 'NotifierService', function ($http, esqtvSettings, notifierService) {
+    angular.module('esqtv.common').service('esqtvDeleteService', ['$http', 'esqtvSettings', function ($http, esqtvSettings) {
 
         return {
             'page': deletePage,

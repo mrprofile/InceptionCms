@@ -1,6 +1,6 @@
 ﻿(function () {
     'use strict';
-    angular.module('esqtv.common').service('KeywordService', function ($http, esqtvSettings) {
+    angular.module('esqtv.common').service('KeywordService', ['$http', 'esqtvSettings', function ($http, esqtvSettings) {
 
         var service = {
             getKeywords: getKeywords,
@@ -40,5 +40,5 @@
                  });
         };
 
-    });
+    }]);
 })();

@@ -1,6 +1,6 @@
 ﻿(function () {
     'use strict';
-    angular.module('esqtv.common').service('PageService', function ($http, esqtvSettings) {
+    angular.module('esqtv.common').service('PageService', ['$http', 'esqtvSettings', function ($http, esqtvSettings) {
 
         var service = {
             get: getPage,
@@ -54,5 +54,5 @@
             return $http.post(esqtvSettings.api + 'v1/contentpages', contentPage);
         }
 
-    });
+    }]);
 })();
