@@ -44,14 +44,17 @@
             <md-content>
                 <md-subheader class="md-primary">Publish & Expiration </md-subheader>
                 <md-list>
-                    <md-list-item ng-click="vm.setDate($event, 'publishDate')">
-                        <md-icon md-font-icon="ion-android-calendar" style="font-size: 24px;"></md-icon>
+                    <md-list-item class="esqtv-date-time-picker-modal" model="vm.page.publishDate" property-name="publishDate">
+                        <md-button class="md-font-icon" aria-label="Set Publish Date" title="Set Publish Date">
+                            <md-icon md-font-icon="ion-android-calendar" style="font-size: 24px;"></md-icon>
+                        </md-button>
                         <p>Publish on {{vm.page.publishDate | date:'MMMM d yyyy, h:mm a'}}</p>
                     </md-list-item>
-                    <md-list-item ng-click="vm.setDate($event, 'expirationDate')">
-                        <md-icon md-font-icon="ion-android-alarm-clock" style="font-size: 24px;"></md-icon>
+                    <md-list-item class="esqtv-date-time-picker-modal" model="vm.page.expirationDate" property-name="expirationDate">
+                        <md-button class="md-font-icon" aria-label="Set Expiration Date" title="Set Expiration Date">
+                            <md-icon md-font-icon="ion-android-alarm-clock" style="font-size: 24px;"></md-icon>
+                        </md-button>
                         <p>Expire on {{vm.page.expirationDate | date:'MMMM d yyyy, h:mm a'}}</p>
-                        <md-checkbox class="md-secondary"></md-checkbox>
                     </md-list-item>
                 </md-list>                
             </md-content>
