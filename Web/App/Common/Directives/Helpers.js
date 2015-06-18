@@ -138,7 +138,21 @@
                        '    </md-button>' +
                        '  </div>' +
                        '</md-dialog>',
-                    controller: dialogController,
+                    controller: ['$scope', function (scope) {
+                        scope.dateTime = $scope.model;
+                        scope.onTimeSet = function (newValue, oldValue) {
+                            console.log(newValue);
+                            $scope.model = newValue;
+                        }
+
+                        scope.setToday = function () {
+                            scope.dateTime = $scope.model = moment().format('MMMM d YYYY, h:mm a');
+                        }
+
+                        scope.closeDialog = function () {
+                            $mdDialog.hide();
+                        }
+                    }],
                     locals: {
                         propertyName: $scope.propertyName,                        
                     }
@@ -147,23 +161,6 @@
                 $scope.showDialog = function () {
                     $mdDialog.show(dialogConfig);
                 };
-
-                function dialogController(scope) {
-
-                    scope.dateTime = $scope.model;
-                    scope.onTimeSet = function (newValue, oldValue) {
-                        console.log(newValue);
-                        $scope.model = newValue;
-                    }
-
-                    scope.setToday = function() {
-                        scope.dateTime = $scope.model = moment().format('MMMM d YYYY, h:mm a');                        
-                    }
-
-                    scope.closeDialog = function () {
-                        $mdDialog.hide();
-                    }
-                }
             }]
         }
     });
