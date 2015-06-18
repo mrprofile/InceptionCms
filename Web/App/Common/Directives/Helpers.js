@@ -146,7 +146,8 @@
                         }
 
                         scope.setToday = function () {
-                            scope.dateTime = $scope.model = moment().format('MMMM d YYYY, h:mm a');
+                            //2016-04-09T15:48:55.6715481
+                            scope.dateTime = $scope.model = moment().format();
                         }
 
                         scope.closeDialog = function () {
