@@ -1,19 +1,25 @@
 ﻿<section layout="column" layout-gt-md="row">
     <md-content flex layout="row" layout-align="center start">
-        <div ng-class="vm.layout" class="layout-base">            
+        <div ng-class="vm.layout" class="layout-base">
+            
+                
+            <ent-content-picker components="vm.template" insert-at="-1"></ent-content-picker>
+            
+            
             <div style="position:relative;" data-ng-repeat="component in vm.template">
                 <!--<div layout="row" layout-align="end center">
                     <md-button class="md-icon-button" aria-label="Remove" title="Remove {{component.contentType}}" data-ng-click="vm.remove(component)"><md-icon md-font-icon="ion-close" alt="Plus"></md-icon></md-button>
                 </div>-->
-                <component component-data="component"></component>                
+                <component component-data="component"></component>
+                <ent-content-picker components="vm.template" insert-at="{{$index}}"></ent-content-picker>
             </div>
         </div>
     </md-content>
     <md-content flex="25" flex-sm="1">
         <md-card>
             <md-subheader class="md-primary">Page Settings</md-subheader>
-            <md-card-content>               
-                <md-input-container >
+            <md-card-content>
+                <md-input-container>
                     <label>Title</label>
                     <input data-ng-model="vm.page.title" />
                 </md-input-container>
@@ -30,17 +36,17 @@
                     <md-option value="layout-full-width">Full-Width</md-option>
                     <md-option value="layout-full-width-ad">Full-Width with Ad Sidebar</md-option>
                     <md-option value="layout-ad-right">Ad Sidebar</md-option>
-                </md-select>                
+                </md-select>
                 <keyword-autocomplete data-ng-model="vm.keywords"></keyword-autocomplete>
                 <div class="md-actions" layout="row" layout-align="end center">
                     <ent-button-delete url-redirect="/pages" buttontext="DELETE" object-type="page" object-id="{{vm.page.id}}"><md-button class="md-warn md-raised">Delete</md-button></ent-button-delete>
                     <span flex></span>
                     <md-button data-ng-click="vm.save()">Save</md-button>
                     <md-button data-ng-click="vm.publish()" class="md-hue-2">Publish</md-button>
-                    
+
                 </div>
             </md-card-content>
-        </md-card>   
+        </md-card>
         <md-card>
             <md-content>
                 <md-subheader class="md-primary">Publish & Expiration </md-subheader>
@@ -57,9 +63,9 @@
                         </md-button>
                         <p>Expire on {{vm.page.expirationDate | date:'MMMM d yyyy, h:mm a'}}</p>
                     </md-list-item>
-                </md-list>                
+                </md-list>
             </md-content>
-        </md-card>     
+        </md-card>
     </md-content>
 </section>
 <nav mfb-menu position="br" effect="slidein" label="Actions"

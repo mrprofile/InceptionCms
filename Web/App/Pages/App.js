@@ -25,6 +25,8 @@
                         break;
                     case 'text': obj = { title: 'Text', contentType: 'text', data: { text: '' } };
                         break;
+                    case 'column': obj = { title: 'Column', contentType: 'column', data: { contentParts: [], cols : '60-40' } };
+                        break;
                 };
 
                 return obj;

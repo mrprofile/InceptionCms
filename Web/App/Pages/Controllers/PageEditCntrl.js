@@ -10,7 +10,7 @@ function pageEditCntrl($route, $scope, $sce, $http, $q, $mdDialog, $routeParams,
     vm.isEdit = ($window.location.href.indexOf('edit') > 0);
     // Page related items
     vm.page = page;
-    vm.layout = 'layout-default';
+    vm.layout = vm.page.layout;//'layout-default';
     vm.template = [];
     vm.toolbar = "/App/Pages/Views/EditToolbar.html";
 
@@ -40,7 +40,7 @@ function pageEditCntrl($route, $scope, $sce, $http, $q, $mdDialog, $routeParams,
 
     activate();
 
-    vm.components = ['heading', 'text', 'image', 'gallery', 'video', 'videoList', 'embed'];
+    vm.components = ['heading', 'text', 'image', 'gallery', 'video', 'videoList', 'embed', 'column'];
 
     function setDate($event, propName) {
         var parentEl = angular.element(document.body);
@@ -62,23 +62,20 @@ function pageEditCntrl($route, $scope, $sce, $http, $q, $mdDialog, $routeParams,
                '    </md-button>' +
                '  </div>' +
                '</md-dialog>',            
-            controller: dialogController,
+            controller: ['$scope', '$mdDialog', 'propertyName', function (scope, $mdDialog, propertyName) {
+                scope.dateTime = vm.page[propertyName];
+                scope.onTimeSet = function (newValue, oldValue) {
+                    console.log(newValue);
+                    vm.page[propertyName] = newValue;
+                }
+                scope.closeDialog = function () {
+                    $mdDialog.hide();
+                }
+            }],
             locals: {
                 propertyName: propName
             }
         });
-
-        function dialogController(scope, $mdDialog, propertyName) {
-
-            scope.dateTime = vm.page[propertyName];
-            scope.onTimeSet = function (newValue, oldValue) {                
-                console.log(newValue);
-                vm.page[propertyName] = newValue;
-            }
-            scope.closeDialog = function () {
-                $mdDialog.hide();
-            }
-        }
     }
 
     function add($event) {
@@ -106,18 +103,16 @@ function pageEditCntrl($route, $scope, $sce, $http, $q, $mdDialog, $routeParams,
                 items: vm.components,
                 templates: vm.template
             },
-            controller: DialogController
-        });
-
-        function DialogController(scope, $mdDialog, pageComponent, items, templates) {
-            scope.items = items;
-            scope.add = function (itm) {
-                templates.push(pageComponent.create(itm));
-            }
-            scope.closeDialog = function () {
-                $mdDialog.hide();
-            }
-        }
+            controller: ['$scope', '$mdDialog', 'pageComponent', 'items', 'templates', function (scope, $mdDialog, pageComponent, items, templates) {
+                scope.items = items;
+                scope.add = function (itm) {
+                    templates.push(pageComponent.create(itm));
+                }
+                scope.closeDialog = function () {
+                    $mdDialog.hide();
+                }
+            }]
+        });        
     }
     
     function sort($event) {        
@@ -145,21 +140,19 @@ function pageEditCntrl($route, $scope, $sce, $http, $q, $mdDialog, $routeParams,
             locals: {
                 items: vm.template
             },
-            controller: DialogController
-        });
-
-        function DialogController(scope, $mdDialog, items) {
-            scope.items = items;
-            scope.remove = function (itm) {
-                var idx = items.indexOf(itm);
-                if (idx !== -1) {
-                    items.splice(idx, 1);
+            controller: ['$scope', '$mdDialog', 'items', function (scope, $mdDialog, items) {
+                scope.items = items;
+                scope.remove = function (itm) {
+                    var idx = items.indexOf(itm);
+                    if (idx !== -1) {
+                        items.splice(idx, 1);
+                    }
                 }
-            }
-            scope.closeDialog = function () {
-                $mdDialog.hide();
-            }
-        }
+                scope.closeDialog = function () {
+                    $mdDialog.hide();
+                }
+            }]
+        });
     }
 
     function activate() {
@@ -202,6 +195,7 @@ function pageEditCntrl($route, $scope, $sce, $http, $q, $mdDialog, $routeParams,
         });
 
         console.log(JSON.stringify(vm.page));
+
         if (vm.isEdit) {
             pageService.update(vm.page).then(function (result) {
                 notifierService.notifySuccess('Record Saved!');

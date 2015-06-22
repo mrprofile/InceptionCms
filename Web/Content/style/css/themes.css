@@ -173,3 +173,11 @@ md-toast {
 .font-icon-sz-24 {
     font-size: 24px;
 }
+
+.content-picker {
+    list-style: none;
+}
+
+.content-picker .block {
+    display: block;
+}
